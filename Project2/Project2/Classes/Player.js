@@ -7,40 +7,39 @@ var GameFromScratch;
 (function (GameFromScratch) {
     var Player = (function (_super) {
         __extends(Player, _super);
-        function Player(game, x, y) {
+        function Player(game, posX, posY, name) {
             this.game = game;
-            this.speed = 5;
-            //this.Right_arrow = this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
-            // this.Right_arrow.onDown.add(Player.prototype.MoveRight, this);
-            //this.Left_arrow = this.game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
-            // this.Left_arrow.onDown.add(Player.prototype.MoveLeft, this);
-            //this.Up_arrow = this.game.input.keyboard.addKey(Phaser.Keyboard.UP);
-            //this.Up_arrow.onDown.add(Player.prototype.MoveUP, this);
-            //this.Down_arrow = this.game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
-            // this.Down_arrow.onDown.add(Player.prototype.MoveDown, this);
-            _super.call(this, game, x, y, "h1");
+            this.speedX = 5;
+            this.speedY = 4;
+            this.name = name;
+            _super.call(this, game, posX, posY, "h1");
             //   this.loadTexture("h1",0);
-            this.anchor.set(0.0, 1.0);
+            //  this.anchor.set(0.0, 1.0);
         }
         Player.prototype.update = function () {
-            if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
-                this.x -= this.speed;
+            this.checkKeyDown();
+        };
+        Player.prototype.checkKeyDown = function () {
+            if ("Player1" == this.name) {
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.A))
+                    this.x -= this.speedX;
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.D))
+                    this.x += this.speedX;
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.W))
+                    this.y -= this.speedY;
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.S))
+                    this.y += this.speedY;
             }
-            else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
-                this.x += this.speed;
+            if ("Player2" == this.name) {
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
+                    this.x -= this.speedX;
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
+                    this.x += this.speedX;
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP))
+                    this.y -= this.speedY;
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.DOWN))
+                    this.y += this.speedY;
             }
-        };
-        Player.prototype.MoveRight = function () {
-            this.x += 5;
-        };
-        Player.prototype.MoveLeft = function () {
-            this.x -= 5;
-        };
-        Player.prototype.MoveUP = function () {
-            this.y -= 5;
-        };
-        Player.prototype.MoveDown = function () {
-            this.y += 5;
         };
         Player.Max_speed = 20;
         return Player;

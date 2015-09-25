@@ -21,7 +21,7 @@
 
             this.game.state.add("H2",GameFromScratch.GamePlayState, true);
           //  this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-
+            
         }
 
         update() {

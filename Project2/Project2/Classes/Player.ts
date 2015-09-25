@@ -10,60 +10,65 @@
         Up_arrow: Phaser.Key;
         Down_arrow: Phaser.Key;
 
-        speed: number;
-
+        speedX: number;
+        speedY: number;
+        name: string;
         public static Max_speed: number = 20;
 
-        constructor(game: Phaser.Game, x: number, y: number) {
+        constructor(game: Phaser.Game, posX: number, posY: number, name:string) {
             this.game = game;
-            this.speed = 5;
+            this.speedX = 5;
+            this.speedY = 4;
+            this.name = name;
+      
 
-            //this.Right_arrow = this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
-           // this.Right_arrow.onDown.add(Player.prototype.MoveRight, this);
-
-            //this.Left_arrow = this.game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
-           // this.Left_arrow.onDown.add(Player.prototype.MoveLeft, this);
-
-            //this.Up_arrow = this.game.input.keyboard.addKey(Phaser.Keyboard.UP);
-            //this.Up_arrow.onDown.add(Player.prototype.MoveUP, this);
-
-            //this.Down_arrow = this.game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
-           // this.Down_arrow.onDown.add(Player.prototype.MoveDown, this);
-
-            super(game, x, y, "h1");
+            super(game, posX, posY, "h1");
 
          //   this.loadTexture("h1",0);
-            this.anchor.set(0.0, 1.0);
+          //  this.anchor.set(0.0, 1.0);
 
-
+            
 
         }
 
         update() {
-            if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
-                this.x -= this.speed;
-            } else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
-                this.x += this.speed;
+
+            this.checkKeyDown();
+            
+            
+        }
+
+        checkKeyDown() {
+            if ("Player1" == this.name) {
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.A))
+                    this.x -= this.speedX;
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.D))
+                    this.x += this.speedX;
+
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.W))
+                    this.y -= this.speedY;
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.S))
+                    this.y += this.speedY;
+            }
+
+
+            if ("Player2" == this.name) {
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
+                    this.x -= this.speedX;
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
+                    this.x += this.speedX;
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP))
+                    this.y -= this.speedY;
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.DOWN))
+                    this.y += this.speedY;
             }
         }
 
 
-        MoveRight() {
-           
-            this.x += 5;
-        }
 
-        MoveLeft() {
-            this.x -= 5;
-        }
 
-        MoveUP() {
-            this.y-= 5;
-        }
 
-        MoveDown() {
-            this.y += 5;
-        }
+    
 
 
 

@@ -9,23 +9,27 @@ var GameFromScratch;
         __extends(GamePlayState, _super);
         function GamePlayState() {
             _super.call(this);
+            this.pozX = 220;
+            this.pozY = 200;
         }
+        GamePlayState.prototype.preload = function () {
+            this.game.load.audio("backgroundMusic", "Audios/test.mp3");
+            this.game.load.image("cop", "Graphics/cop.jpg");
+        };
         GamePlayState.prototype.create = function () {
-            // this.game.physics.startSystem(Phaser.Physics.BOX2D);
-            // this.game.add.physicsGroup(Phaser.Physics.BOX2D);
+            //  this.game.load.image("h1", "Graphics/h1.jpg");
             this.backgroundImg = this.add.sprite(0, 0, "background");
             this.backgroundImg.scale.setTo(this.game.width / this.backgroundImg.width, this.game.height / this.backgroundImg.height);
-            this.Player1 = new GameFromScratch.Player(this.game, 220, 200, "Player1");
-            this.game.add.existing(this.Player1);
-            this.Player1.smoothed = false;
-            // this.Player1.body.setZeroVelocity();
-            this.player2 = new GameFromScratch.Player(this.game, 600, 300, "Player2");
-            this.game.add.existing(this.player2);
-            // this.game.physics.box2d.enable(this.Player1);
+            this.Player1 = new GameFromScratch.Player(this.game, this.pozX, this.pozY, "Player1");
+            //  this.game.add.existing(this.Player1); 
+            this.cop = new GameFromScratch.Cop(this.game, 500, 400);
+            this.backgroundMusic = this.game.add.audio("backgroundMusic");
+            // this.backgroundMusic.volume = 100;
+            this.backgroundMusic.loop = true;
+            this.backgroundMusic.play();
         };
         GamePlayState.prototype.update = function () {
             this.Player1.update();
-            this.player2.update();
         };
         return GamePlayState;
     })(Phaser.State);

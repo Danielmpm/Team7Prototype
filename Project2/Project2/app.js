@@ -9,6 +9,7 @@ var Game;
         Project2.prototype.preload = function () {
             this.game.load.image("background", "Graphics/background.png");
             this.game.load.image("h1", "Graphics/h1.jpg");
+            this.game.load.image("cop", "Graphics/cop.jpg");
         };
         Project2.prototype.create = function () {
             this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, true);

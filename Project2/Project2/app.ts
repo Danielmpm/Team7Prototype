@@ -12,6 +12,7 @@
         preload() {
            this.game.load.image("background", "Graphics/background.png");
            this.game.load.image("h1", "Graphics/h1.jpg");
+           this.game.load.image("cop", "Graphics/cop.jpg");
         }
         
 

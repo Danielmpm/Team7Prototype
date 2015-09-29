@@ -54,3 +54,14 @@ C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Project2.pdb
 C:\Users\u1013042\Documents\Repo 2\Project2\Project2\obj\Debug\Project2.csprojResolveAssemblyReference.cache
 C:\Users\u1013042\Documents\Repo 2\Project2\Project2\obj\Debug\Project2.dll
 C:\Users\u1013042\Documents\Repo 2\Project2\Project2\obj\Debug\Project2.pdb
+C:\Users\u0996865\New folder (2)\Project2\Project2\bin\Audios\test.mp3
+C:\Users\u0996865\New folder (2)\Project2\Project2\bin\Graphics\background.png
+C:\Users\u0996865\New folder (2)\Project2\Project2\bin\Graphics\cop.jpg
+C:\Users\u0996865\New folder (2)\Project2\Project2\bin\Graphics\h1.jpg
+C:\Users\u0996865\New folder (2)\Project2\Project2\bin\Graphics\H2.png
+C:\Users\u0996865\New folder (2)\Project2\Project2\bin\Project2.dll.config
+C:\Users\u0996865\New folder (2)\Project2\Project2\bin\Project2.dll
+C:\Users\u0996865\New folder (2)\Project2\Project2\bin\Project2.pdb
+C:\Users\u0996865\New folder (2)\Project2\Project2\obj\Debug\Project2.csprojResolveAssemblyReference.cache
+C:\Users\u0996865\New folder (2)\Project2\Project2\obj\Debug\Project2.dll
+C:\Users\u0996865\New folder (2)\Project2\Project2\obj\Debug\Project2.pdb

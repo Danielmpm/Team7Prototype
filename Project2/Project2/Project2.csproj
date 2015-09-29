@@ -16,6 +16,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
@@ -37,8 +38,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="index.html" />
-    <Content Include="Levels\levelTest.xml" />
-    <Content Include="Levels\levelTest2.xml" />
+    <Content Include="Levels\levelTest.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Levels\levelTest2.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="phaser.js" />
     <Content Include="phaser.min.js" />
     <Content Include="web.config" />

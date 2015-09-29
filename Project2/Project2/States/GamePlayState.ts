@@ -5,8 +5,11 @@
         backgroundMusic: Phaser.Sound;
 
         Player1: GameFromScratch.Player;
-        pozX: number;
-        pozY: number;
+        Player2: GameFromScratch.Player;
+        pozX1: number;
+        pozY1: number;
+        pozX2: number;
+        pozY2: number;
 
         cop: GameFromScratch.Cop;
 
@@ -16,8 +19,11 @@
         constructor() {
             super();
 
-            this.pozX = 1000;
-            this.pozY = 400;
+            this.pozX1 = 1000;
+            this.pozY1 = 400;
+
+            this.pozY2 = 1000;
+            this.pozY2 = 500;
         }
 
         preload() {
@@ -37,7 +43,8 @@
 
             
            
-            this.Player1 = new Player(this.game,this.pozX,this.pozY,"Player1");
+            this.Player1 = new Player(this.game, this.pozX1, this.pozY1, "Player1");
+            this.Player2 = new Player(this.game, 1200, this.pozY2, "Player2");
           //  this.game.add.existing(this.Player1); 
             this.cop = new Cop(this.game, 500, 400);
 
@@ -51,7 +58,7 @@
         update()
         {
             this.Player1.update();
-  
+            this.Player2.update();
         }
 
         loadLevel ()

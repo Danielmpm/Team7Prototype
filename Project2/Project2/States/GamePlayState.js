@@ -9,8 +9,10 @@ var GameFromScratch;
         __extends(GamePlayState, _super);
         function GamePlayState() {
             _super.call(this);
-            this.pozX = 1000;
-            this.pozY = 400;
+            this.pozX1 = 1000;
+            this.pozY1 = 400;
+            this.pozY2 = 1000;
+            this.pozY2 = 500;
         }
         GamePlayState.prototype.preload = function () {
             //  this.game.load.audio("backgroundMusic","Audios/test.mp3");
@@ -22,7 +24,8 @@ var GameFromScratch;
             // this.game.load.image("cop", "Graphics/background_temp.jpg");
             this.backgroundImg = this.add.sprite(0, 0, "background");
             this.backgroundImg.scale.setTo(this.game.width / this.backgroundImg.width, this.game.height / this.backgroundImg.height);
-            this.Player1 = new GameFromScratch.Player(this.game, this.pozX, this.pozY, "Player1");
+            this.Player1 = new GameFromScratch.Player(this.game, this.pozX1, this.pozY1, "Player1");
+            this.Player2 = new GameFromScratch.Player(this.game, 1200, this.pozY2, "Player2");
             //  this.game.add.existing(this.Player1); 
             this.cop = new GameFromScratch.Cop(this.game, 1400, 500);
             // this.backgroundMusic = this.game.add.audio("backgroundMusic");
@@ -33,6 +36,7 @@ var GameFromScratch;
         };
         GamePlayState.prototype.update = function () {
             this.Player1.update();
+            this.Player2.update();
             this.cop.update();
         };
         GamePlayState.prototype.loadLevel = function () {

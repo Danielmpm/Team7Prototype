@@ -5,7 +5,10 @@
         game: Phaser.Game;
         player: Phaser.Sprite;
         cursors: Phaser.CursorKeys;
-        keyboard: Phaser.Keyboard;
+        LeftKey: Phaser.Key;
+        RightKey: Phaser.Key;
+        UpKey: Phaser.Key;
+        DownKey: Phaser.Key;
 
         PosX: number;
         PosY: number;
@@ -25,11 +28,18 @@
 
            this.game.physics.startSystem(Phaser.Physics.P2JS);
            this.cursors = this.game.input.keyboard.createCursorKeys();
-  
+            
+           this.LeftKey = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
+           this.RightKey = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
+           this.UpKey = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
+           this.DownKey = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
+            
+              
+
             this.player = game.add.sprite(this.PosX, this.PosY, "h1");
             game.physics.p2.enable(this.player, true);
-            this.player.scale.setTo(0.8, 0.5);
-
+            this.player.scale.setTo(0.4, 0.2);
+            this.player.angle = 0;
         }
 
         update() {
@@ -41,17 +51,37 @@
 
         checkKeyDown() {
             this.player.body.setZeroVelocity();
+          
+            if ("Player2" == this.name) {
+               
+                if (this.LeftKey.isDown || this.cursors.left.isDown)
+                  
+                    this.player.body.moveLeft(200);
+                if (this.RightKey.isDown)
+                    this.player.body.moveRight(200);
+
+                if (this.UpKey.isDown)
+                    this.player.body.moveUp(200);
+                if (this.DownKey.isDown)
+                    this.player.body.moveDown(200);
+            }
+
             if ("Player1" == this.name) {
+                
                 if (this.cursors.left.isDown)
                     this.player.body.moveLeft(200);
                 if (this.cursors.right.isDown)
                     this.player.body.moveRight(200);
 
-                if (this.cursors.up.isDown)
+                if (this.cursors.up.isDown )
                     this.player.body.moveUp(200);
                 if (this.cursors.down.isDown)
                     this.player.body.moveDown(200);
+
             }
+
+
+         
 
         }
 

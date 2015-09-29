@@ -39,7 +39,7 @@
            
             this.Player1 = new Player(this.game,this.pozX,this.pozY,"Player1");
           //  this.game.add.existing(this.Player1); 
-            this.cop = new Cop(this.game, 500, 400);
+            this.cop = new Cop(this.game,1400, 500);
 
            // this.backgroundMusic = this.game.add.audio("backgroundMusic");
            // this.backgroundMusic.volume = 100;
@@ -51,6 +51,7 @@
         update()
         {
             this.Player1.update();
+            this.cop.update();
   
         }
 

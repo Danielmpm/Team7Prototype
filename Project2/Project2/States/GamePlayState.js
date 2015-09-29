@@ -24,7 +24,7 @@ var GameFromScratch;
             this.backgroundImg.scale.setTo(this.game.width / this.backgroundImg.width, this.game.height / this.backgroundImg.height);
             this.Player1 = new GameFromScratch.Player(this.game, this.pozX, this.pozY, "Player1");
             //  this.game.add.existing(this.Player1); 
-            this.cop = new GameFromScratch.Cop(this.game, 500, 400);
+            this.cop = new GameFromScratch.Cop(this.game, 1400, 500);
             // this.backgroundMusic = this.game.add.audio("backgroundMusic");
             // this.backgroundMusic.volume = 100;
             // this.backgroundMusic.loop = true;
@@ -33,6 +33,7 @@ var GameFromScratch;
         };
         GamePlayState.prototype.update = function () {
             this.Player1.update();
+            this.cop.update();
         };
         GamePlayState.prototype.loadLevel = function () {
             this.levelInfo = this.game.cache.getXML("levelSource");

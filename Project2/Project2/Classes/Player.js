@@ -12,6 +12,7 @@ var GameFromScratch;
             this.cursors = this.game.input.keyboard.createCursorKeys();
             this.player = game.add.sprite(this.PosX, this.PosY, "h1");
             game.physics.p2.enable(this.player, true);
+            this.player.scale.setTo(0.8, 0.5);
         }
         Player.prototype.update = function () {
             this.checkKeyDown();

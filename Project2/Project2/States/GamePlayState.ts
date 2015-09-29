@@ -16,8 +16,8 @@
         constructor() {
             super();
 
-            this.pozX = 220;
-            this.pozY = 200;
+            this.pozX = 1000;
+            this.pozY = 400;
         }
 
         preload() {
@@ -62,7 +62,7 @@
         
             // Creating crate sprites.
             var crates = this.levelInfo.getElementsByName("Crates")[0].childNodes[1].childNodes;
-            console.log(this.levelInfo.getElementsByName("Crates")[0].childNodes[1]. nodeName);
+           // console.log(this.levelInfo.getElementsByName("Crates")[0].childNodes[1]. nodeName);
             var x = 0;
             var y = 0;
             for (var i = 0; i < crates.length; i++) {
@@ -83,11 +83,27 @@
                 }
             }
 
-            //var cols = this.levelInfo.getElementsByName("Collision");
-            //for (var i = 0; i < cols.length; i++) {
-            //    //   this.game.debug.text( cols[i].nodeValue );
-            //    console.log(cols[i].nodeName);
-            //}
+            var cols = this.levelInfo.getElementsByName("Collisions")[0].childNodes;
+            
+            for (var i = 0; i < cols.length; i++) {
+
+                console.log(cols[i].nodeName);
+                    if (cols[i].nodeName != "#text") {
+                    var xValue = parseInt(cols[i].attributes.getNamedItem("x").nodeValue);
+                    console.log("x: " + xValue);
+                    var yValue = parseInt(cols[i].attributes.getNamedItem("y").nodeValue);
+                    console.log("y: " + yValue);
+                    var width = parseInt(cols[i].attributes.getNamedItem("width").nodeValue);
+                    console.log("w: " + width);
+                    var height = parseInt(cols[i].attributes.getNamedItem("height").nodeValue);
+                    console.log("h: " + height);
+                    //var points = [0, 0, width, 0, width, height, 0, height];
+                    var body = this.game.physics.p2.createBody(xValue, yValue, 1, true);
+                    body.addRectangle(width, height, 0, 0, 0);
+                    body.static = true;
+                    this.game.physics.p2.enableBody(body, false);
+                }
+            }
         }
     }
 }

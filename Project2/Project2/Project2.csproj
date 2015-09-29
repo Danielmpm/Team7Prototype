@@ -25,9 +25,11 @@
     <Content Include="Graphics\background.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Graphics\background_temp.jpg" />
     <Content Include="Graphics\cop.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Graphics\CrateTest.png" />
     <Content Include="Graphics\h1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -35,6 +37,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="index.html" />
+    <Content Include="Levels\levelTest.xml" />
+    <Content Include="Levels\levelTest2.xml" />
     <Content Include="phaser.js" />
     <Content Include="phaser.min.js" />
     <Content Include="web.config" />

@@ -33,3 +33,13 @@ C:\Users\u0996865\New folder\Project2\Project2\obj\Debug\Project2.dll
 C:\Users\u0996865\New folder\Project2\Project2\obj\Debug\Project2.pdb
 C:\Users\Hang\新建文件夹\Project2\Project2\bin\Graphics\cop.jpg
 C:\Users\Hang\新建文件夹\Project2\Project2\bin\Audios\test.mp3
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Audios\test.mp3
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\background.png
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\cop.jpg
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\h1.jpg
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\H2.png
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Project2.dll.config
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Project2.dll
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Project2.pdb
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\obj\Debug\Project2.dll
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\obj\Debug\Project2.pdb

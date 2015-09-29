@@ -94,21 +94,21 @@
             
             for (var i = 0; i < cols.length; i++) {
 
-                console.log(cols[i].nodeName);
                     if (cols[i].nodeName != "#text") {
                     var xValue = parseInt(cols[i].attributes.getNamedItem("x").nodeValue);
-                    console.log("x: " + xValue);
                     var yValue = parseInt(cols[i].attributes.getNamedItem("y").nodeValue);
-                    console.log("y: " + yValue);
                     var width = parseInt(cols[i].attributes.getNamedItem("width").nodeValue);
-                    console.log("w: " + width);
                     var height = parseInt(cols[i].attributes.getNamedItem("height").nodeValue);
-                    console.log("h: " + height);
                     //var points = [0, 0, width, 0, width, height, 0, height];
-                    var body = this.game.physics.p2.createBody(xValue, yValue, 1, true);
+                    var body = this.game.physics.p2.createBody(xValue + width / 2, yValue + height /2, 1, true);
                     body.addRectangle(width, height, 0, 0, 0);
                     body.static = true;
-                    this.game.physics.p2.enableBody(body, false);
+                    body.debug = true;
+
+                   // console.log(body.debug);
+
+                    this.game.physics.p2.enableBody(body, true);
+                //    this.game.physics.p2.ena.body(body.sprite);
                 }
             }
         }

@@ -10,7 +10,7 @@ var Game;
             this.game.load.image("background", "Graphics/background_temp.jpg");
             this.game.load.image("h1", "Graphics/h1.jpg");
             this.game.load.image("cop", "Graphics/cop.jpg");
-            this.game.load.xml("levelSource", "Levels/levelTest2.xml");
+            this.game.load.xml("levelSource", "Levels/levelTest3.xml");
         };
         Project2.prototype.create = function () {
             this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, true);

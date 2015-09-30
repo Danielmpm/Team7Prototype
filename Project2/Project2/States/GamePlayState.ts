@@ -11,7 +11,7 @@
         pozX2: number;
         pozY2: number;
 
-        cop: GameFromScratch.Cop;
+        cops: GameFromScratch.Cop[];
 
 
         levelInfo: XMLDocument;
@@ -46,7 +46,7 @@
             this.Player1 = new Player(this.game, this.pozX1, this.pozY1, "Player1");
             this.Player2 = new Player(this.game, 1200, this.pozY2, "Player2");
           //  this.game.add.existing(this.Player1); 
-            this.cop = new Cop(this.game,1400, 500);
+            //this.cop = new Cop(this.game,1400, 500);
 
            // this.backgroundMusic = this.game.add.audio("backgroundMusic");
            // this.backgroundMusic.volume = 100;
@@ -59,7 +59,11 @@
         {
             this.Player1.update();
             this.Player2.update();
-            this.cop.update();
+
+            for (var i = 0; i < this.cops.length; i++)
+            {
+                this.cops[i].update();
+            }
   
         }
 
@@ -87,7 +91,6 @@
 
                     if ((x % 27) == 0) {
                         y++;
-                      //  console.log("Advancing y");
                     }
                 }
             }
@@ -101,7 +104,7 @@
                     var yValue = parseInt(cols[i].attributes.getNamedItem("y").nodeValue);
                     var width = parseInt(cols[i].attributes.getNamedItem("width").nodeValue);
                     var height = parseInt(cols[i].attributes.getNamedItem("height").nodeValue);
-                    //var points = [0, 0, width, 0, width, height, 0, height];
+
                     var body = this.game.physics.p2.createBody(xValue + width / 2, yValue + height /2, 1, true);
                     body.addRectangle(width, height, 0, 0, 0);
                     body.static = true;
@@ -113,6 +116,36 @@
                 //    this.game.physics.p2.ena.body(body.sprite);
                 }
             }
+
+
+            var guardPaths = this.levelInfo.getElementsByName("GuardPaths")[0].childNodes;
+
+            this.cops = [];
+            for (var i = 0; i < guardPaths.length; i++)
+            {
+
+                if (guardPaths[i].nodeName != "#text") {
+                    var xValue = parseInt(guardPaths[i].attributes.getNamedItem("x").nodeValue);
+                    var yValue = parseInt(guardPaths[i].attributes.getNamedItem("y").nodeValue);
+
+                    var baseString = guardPaths[i].childNodes[1].attributes.getNamedItem("points").nodeValue;
+                    var stringCoords = baseString.split(" ");
+
+                    var path: Phaser.Point[] = [];
+                    for (var j = 0; j < stringCoords.length; j++) {
+                        var coord = stringCoords[j].split(",");
+                        path.push( new Phaser.Point(parseInt(coord[0]) + xValue, parseInt(coord[1]) + yValue) );
+
+                   //     if( i == 1)
+                    //        console.log("x: " + (parseInt(coord[0]) + xValue) + ", y: " + (parseInt(coord[1]) + yValue) );
+                    }
+
+                    this.cops.push(new Cop(this.game, path));
+
+                }
+                
+            }
+
         }
     }
 }

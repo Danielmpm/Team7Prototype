@@ -65,3 +65,4 @@ C:\Users\u0996865\New folder (2)\Project2\Project2\bin\Project2.pdb
 C:\Users\u0996865\New folder (2)\Project2\Project2\obj\Debug\Project2.csprojResolveAssemblyReference.cache
 C:\Users\u0996865\New folder (2)\Project2\Project2\obj\Debug\Project2.dll
 C:\Users\u0996865\New folder (2)\Project2\Project2\obj\Debug\Project2.pdb
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\obj\Debug\Project2.csprojResolveAssemblyReference.cache

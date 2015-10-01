@@ -77,3 +77,5 @@ C:\Users\u0996865\New folder (3)\Project2\Project2\bin\Project2.pdb
 C:\Users\u0996865\New folder (3)\Project2\Project2\obj\Debug\Project2.csprojResolveAssemblyReference.cache
 C:\Users\u0996865\New folder (3)\Project2\Project2\obj\Debug\Project2.dll
 C:\Users\u0996865\New folder (3)\Project2\Project2\obj\Debug\Project2.pdb
+C:\Users\u0996865\New folder (3)\Project2\Project2\bin\Graphics\UI\TitleBG.png
+C:\Users\u0996865\New folder (3)\Project2\Project2\bin\Graphics\UI\TitleImage.png

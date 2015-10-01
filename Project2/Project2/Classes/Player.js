@@ -17,7 +17,9 @@ var GameFromScratch;
             this.player = game.add.sprite(this.PosX, this.PosY, "h1");
             game.physics.p2.enable(this.player, true);
             this.player.scale.setTo(0.4, 0.2);
+            this.player.body.setRectangle(40, 40);
             this.player.angle = 0;
+            this.player.body.fixedRotation = true;
         }
         Player.prototype.update = function () {
             this.checkKeyDown();

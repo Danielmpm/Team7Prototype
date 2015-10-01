@@ -55,7 +55,15 @@
             this.light = game.add.sprite(0, 0, "flashlight");
             this.light.width = this.state.gridX*2;
             this.light.height = this.state.gridY;
-            this.light.pivot.x = this.state.gridX *-1.5;
+            this.light.pivot.x = this.state.gridX * -1.5;
+
+            game.physics.p2.enable(this.light, true);
+
+            game.physics.p2.setPostBroadphaseCallback(this.CheckHitFlash,this);
+            //this.light.body.createBodyCallback(this.light, this.CheckHitFlash, this);
+           // game.physics.p2.setImpactEvents(true);
+ 
+            
 
             this.currentContacts = 0;
 
@@ -233,6 +241,18 @@
                 //this.cop.body.moveRight(Cop.Max_speed * signX);
                 //this.cop.body.moveDown(Cop.Max_speed * signY);
             }
+        }
+
+        CheckHitFlash(body1,body2) {
+            if (body1 && body2) {
+                if (body1.sprite && body2.sprite) {
+                    if ((body1.sprite.name === 'h1') || (body2.sprite.name === 'h1')) {
+                        alert("hit");
+                    }
+                }
+            }
+            return true;
+            
         }
     }
 

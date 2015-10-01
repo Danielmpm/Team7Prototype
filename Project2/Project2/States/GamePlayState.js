@@ -9,7 +9,7 @@ var GameFromScratch;
         __extends(GamePlayState, _super);
         function GamePlayState() {
             _super.call(this);
-            this.pozX1 = 1000;
+            this.pozX1 = 1000; // starting place.
             this.pozY1 = 400;
             this.pozX2 = 1200;
             this.pozY2 = 500;

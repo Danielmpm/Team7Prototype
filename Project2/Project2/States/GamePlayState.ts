@@ -23,7 +23,7 @@
         constructor() {
             super();
 
-            this.pozX1 = 1000;
+            this.pozX1 = 1000;     // starting place.
             this.pozY1 = 400;
 
             this.pozX2 = 1200;

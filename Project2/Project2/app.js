@@ -13,13 +13,8 @@ var Game;
             this.game.load.image("cop", "Graphics/cop.jpg");
             this.game.load.image("briefcase", "Graphics/briefcase.png");
             this.game.load.image("flashlight", "Graphics/flashLight_test.png");
-<<<<<<< HEAD
-            this.game.load.image("titleimage", "Graphics/UI/TitleImage.png");
-            this.game.load.image("testPreload", "Graphics/UI/TitleBG.png");
-=======
             this.game.load.image("titleImage", "Graphics/UI/TitleImage.png");
             this.game.load.image("titleScreen", "Graphics/UI/TitleBG.png");
->>>>>>> 7c8d1a0bce22acf509d47d2cfe8fc026188cb624
             this.game.load.xml("levelSource", "Levels/Warehouse1.xml");
             this.game.load.image(Project2.obstaclesIds[0], "Graphics/Objects/rp_005_boxs_1.png");
             this.game.load.image(Project2.obstaclesIds[1], "Graphics/Objects/rp_005_boxs_2.png");
@@ -36,16 +31,9 @@ var Game;
             this.game.state.add("Preloader", GameFromScratch.Preloader, false);
             //   this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, true);
             // this.game.state.add("Boot",  GameFromScratch.Boot, false);
-<<<<<<< HEAD
-            //   this.game.state.add("StartMenu",  GameFromScratch.StartMenu, false);
-            //  this.game.state.add("Preloader", GameFromScratch.Preloader, false);
-            this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, true);
-            console.log("Boot: " + GameFromScratch.Boot);
-=======
             this.game.state.add("StartMenu", GameFromScratch.StartMenu, false);
             //  this.game.state.add("Preloader", GameFromScratch.Preloader, false);
             this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, false);
->>>>>>> 7c8d1a0bce22acf509d47d2cfe8fc026188cb624
             //  this.game.state.start("Boot");
             //  this.game.state.add("H2", GameFromScratch.GamePlayState, true);
             //  this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;

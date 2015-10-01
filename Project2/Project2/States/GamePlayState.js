@@ -42,15 +42,6 @@ var GameFromScratch;
             for (var i = 0; i < this.cops.length; i++) {
                 this.cops[i].updatePlayerInfo(this.Player1, this.Player2);
             }
-<<<<<<< HEAD
-            //   this.briefcase = new Briefcase(this.game,this.briefcasePozX,this.briefcasePozY);
-=======
-            //  this.briefcase = new Briefcase(this.game,this.briefcasePozX,this.briefcasePozY);
->>>>>>> 7c8d1a0bce22acf509d47d2cfe8fc026188cb624
-            // this.backgroundMusic = this.game.add.audio("backgroundMusic");
-            // this.backgroundMusic.volume = 100;
-            // this.backgroundMusic.loop = true;
-            // this.backgroundMusic.play();
         };
         GamePlayState.prototype.update = function () {
             this.Player1.update();

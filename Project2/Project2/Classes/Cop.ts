@@ -58,12 +58,6 @@
             this.light.width = this.state.gridX*2;
             this.light.height = this.state.gridY;
             this.light.pivot.x = this.state.gridX * -1.5;
-<<<<<<< HEAD
-
-
-=======
-            
->>>>>>> 7c8d1a0bce22acf509d47d2cfe8fc026188cb624
 
             this.currentContacts = 0;
 

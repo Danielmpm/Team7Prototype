@@ -16,9 +16,16 @@
         speedX: number;
         speedY: number;
         name: string;
+
+        state: GamePlayState;
+
         public static Max_speed: number = 20;
 
-        constructor(game: Phaser.Game, posX: number, posY: number, name:string) {
+        constructor(game: Phaser.Game, posX: number, posY: number, name: string) {
+
+          //  this.state = <GamePlayState>this.game.state.getCurrentState();
+
+
             this.game = game;
             this.speedX = 5;
             this.speedY = 4;
@@ -38,8 +45,11 @@
 
             this.player = game.add.sprite(this.PosX, this.PosY, "h1");
             game.physics.p2.enable(this.player, true);
-            this.player.scale.setTo(0.4, 0.2);
-            this.player.body.setRectangle(40,40);
+            //this.player.scale.setTo(0.4, 0.2);
+
+            this.player.width = 70;// this.state.gridX;
+            this.player.height = 70;//this.state.gridY;
+            this.player.body.setRectangle(70,70);
             this.player.angle = 0;
             this.player.body.fixedRotation = true;
         }
@@ -56,7 +66,7 @@
           
             if ("Player2" == this.name) {
                
-                if (this.LeftKey.isDown || this.cursors.left.isDown)
+                if (this.LeftKey.isDown )
                   
                     this.player.body.moveLeft(200);
                 if (this.RightKey.isDown)

@@ -36,11 +36,11 @@ var GameFromScratch;
             this.game.physics.p2.enable(this.light);
             this.light.body.setRectangle(this.light.width, this.light.height, this.state.gridX * 1.5);
             this.light.body.setCollisionGroup(this.state.copsCollisionGroup);
-            this.light.body.collides([this.state.playerCollisionGroup, this.state.wallCollisionGroup]);
+            this.light.body.collides([this.state.playerCollisionGroup]);
             this.light.body.createBodyCallback(player1.player, this.spottedPlayer1, this);
             this.light.body.createBodyCallback(player2.player, this.spottedPlayer2, this);
-            this.light.body.onBeginContact.add(this.onContactWallBegin, this);
-            this.light.body.onEndContact.add(this.onContactWallEnd, this);
+            //  this.light.body.onBeginContact.add(this.onContactWallBegin, this);
+            //  this.light.body.onEndContact.add(this.onContactWallEnd, this);
             this.light.body.fixedRotation = true;
             this.copSensor = this.game.physics.p2.createBody(this.cop.x + this.lightX, this.cop.y + this.lightY, 1, true);
             this.copSensor.addRectangle(this.state.gridX * 0.5, this.state.gridX * 0.5, 0, 0, 0);
@@ -90,7 +90,8 @@ var GameFromScratch;
                 case 0:
                     this.timeLeft = (Cop.MaxWaitTime - Cop.MinWaitTime) * Math.random() + Cop.MinWaitTime;
                     this.currentState = 1;
-                    this.updateLightRelativePosition();
+                    //this.updateLightRelativePosition();
+                    this.pointLightToNextWaypoint();
                     if (this.currentContacts != 0) {
                         this.pointLightToNextWaypoint();
                     }
@@ -101,6 +102,7 @@ var GameFromScratch;
                     this.targetY = this.navPoints[this.currentNode].y;
                     this.currentState = 0;
                     this.updateLightRelativePosition();
+                    // this.pointLightToNextWaypoint();
                     break;
                 default:
                     break;

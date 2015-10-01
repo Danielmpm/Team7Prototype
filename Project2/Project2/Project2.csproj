@@ -57,6 +57,7 @@
     <Content Include="Levels\levelTest2.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Levels\Warehouse1.xml" />
     <Content Include="phaser.js" />
     <Content Include="phaser.min.js" />
     <Content Include="web.config" />

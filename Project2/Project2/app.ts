@@ -23,7 +23,7 @@
          
             this.game.load.image("testPreload", "Graphics/UI/TitleBG.png");
 
-            this.game.load.xml("levelSource", "Levels/Gym0.xml");
+            this.game.load.xml("levelSource", "Levels/Warehouse1.xml");
             this.game.load.image(Project2.obstaclesIds[0], "Graphics/Objects/rp_005_boxs_1.png");
             this.game.load.image(Project2.obstaclesIds[1], "Graphics/Objects/rp_005_boxs_2.png");
             this.game.load.image(Project2.obstaclesIds[2], "Graphics/Objects/rp_005_connex_blu1.png");
@@ -43,6 +43,10 @@
           //  this.game.state.add("StartMenu",  GameFromScratch.StartMenu, true);
            // this.game.state.add("Preloader", GameFromScratch.Preloader, true);
          //   this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, true);
+           // this.game.state.add("Boot",  GameFromScratch.Boot, false);
+         //   this.game.state.add("StartMenu",  GameFromScratch.StartMenu, false);
+          //  this.game.state.add("Preloader", GameFromScratch.Preloader, false);
+            this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, true);
             console.log("Boot: " + GameFromScratch.Boot);
           //  this.game.state.start("Boot");
             this.game.state.add("H2", GameFromScratch.GamePlayState, true);

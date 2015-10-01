@@ -2,6 +2,7 @@ var GameFromScratch;
 (function (GameFromScratch) {
     var Player = (function () {
         function Player(game, posX, posY, name) {
+            //  this.state = <GamePlayState>this.game.state.getCurrentState();
             this.game = game;
             this.speedX = 5;
             this.speedY = 4;
@@ -16,8 +17,10 @@ var GameFromScratch;
             this.DownKey = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
             this.player = game.add.sprite(this.PosX, this.PosY, "h1");
             game.physics.p2.enable(this.player, true);
-            this.player.scale.setTo(0.4, 0.2);
-            this.player.body.setRectangle(40, 40);
+            //this.player.scale.setTo(0.4, 0.2);
+            this.player.width = 70; // this.state.gridX;
+            this.player.height = 70; //this.state.gridY;
+            this.player.body.setRectangle(70, 70);
             this.player.angle = 0;
             this.player.body.fixedRotation = true;
             //  game.physics.p2.setPostBroadphaseCallback(this.CheckHitFlash, this);

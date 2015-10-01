@@ -59,13 +59,7 @@
             this.light.height = this.state.gridY;
             this.light.pivot.x = this.state.gridX * -1.5;
 
-            game.physics.p2.enable(this.light, true);
 
-            this.game.physics.p2.setPostBroadphaseCallback(this.checkVeg,this);
-            //this.light.body.createBodyCallback(this.light, this.CheckHitFlash, this);
-           // game.physics.p2.setImpactEvents(true);
- 
-            
 
             this.currentContacts = 0;
 

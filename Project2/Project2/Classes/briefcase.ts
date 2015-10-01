@@ -16,8 +16,7 @@
             this.PosY = posY;
             this.isActive = false;
 
-            this.game.physics.startSystem(Phaser.Physics.P2JS);
-
+        
 
 
             this.briefcase = game.add.sprite(this.PosX, this.PosY, "briefcase");
@@ -34,11 +33,6 @@
             
 
         }
-
-   
-
-
-
 
     }
 

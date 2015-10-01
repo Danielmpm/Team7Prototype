@@ -6,7 +6,6 @@ var GameFromScratch;
             this.PosX = posX;
             this.PosY = posY;
             this.isActive = false;
-            this.game.physics.startSystem(Phaser.Physics.P2JS);
             this.briefcase = game.add.sprite(this.PosX, this.PosY, "briefcase");
             game.physics.p2.enable(this.briefcase, true);
             this.briefcase.scale.setTo(2, 2);

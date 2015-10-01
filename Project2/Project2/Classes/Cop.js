@@ -38,6 +38,15 @@ var GameFromScratch;
             this.light.body.onBeginContact.add(this.onContactWallBegin, this);
             this.light.body.onEndContact.add(this.onContactWallEnd, this);
             this.light.body.fixedRotation = true;
+            this.copSensor = this.game.physics.p2.createBody(this.cop.x + this.lightX, this.cop.y + this.lightY, 1, true);
+            this.copSensor.addRectangle(this.state.gridX * 0.5, this.state.gridX * 0.5, 0, 0, 0);
+            this.copSensor.setCollisionGroup(this.state.wallCollisionGroup);
+            this.copSensor.collides([this.state.playerCollisionGroup]); //, this.state.copsCollisionGroup]);
+            this.copSensor.onBeginContact.add(this.onContactWallBegin, this);
+            this.copSensor.onEndContact.add(this.onContactWallEnd, this);
+            this.copSensor.debug = true;
+            this.copSensor.static = false;
+            this.game.physics.p2.enableBody(this.copSensor, true);
             this.updateAI();
         };
         Cop.prototype.onCollisionPlayer1 = function (body1, body2) {

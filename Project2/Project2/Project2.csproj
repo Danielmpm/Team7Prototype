@@ -46,6 +46,9 @@
     <Content Include="Graphics\Objects\rp_005_connex_red2.png" />
     <Content Include="Graphics\Objects\rp_005_connex_yel1.png" />
     <Content Include="Graphics\Objects\rp_005_connex_yel2.png" />
+    <Content Include="Graphics\UI\GameBackground.jpg" />
+    <Content Include="Graphics\UI\TitleBG.png" />
+    <Content Include="Graphics\UI\TitleImage.png" />
     <Content Include="index.html" />
     <Content Include="Levels\Gym0.xml" />
     <Content Include="Levels\levelTest.xml">
@@ -67,6 +70,9 @@
     <TypeScriptCompile Include="pixi.d.ts" />
     <TypeScriptCompile Include="States\GameManager.ts" />
     <TypeScriptCompile Include="States\GamePlayState.ts" />
+    <TypeScriptCompile Include="States\Boot.ts" />
+    <TypeScriptCompile Include="States\StartMenu.ts" />
+    <TypeScriptCompile Include="States\Preloader.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">

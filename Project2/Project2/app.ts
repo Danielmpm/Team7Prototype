@@ -18,7 +18,7 @@
             this.game.load.image("h1", "Graphics/h1.jpg");
             this.game.load.image("cop", "Graphics/cop.jpg");
             this.game.load.image("flashlight", "Graphics/flashLight_test.png");
-
+            this.game.load.image("titleimage", "Graphics/UI/TitleImage.png");
 
             this.game.load.xml("levelSource", "Levels/Gym0.xml");
             this.game.load.image(Project2.obstaclesIds[0], "Graphics/Objects/rp_005_boxs_1.png");
@@ -33,10 +33,18 @@
         
 
         create() {
-            
-            this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, true);
 
-            this.game.state.add("H2",GameFromScratch.GamePlayState, true);
+            console.log(this.game.state);
+            console.log("Normal: " + GameFromScratch.GamePlayState);
+            this.game.state.add("Boot",  GameFromScratch.Boot, false);
+            this.game.state.add("StartMenu",  GameFromScratch.StartMenu, false);
+            this.game.state.add("Preloader", GameFromScratch.Preloader, false);
+            this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, true);
+            console.log("Boot: " + GameFromScratch.Boot);
+            this.game.state.start("Boot");
+           // this.game.state.add("H2", GameFromScratch.GamePlayState, true);
+
+
           //  this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
             
         }

@@ -13,14 +13,15 @@ var GameFromScratch;
         Boot.prototype.preload = function () {
         };
         Boot.prototype.create = function () {
-            this.stage.disableVisibilityChange = false;
-            this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-            this.scale.minWidth = 270;
-            this.scale.minHeight = 480;
-            this.scale.pageAlignHorizontally = true;
-            this.scale.pageAlignVertically = true;
+            //this.stage.disableVisibilityChange = false;
+            //this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+            //this.scale.minWidth = 270;
+            //this.scale.minHeight = 480;
+            //this.scale.pageAlignHorizontally = true;
+            //this.scale.pageAlignVertically = true;
             //this.game.stage.forcePortrait = true;
             //this.game.scale.setScreenSize(true);
+            console.log("Opened Boot");
             this.game.state.start("Preloader");
         };
         Boot.prototype.update = function () {

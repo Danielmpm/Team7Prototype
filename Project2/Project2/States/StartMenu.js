@@ -13,14 +13,19 @@ var GameFromScratch;
         StartMenu.prototype.preload = function () {
         };
         StartMenu.prototype.create = function () {
-            this.startBG = this.add.image(0, 0, "titlescreen");
-            this.startBG.inputEnabled = true;
-            this.startBG.events.onInputDown.addOnce(this.startGame, this);
+            this.startBG = this.add.sprite(0, 0, "titleScreen");
+            this.startBG.width = 1920;
+            this.startBG.height = 1080; //this.game.world.height;
+            //   this.titleImg.scale.setTo(10, 10);
         };
         StartMenu.prototype.update = function () {
+            if (this.game.input.activePointer.isDown) {
+                this.startGame();
+                console.log("TEST");
+            }
         };
-        StartMenu.prototype.startGame = function (pointer) {
-            this.game.state.start("Game");
+        StartMenu.prototype.startGame = function () {
+            this.game.state.start("BackgroundState");
         };
         return StartMenu;
     })(Phaser.State);

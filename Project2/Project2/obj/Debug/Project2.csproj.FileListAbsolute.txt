@@ -79,5 +79,10 @@ C:\Users\u0996865\New folder (3)\Project2\Project2\obj\Debug\Project2.dll
 C:\Users\u0996865\New folder (3)\Project2\Project2\obj\Debug\Project2.pdb
 C:\Users\u0996865\New folder (3)\Project2\Project2\bin\Graphics\UI\TitleBG.png
 C:\Users\u0996865\New folder (3)\Project2\Project2\bin\Graphics\UI\TitleImage.png
-C:\Users\u0996865\New folder (3)\Project2\Project2\bin\Graphics\UI\GameBackground.jpg
-C:\Users\u0996865\New folder (3)\Project2\Project2\bin\Graphics\briefcase.png
+C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\UI\TitleBG.png
+C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\UI\TitleImage.png
+C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\background_temp.jpg
+C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\CrateTest.png
+C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\flashLight_Test.png
+C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\UI\GameBackground.jpg
+C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\briefcase.png

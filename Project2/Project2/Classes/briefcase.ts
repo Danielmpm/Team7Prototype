@@ -16,7 +16,10 @@
             this.PosY = posY;
             this.isActive = false;
 
+<<<<<<< HEAD
         
+=======
+>>>>>>> 7c8d1a0bce22acf509d47d2cfe8fc026188cb624
 
 
             this.briefcase = game.add.sprite(this.PosX, this.PosY, "briefcase");

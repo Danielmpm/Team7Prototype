@@ -1,28 +1,20 @@
-﻿module Game {
-
-    export class Project2 {
-        game: Phaser.Game;
-
-        public static obstaclesIds: string[];
-
-        constructor() {
+var Game;
+(function (Game) {
+    var Project2 = (function () {
+        function Project2() {
             this.game = new Phaser.Game(1920, 1080, Phaser.AUTO, 'content', {
-                create: this.create, preload: this.preload, update:this.update
+                create: this.create, preload: this.preload, update: this.update
             });
         }
-
-        preload() {
+        Project2.prototype.preload = function () {
             Project2.obstaclesIds = ["boxs_1", "boxs_2", "connex_blu1", "connex_blu2", "connex_red1", "connex_red2", "connex_yel1", "connex_yel2"];
-
             this.game.load.image("background", "Graphics/background_temp.jpg");
             this.game.load.image("h1", "Graphics/h1.jpg");
             this.game.load.image("cop", "Graphics/cop.jpg");
             this.game.load.image("briefcase", "Graphics/briefcase.png");
             this.game.load.image("flashlight", "Graphics/flashLight_test.png");
             this.game.load.image("titleImage", "Graphics/UI/TitleImage.png");
-         
             this.game.load.image("titleScreen", "Graphics/UI/TitleBG.png");
-
             this.game.load.xml("levelSource", "Levels/Warehouse1.xml");
             this.game.load.image(Project2.obstaclesIds[0], "Graphics/Objects/rp_005_boxs_1.png");
             this.game.load.image(Project2.obstaclesIds[1], "Graphics/Objects/rp_005_boxs_2.png");
@@ -32,38 +24,34 @@
             this.game.load.image(Project2.obstaclesIds[5], "Graphics/Objects/rp_005_connex_red2.png");
             this.game.load.image(Project2.obstaclesIds[6], "Graphics/Objects/rp_005_connex_yel1.png");
             this.game.load.image(Project2.obstaclesIds[7], "Graphics/Objects/rp_005_connex_yel2.png");
-        }
-        
-
-        create() {
-
-
-            this.game.state.add("Boot",  GameFromScratch.Boot, true);
+        };
+        Project2.prototype.create = function () {
+            console.log(this.game.state);
+            console.log("Normal: " + GameFromScratch.GamePlayState);
+            this.game.state.add("Boot", GameFromScratch.Boot, true);
             //  this.game.state.add("StartMenu",  GameFromScratch.StartMenu, true);
+<<<<<<< HEAD
             this.game.state.add("Preloader", GameFromScratch.Preloader, false);
-         //   this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, true);
-           // this.game.state.add("Boot",  GameFromScratch.Boot, false);
-           this.game.state.add("StartMenu",  GameFromScratch.StartMenu, false);
+=======
+            // this.game.state.add("Preloader", GameFromScratch.Preloader, true);
+>>>>>>> 68b7f07192d3251fc2023e766fa4d9a568a66054
+            //   this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, true);
+            // this.game.state.add("Boot",  GameFromScratch.Boot, false);
+            this.game.state.add("StartMenu", GameFromScratch.StartMenu, false);
             //  this.game.state.add("Preloader", GameFromScratch.Preloader, false);
             this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, false);
-
-          //  this.game.state.start("Boot");
-          //  this.game.state.add("H2", GameFromScratch.GamePlayState, true);
-
-
-          //  this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-            
-        }
-
-        update() {
-
-        }
-          
-
-        } 
-    }
-
-
-window.onload = () => {
+            console.log("Boot: " + GameFromScratch.Boot);
+            //  this.game.state.start("Boot");
+            this.game.state.add("H2", GameFromScratch.GamePlayState, true);
+            //  this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        };
+        Project2.prototype.update = function () {
+        };
+        return Project2;
+    })();
+    Game.Project2 = Project2;
+})(Game || (Game = {}));
+window.onload = function () {
     var game = new Game.Project2();
 };
+//# sourceMappingURL=app.js.map

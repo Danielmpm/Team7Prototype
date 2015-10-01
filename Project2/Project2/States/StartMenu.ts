@@ -14,18 +14,23 @@
         }
 
         create() {
-            this.startBG = this.add.image(0, 0, "titlescreen");
-            this.startBG.inputEnabled = true;
-            this.startBG.events.onInputDown.addOnce(this.startGame, this);
-
+            this.startBG = this.add.sprite(0, 0, "titleScreen");
+            this.startBG.width = 1920;
+            this.startBG.height = 1080;//this.game.world.height;
+         //   this.titleImg.scale.setTo(10, 10);
         }
 
-        update() {
-
-
+        update()
+        {
+            if (this.game.input.activePointer.isDown) {
+                this.startGame( );
+                  console.log("TEST");
+            }
         }
-        startGame(pointer) {
-            this.game.state.start("Game");
+        
+        startGame( )
+        {
+            this.game.state.start("BackgroundState");
         }
     }
 }

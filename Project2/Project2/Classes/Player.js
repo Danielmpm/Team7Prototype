@@ -9,6 +9,8 @@ var GameFromScratch;
             this.name = name;
             this.PosX = posX;
             this.PosY = posY;
+            this.StartPosX = posX;
+            this.StartPosY = posY;
             this.game.physics.startSystem(Phaser.Physics.P2JS);
             this.cursors = this.game.input.keyboard.createCursorKeys();
             this.LeftKey = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
@@ -20,11 +22,15 @@ var GameFromScratch;
             //this.player.scale.setTo(0.4, 0.2);
             this.player.width = 70; // this.state.gridX;
             this.player.height = 70; //this.state.gridY;
-            this.player.body.setRectangle(70, 70);
+            this.player.body.setCircle(30);
             this.player.angle = 0;
             this.player.body.fixedRotation = true;
             //  game.physics.p2.setPostBroadphaseCallback(this.CheckHitFlash, this);
         }
+        Player.prototype.respawn = function () {
+            this.player.body.x = this.StartPosX;
+            this.player.body.y = this.StartPosY;
+        };
         Player.prototype.update = function () {
             this.checkKeyDown();
         };

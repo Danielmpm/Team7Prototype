@@ -37,18 +37,25 @@
 
         create() {
 
-
+            console.log(this.game.state);
+            console.log("Normal: " + GameFromScratch.GamePlayState);
+<<<<<<< HEAD
             this.game.state.add("Boot",  GameFromScratch.Boot, true);
             //  this.game.state.add("StartMenu",  GameFromScratch.StartMenu, true);
             this.game.state.add("Preloader", GameFromScratch.Preloader, false);
+=======
+          //  this.game.state.add("Boot",  GameFromScratch.Boot, true);
+          //  this.game.state.add("StartMenu",  GameFromScratch.StartMenu, true);
+           // this.game.state.add("Preloader", GameFromScratch.Preloader, true);
+>>>>>>> 68b7f07192d3251fc2023e766fa4d9a568a66054
          //   this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, true);
            // this.game.state.add("Boot",  GameFromScratch.Boot, false);
            this.game.state.add("StartMenu",  GameFromScratch.StartMenu, false);
             //  this.game.state.add("Preloader", GameFromScratch.Preloader, false);
             this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, false);
-
+            console.log("Boot: " + GameFromScratch.Boot);
           //  this.game.state.start("Boot");
-          //  this.game.state.add("H2", GameFromScratch.GamePlayState, true);
+            this.game.state.add("H2", GameFromScratch.GamePlayState, true);
 
 
           //  this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;

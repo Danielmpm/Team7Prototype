@@ -25,7 +25,7 @@
 
         state: GamePlayState;
 
-        static MaxWaitTime: number = 3500;
+        static MaxWaitTime: number = 2500;
         static MinWaitTime: number = 1000;
 
         copSensor: Phaser.Physics.P2.Body;
@@ -58,8 +58,12 @@
             this.light.width = this.state.gridX*2;
             this.light.height = this.state.gridY;
             this.light.pivot.x = this.state.gridX * -1.5;
+<<<<<<< HEAD
 
 
+=======
+            
+>>>>>>> 7c8d1a0bce22acf509d47d2cfe8fc026188cb624
 
             this.currentContacts = 0;
 
@@ -107,18 +111,22 @@
         onCollisionPlayer1(body1: Phaser.Physics.P2.Body, body2: Phaser.Physics.P2.Body)
         {
             console.log("Hit Player 1");
+            this.player1.respawn();
         }
 
         onCollisionPlayer2(body1: Phaser.Physics.P2.Body, body2: Phaser.Physics.P2.Body) {
             console.log("Hit Player 2");
+            this.player2.respawn();
         }
 
         spottedPlayer1(body1: Phaser.Physics.P2.Body, body2: Phaser.Physics.P2.Body) {
             console.log("Spotted 1");
+            this.player1.respawn();
         }
 
         spottedPlayer2(body1: Phaser.Physics.P2.Body, body2: Phaser.Physics.P2.Body) {
             console.log("Spotted 2");
+            this.player2.respawn();
         }
 
         onContactWallBegin(body1: Phaser.Physics.P2.Body, body2: Phaser.Physics.P2.Body)
@@ -251,10 +259,7 @@
             }
         }
 
-        checkVeg(body1, body2) {
-         
-        }
-
+  
      
     }
 

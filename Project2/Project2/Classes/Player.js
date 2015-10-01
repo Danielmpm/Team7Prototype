@@ -25,6 +25,7 @@ var GameFromScratch;
             this.player.body.setCircle(30);
             this.player.angle = 0;
             this.player.body.fixedRotation = true;
+            //  game.physics.p2.setPostBroadphaseCallback(this.CheckHitFlash, this);
         }
         Player.prototype.respawn = function () {
             this.player.body.x = this.StartPosX;

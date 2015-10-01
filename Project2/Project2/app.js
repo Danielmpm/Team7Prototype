@@ -11,6 +11,7 @@ var Game;
             this.game.load.image("background", "Graphics/background_temp.jpg");
             this.game.load.image("h1", "Graphics/h1.jpg");
             this.game.load.image("cop", "Graphics/cop.jpg");
+            this.game.load.image("briefcase", "Graphics/briefcase.png");
             this.game.load.image("flashlight", "Graphics/flashLight_test.png");
             this.game.load.image("titleImage", "Graphics/UI/TitleImage.png");
             this.game.load.image("titleScreen", "Graphics/UI/TitleBG.png");
@@ -37,7 +38,7 @@ var Game;
             this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, false);
             console.log("Boot: " + GameFromScratch.Boot);
             //  this.game.state.start("Boot");
-            // this.game.state.add("H2", GameFromScratch.GamePlayState, true);
+            this.game.state.add("H2", GameFromScratch.GamePlayState, true);
             //  this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         };
         Project2.prototype.update = function () {

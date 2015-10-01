@@ -58,6 +58,8 @@
             this.player.body.setCircle(30);
             this.player.angle = 0;
             this.player.body.fixedRotation = true;
+
+          //  game.physics.p2.setPostBroadphaseCallback(this.CheckHitFlash, this);
         }
 
         respawn()
@@ -78,7 +80,11 @@
           
             if ("Player2" == this.name) {
                
+<<<<<<< HEAD
+                if (this.LeftKey.isDown)
+=======
                 if (this.LeftKey.isDown )
+>>>>>>> fae04fc0ba540b9f9fa6b445de9de9306cac8269
                   
                     this.player.body.moveLeft(200);
                 if (this.RightKey.isDown)
@@ -91,23 +97,22 @@
             }
 
             if ("Player1" == this.name) {
-                
+
                 if (this.cursors.left.isDown)
                     this.player.body.moveLeft(200);
                 if (this.cursors.right.isDown)
                     this.player.body.moveRight(200);
 
-                if (this.cursors.up.isDown )
+                if (this.cursors.up.isDown)
                     this.player.body.moveUp(200);
                 if (this.cursors.down.isDown)
                     this.player.body.moveDown(200);
 
             }
 
-
-         
-
         }
+
+     
 
 
     }

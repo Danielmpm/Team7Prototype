@@ -37,8 +37,7 @@
 
         create() {
 
-            console.log(this.game.state);
-            console.log("Normal: " + GameFromScratch.GamePlayState);
+
             this.game.state.add("Boot",  GameFromScratch.Boot, true);
             //  this.game.state.add("StartMenu",  GameFromScratch.StartMenu, true);
             this.game.state.add("Preloader", GameFromScratch.Preloader, false);
@@ -47,9 +46,9 @@
            this.game.state.add("StartMenu",  GameFromScratch.StartMenu, false);
             //  this.game.state.add("Preloader", GameFromScratch.Preloader, false);
             this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, false);
-            console.log("Boot: " + GameFromScratch.Boot);
+
           //  this.game.state.start("Boot");
-            this.game.state.add("H2", GameFromScratch.GamePlayState, true);
+          //  this.game.state.add("H2", GameFromScratch.GamePlayState, true);
 
 
           //  this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;

@@ -26,8 +26,6 @@ var Game;
             this.game.load.image(Project2.obstaclesIds[7], "Graphics/Objects/rp_005_connex_yel2.png");
         };
         Project2.prototype.create = function () {
-            console.log(this.game.state);
-            console.log("Normal: " + GameFromScratch.GamePlayState);
             this.game.state.add("Boot", GameFromScratch.Boot, true);
             //  this.game.state.add("StartMenu",  GameFromScratch.StartMenu, true);
             this.game.state.add("Preloader", GameFromScratch.Preloader, false);
@@ -36,9 +34,8 @@ var Game;
             this.game.state.add("StartMenu", GameFromScratch.StartMenu, false);
             //  this.game.state.add("Preloader", GameFromScratch.Preloader, false);
             this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, false);
-            console.log("Boot: " + GameFromScratch.Boot);
             //  this.game.state.start("Boot");
-            this.game.state.add("H2", GameFromScratch.GamePlayState, true);
+            //  this.game.state.add("H2", GameFromScratch.GamePlayState, true);
             //  this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         };
         Project2.prototype.update = function () {

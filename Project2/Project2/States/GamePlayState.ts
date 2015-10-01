@@ -11,6 +11,10 @@
         pozX2: number;
         pozY2: number;
 
+        briefcase: GameFromScratch.Briefcase;
+        briefcasePozX: number;
+        briefcasePozY: number;
+
         cops: GameFromScratch.Cop[];
 
         wallCollisionGroup: Phaser.Physics.P2.CollisionGroup;
@@ -25,6 +29,9 @@
 
             this.pozX1 = 1000;     // starting place.
             this.pozY1 = 400;
+
+            this.briefcasePozX = 550;
+            this.briefcasePozY = 450;
 
             this.pozX2 = 1200;
             this.pozY2 = 500;
@@ -60,6 +67,8 @@
 
             this.Player1.player.body.setCollisionGroup(this.playerCollisionGroup);
             this.Player2.player.body.setCollisionGroup(this.playerCollisionGroup);
+            
+           
 
             this.Player1.player.body.collides([this.wallCollisionGroup, this.copsCollisionGroup, this.playerCollisionGroup]);
             this.Player2.player.body.collides([this.wallCollisionGroup, this.copsCollisionGroup, this.playerCollisionGroup]);
@@ -67,11 +76,13 @@
                 this.cops[i].updatePlayerInfo(this.Player1,this.Player2);
             }
 
+            this.briefcase = new Briefcase(this.game,this.briefcasePozX,this.briefcasePozY);
+
            // this.backgroundMusic = this.game.add.audio("backgroundMusic");
            // this.backgroundMusic.volume = 100;
            // this.backgroundMusic.loop = true;
            // this.backgroundMusic.play();
-
+           
         }
 
         update()

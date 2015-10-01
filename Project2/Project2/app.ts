@@ -17,6 +17,7 @@
             this.game.load.image("background", "Graphics/background_temp.jpg");
             this.game.load.image("h1", "Graphics/h1.jpg");
             this.game.load.image("cop", "Graphics/cop.jpg");
+            this.game.load.image("briefcase", "Graphics/briefcase.png");
             this.game.load.image("flashlight", "Graphics/flashLight_test.png");
             this.game.load.image("titleimage", "Graphics/UI/TitleImage.png");
          
@@ -40,11 +41,11 @@
             console.log("Normal: " + GameFromScratch.GamePlayState);
           //  this.game.state.add("Boot",  GameFromScratch.Boot, true);
           //  this.game.state.add("StartMenu",  GameFromScratch.StartMenu, true);
-            this.game.state.add("Preloader", GameFromScratch.Preloader, true);
+           // this.game.state.add("Preloader", GameFromScratch.Preloader, true);
          //   this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, true);
             console.log("Boot: " + GameFromScratch.Boot);
           //  this.game.state.start("Boot");
-           // this.game.state.add("H2", GameFromScratch.GamePlayState, true);
+            this.game.state.add("H2", GameFromScratch.GamePlayState, true);
 
 
           //  this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;

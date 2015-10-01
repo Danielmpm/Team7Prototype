@@ -20,6 +20,7 @@ var GameFromScratch;
             this.player.body.setRectangle(40, 40);
             this.player.angle = 0;
             this.player.body.fixedRotation = true;
+            //  game.physics.p2.setPostBroadphaseCallback(this.CheckHitFlash, this);
         }
         Player.prototype.update = function () {
             this.checkKeyDown();
@@ -27,7 +28,7 @@ var GameFromScratch;
         Player.prototype.checkKeyDown = function () {
             this.player.body.setZeroVelocity();
             if ("Player2" == this.name) {
-                if (this.LeftKey.isDown || this.cursors.left.isDown)
+                if (this.LeftKey.isDown)
                     this.player.body.moveLeft(200);
                 if (this.RightKey.isDown)
                     this.player.body.moveRight(200);

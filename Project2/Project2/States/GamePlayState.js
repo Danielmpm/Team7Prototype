@@ -11,6 +11,8 @@ var GameFromScratch;
             _super.call(this);
             this.pozX1 = 1000; // starting place.
             this.pozY1 = 400;
+            this.briefcasePozX = 550;
+            this.briefcasePozY = 450;
             this.pozX2 = 1200;
             this.pozY2 = 500;
             this.gridX = 70;
@@ -40,6 +42,7 @@ var GameFromScratch;
             for (var i = 0; i < this.cops.length; i++) {
                 this.cops[i].updatePlayerInfo(this.Player1, this.Player2);
             }
+            this.briefcase = new GameFromScratch.Briefcase(this.game, this.briefcasePozX, this.briefcasePozY);
             // this.backgroundMusic = this.game.add.audio("backgroundMusic");
             // this.backgroundMusic.volume = 100;
             // this.backgroundMusic.loop = true;

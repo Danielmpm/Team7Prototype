@@ -55,15 +55,19 @@ var GameFromScratch;
         };
         Cop.prototype.onCollisionPlayer1 = function (body1, body2) {
             console.log("Hit Player 1");
+            this.player1.respawn();
         };
         Cop.prototype.onCollisionPlayer2 = function (body1, body2) {
             console.log("Hit Player 2");
+            this.player2.respawn();
         };
         Cop.prototype.spottedPlayer1 = function (body1, body2) {
             console.log("Spotted 1");
+            this.player1.respawn();
         };
         Cop.prototype.spottedPlayer2 = function (body1, body2) {
             console.log("Spotted 2");
+            this.player2.respawn();
         };
         Cop.prototype.onContactWallBegin = function (body1, body2) {
             this.currentContacts++;
@@ -164,7 +168,7 @@ var GameFromScratch;
             return true;
         };
         Cop.Max_speed = 150;
-        Cop.MaxWaitTime = 3500;
+        Cop.MaxWaitTime = 2500;
         Cop.MinWaitTime = 1000;
         return Cop;
     })();

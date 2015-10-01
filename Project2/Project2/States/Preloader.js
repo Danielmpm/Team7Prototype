@@ -9,16 +9,15 @@ var GameFromScratch;
         __extends(Preloader, _super);
         function Preloader() {
             _super.call(this);
-            this.titleText = null;
             this.ready = false;
         }
         Preloader.prototype.preload = function () {
-            this.titleText = this.add.image(this.world.centerX, this.world.centerY, "titleimage");
-            this.titleText.anchor.setTo(0.5, 0.5);
-            this.load.image("titleimage", "Graphics/UI/TitleBG.png");
-            this.titleImg = this.add.sprite(0, 0, "testPreload");
         };
         Preloader.prototype.create = function () {
+            //  this.titleImg = this.game.add.sprite(0, 0, "titleImage");
+            //    this.titleImg.width = 1920;
+            //    this.titleImg.height = 1080;//this.game.world.height;
+            //   this.titleImg.scale.setTo(10, 10);
         };
         Preloader.prototype.update = function () {
             this.ready = true;

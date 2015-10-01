@@ -24,19 +24,25 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Graphics\background.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Graphics\background_temp.jpg" />
+    <Content Include="Graphics\background_temp.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Graphics\cop.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Graphics\CrateTest.png" />
-    <Content Include="Graphics\flashLight_Test.png" />
+    <Content Include="Graphics\CrateTest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Graphics\flashLight_Test.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Graphics\h1.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Graphics\H2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Graphics\Objects\rp_005_boxs_1.png" />
     <Content Include="Graphics\Objects\rp_005_boxs_2.png" />
@@ -46,7 +52,9 @@
     <Content Include="Graphics\Objects\rp_005_connex_red2.png" />
     <Content Include="Graphics\Objects\rp_005_connex_yel1.png" />
     <Content Include="Graphics\Objects\rp_005_connex_yel2.png" />
-    <Content Include="Graphics\UI\GameBackground.jpg" />
+    <Content Include="Graphics\UI\GameBackground.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Graphics\UI\TitleBG.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

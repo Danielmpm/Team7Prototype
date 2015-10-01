@@ -17,6 +17,9 @@
         speedY: number;
         name: string;
 
+        StartPosX: number;
+        StartPosY: number;
+
         state: GamePlayState;
 
         public static Max_speed: number = 20;
@@ -32,6 +35,9 @@
             this.name = name;
             this.PosX = posX;
             this.PosY = posY;
+
+            this.StartPosX = posX;
+            this.StartPosY = posY;
 
            this.game.physics.startSystem(Phaser.Physics.P2JS);
            this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -49,9 +55,15 @@
 
             this.player.width = 70;// this.state.gridX;
             this.player.height = 70;//this.state.gridY;
-            this.player.body.setRectangle(70,70);
+            this.player.body.setCircle(30);
             this.player.angle = 0;
             this.player.body.fixedRotation = true;
+        }
+
+        respawn()
+        {
+            this.player.body.x = this.StartPosX;
+            this.player.body.y = this.StartPosY;
         }
 
         update() {

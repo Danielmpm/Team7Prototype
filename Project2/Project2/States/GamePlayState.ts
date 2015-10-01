@@ -68,15 +68,14 @@
             this.Player1.player.body.setCollisionGroup(this.playerCollisionGroup);
             this.Player2.player.body.setCollisionGroup(this.playerCollisionGroup);
             
-           
-
             this.Player1.player.body.collides([this.wallCollisionGroup, this.copsCollisionGroup, this.playerCollisionGroup]);
             this.Player2.player.body.collides([this.wallCollisionGroup, this.copsCollisionGroup, this.playerCollisionGroup]);
+
             for (var i = 0; i < this.cops.length; i++) {
                 this.cops[i].updatePlayerInfo(this.Player1,this.Player2);
             }
 
-            this.briefcase = new Briefcase(this.game,this.briefcasePozX,this.briefcasePozY);
+          //  this.briefcase = new Briefcase(this.game,this.briefcasePozX,this.briefcasePozY);
 
            // this.backgroundMusic = this.game.add.audio("backgroundMusic");
            // this.backgroundMusic.volume = 100;

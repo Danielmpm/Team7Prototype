@@ -85,3 +85,4 @@ C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\background_tem
 C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\CrateTest.png
 C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\flashLight_Test.png
 C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\UI\GameBackground.jpg
+C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\briefcase.png

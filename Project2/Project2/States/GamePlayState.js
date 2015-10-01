@@ -42,7 +42,7 @@ var GameFromScratch;
             for (var i = 0; i < this.cops.length; i++) {
                 this.cops[i].updatePlayerInfo(this.Player1, this.Player2);
             }
-            this.briefcase = new GameFromScratch.Briefcase(this.game, this.briefcasePozX, this.briefcasePozY);
+            //  this.briefcase = new Briefcase(this.game,this.briefcasePozX,this.briefcasePozY);
             // this.backgroundMusic = this.game.add.audio("backgroundMusic");
             // this.backgroundMusic.volume = 100;
             // this.backgroundMusic.loop = true;

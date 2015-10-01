@@ -31,13 +31,23 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Graphics\CrateTest.png" />
+    <Content Include="Graphics\flashLight_Test.png" />
     <Content Include="Graphics\h1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Graphics\H2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Graphics\Objects\rp_005_boxs_1.png" />
+    <Content Include="Graphics\Objects\rp_005_boxs_2.png" />
+    <Content Include="Graphics\Objects\rp_005_connex_blu1.png" />
+    <Content Include="Graphics\Objects\rp_005_connex_blu2.png" />
+    <Content Include="Graphics\Objects\rp_005_connex_red1.png" />
+    <Content Include="Graphics\Objects\rp_005_connex_red2.png" />
+    <Content Include="Graphics\Objects\rp_005_connex_yel1.png" />
+    <Content Include="Graphics\Objects\rp_005_connex_yel2.png" />
     <Content Include="index.html" />
+    <Content Include="Levels\Gym0.xml" />
     <Content Include="Levels\levelTest.xml">
       <SubType>Designer</SubType>
     </Content>

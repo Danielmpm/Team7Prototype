@@ -45,7 +45,7 @@
 
         preload() {
           //  this.game.load.audio("backgroundMusic","Audios/test.mp3");
-            this.game.load.image("cop", "Graphics/cop.jpg");
+            this.game.load.atlasXML("cop", "Graphics/cop.png","Graphics/cop.xml");
             this.game.load.image("crate", "Graphics/CrateTest.png");
         }
 

@@ -61,6 +61,9 @@
 
             this.currentContacts = 0;
 
+            this.cop.animations.add("walk");
+            this.cop.animations.play("walk",3,true);
+
         }
 
         updatePlayerInfo(player1: Player, player2: Player)

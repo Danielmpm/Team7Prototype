@@ -18,6 +18,8 @@ var GameFromScratch;
             this.light.height = this.state.gridY;
             this.light.pivot.x = this.state.gridX * -1.5;
             this.currentContacts = 0;
+            this.cop.animations.add("walk");
+            this.cop.animations.play("walk", 3, true);
         }
         Cop.prototype.updatePlayerInfo = function (player1, player2) {
             this.player1 = player1;

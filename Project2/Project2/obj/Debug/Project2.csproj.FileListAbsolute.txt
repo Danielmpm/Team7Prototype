@@ -86,7 +86,6 @@ C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Graphics\H2.png
 C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Graphics\UI\GameBackground.jpg
 C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Graphics\UI\TitleBG.png
 C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Graphics\UI\TitleImage.png
-C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Audios\test.mp3
 C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Project2.dll.config
 C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Project2.dll
 C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Project2.pdb
@@ -125,3 +124,7 @@ C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\spy1.png
 C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\spy1.xml
 C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\spy2.png
 C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\spy2.xml
+C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Audios\bgmusic.mp3
+C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Audios\fail.mp3
+C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Audios\sneak.mp3
+C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Audios\success.mp3

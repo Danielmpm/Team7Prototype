@@ -10,6 +10,8 @@
         UpKey: Phaser.Key;
         DownKey: Phaser.Key;
 
+        sneakAudio: Phaser.Sound;
+
         PosX: number;
         PosY: number;
 
@@ -90,10 +92,10 @@
             this.animationState1 = -1;
 
             this.playingSpawnAnim = true;
-          //  this.player.animations.add()
-          //  jellyfish.animations.add('swim', Phaser.Animation.generateFrameNames('blueJellyfish', 0, 32, '', 4), 30, true);
-         
-          //  game.physics.p2.setPostBroadphaseCallback(this.CheckHitFlash, this);
+          
+            this.sneakAudio = this.game.add.audio("sneak");
+            this.sneakAudio.allowMultiple = true;
+            this.sneakAudio.loop = false;
         }
 
         killPlayer() {
@@ -115,30 +117,38 @@
             if ("Player2" == this.name) {
 
                 if (this.LeftKey.isUp && this.animationState1 == 0) {
+                    this.sneakAudio.stop();
                     this.player.animations.play("leftidle", 6, true);
                 }
                 if (this.RightKey.isUp && this.animationState1 == 1) {
+                    this.sneakAudio.stop();
                     this.player.animations.play("rightidle", 6, true);
                 }
                 if (this.UpKey.isUp && this.animationState1 == 2) {
+                    this.sneakAudio.stop();
                     this.player.animations.play("upidle", 6, true);
                 }
                 if (this.DownKey.isUp && this.animationState1 == 3) {
+                    this.sneakAudio.stop();
                     this.player.animations.play("downidle", 6, true);
                 }
             }
             else {
 
-                   if (this.cursors.left.isUp && this.animationState1 == 0) {
+                if (this.cursors.left.isUp && this.animationState1 == 0) {
+                    this.sneakAudio.stop();
                     this.player.animations.play("leftidle", 6, true);
                 }
-                        if (this.cursors.right.isUp && this.animationState1 == 1) {
+                if (this.cursors.right.isUp && this.animationState1 == 1) {
+                    this.sneakAudio.stop();
                     this.player.animations.play("rightidle", 6, true);
                 }
-                        if (this.cursors.up.isUp && this.animationState1 == 2) {
+                if (this.cursors.up.isUp && this.animationState1 == 2) {
+                    this.sneakAudio.stop();
                     this.player.animations.play("upidle", 6, true);
                 }
-                        if (this.cursors.down.isUp && this.animationState1 == 3) {
+                if (this.cursors.down.isUp && this.animationState1 == 3) {
+                    this.sneakAudio.stop();
                     this.player.animations.play("downidle", 6, true);
                 }
             }
@@ -152,24 +162,32 @@
           
            if ("Player2" == this.name) {
                
-                if (this.LeftKey.isDown) {
+               if (this.LeftKey.isDown) {
+                   if (!this.sneakAudio.isPlaying)
+                       this.sneakAudio.play();
                     this.player.animations.play("left", 6, true);
                     this.player.body.moveLeft(200);
                     this.animationState1 = 0;
                 }
 
-                else if (this.RightKey.isDown) {
+               else if (this.RightKey.isDown) {
+                   if (!this.sneakAudio.isPlaying)
+                       this.sneakAudio.play();
                     this.player.animations.play("right", 6, true);
                     this.player.body.moveRight(200);
                     this.animationState1 = 1;
                 }
 
-                if (this.UpKey.isDown) {
+               if (this.UpKey.isDown) {
+                   if (!this.sneakAudio.isPlaying)
+                       this.sneakAudio.play();
                     this.player.animations.play("up", 6, true);
                     this.player.body.moveUp(200);
                     this.animationState1 = 2;
                 }
-                else if (this.DownKey.isDown) {
+               else if (this.DownKey.isDown) {
+                   if (!this.sneakAudio.isPlaying)
+                       this.sneakAudio.play();
                     this.player.animations.play("down", 6, true);
                     this.player.body.moveDown(200);
                     this.animationState1 = 3;
@@ -181,23 +199,31 @@
 
                 if (this.cursors.left.isDown)
                 {
+                    if (!this.sneakAudio.isPlaying)
+                        this.sneakAudio.play();
                     this.player.animations.play("left", 6, true);
                     this.player.body.moveLeft(200);
                     this.animationState1 = 0;
                 }
 
                 if (this.cursors.right.isDown) {
+                    if (!this.sneakAudio.isPlaying)
+                        this.sneakAudio.play();
                     this.player.animations.play("right", 6, true);
                     this.player.body.moveRight(200);
                     this.animationState1 = 1;
                 }
 
                 if (this.cursors.up.isDown) {
+                    if (!this.sneakAudio.isPlaying)
+                        this.sneakAudio.play();
                     this.player.animations.play("up", 6, true);
                     this.player.body.moveUp(200);
                     this.animationState1 = 2;
                 }
                 if (this.cursors.down.isDown) {
+                    if (!this.sneakAudio.isPlaying)
+                        this.sneakAudio.play();
                     this.player.animations.play("down", 6, true);
                     this.player.body.moveDown(200);
                     this.animationState1 = 3;

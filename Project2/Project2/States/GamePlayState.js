@@ -20,7 +20,10 @@ var GameFromScratch;
             this.cops = [];
         }
         GamePlayState.prototype.preload = function () {
-            //  this.game.load.audio("backgroundMusic","Audios/test.mp3");
+            this.game.load.audio("backgroundMusic", "Audios/bgmusic.mp3");
+            this.game.load.audio("success", "Audios/success.mp3");
+            this.game.load.audio("fail", "Audios/fail.mp3");
+            this.game.load.audio("sneak", "Audios/sneak.mp3");
             this.game.load.atlasXML("cop", "Graphics/rp_pixel_cop_1.png", "Graphics/rp_pixel_cop_1.xml");
             this.game.load.atlasXML("spy1", "Graphics/spy1.png", "Graphics/spy1.xml");
             this.game.load.atlasXML("spy2", "Graphics/spy2.png", "Graphics/spy2.xml");
@@ -35,7 +38,13 @@ var GameFromScratch;
             this.playerCollisionGroup = this.game.physics.p2.createCollisionGroup();
             this.game.physics.p2.updateBoundsCollisionGroup();
             this.loadLevel();
-            //  this.game.load.image("h1", "Graphics/h1.jpg");
+            // add sound
+            this.backgroundMusic = this.game.add.audio("backgroundMusic");
+            this.backgroundMusic.allowMultiple = true;
+            this.backgroundMusic.loop = true;
+            // play music
+            this.backgroundMusic.fadeIn(2500);
+            this.backgroundMusic.play();
             //this.Player1 = new Player(this.game, this.pozX1, this.pozY1, "Player1");
             //this.Player2 = new Player(this.game, this.pozX2, this.pozY2, "Player2");
             //this.Player1.player.body.setCollisionGroup(this.playerCollisionGroup);

@@ -60,7 +60,12 @@
 
             this.currentContacts = 0;
 
-            this.cop.animations.add("walk");
+            //this.cop.animations.add("walk");
+            this.cop.animations.add("left", [0, 1]);
+            this.cop.animations.add("down", [2, 3,4, 5]);
+            this.cop.animations.add("right", [6,7]);
+            this.cop.animations.add("up", [8,9,10,11]);
+
 
 
         }
@@ -177,12 +182,12 @@
                     this.targetY = this.navPoints[this.currentNode].y;
                     this.currentState = 0;
                     this.updateLightRelativePosition();
-                    if (this.targetX > this.cop.body.x)
-                        this.cop.scale.x = 1;
-                    else {
-                        this.cop.scale.x = -1;
-                    }
-                        this.cop.animations.play("walk", 10, true);
+                    //if (this.targetX > this.cop.body.x)
+                    //    this.cop.scale.x = 1;
+                    //else {
+                    //    this.cop.scale.x = -1;
+                    //}
+                      
                     // this.pointLightToNextWaypoint();
                     break;
                 default:
@@ -247,6 +252,18 @@
                 this.cop.body.moveRight(xSpeed);
                 this.cop.body.moveDown(ySpeed);
 
+                if (xSpeed >= 0 && Math.abs(xSpeed) > Math.abs(ySpeed)) {
+                    this.cop.animations.play("right", 10, true);
+                }
+                else if (xSpeed < 0 && Math.abs(xSpeed) > Math.abs(ySpeed)) {
+                    this.cop.animations.play("left", 10, true);
+                }
+                else if (ySpeed >= 0 ) {
+                    this.cop.animations.play("up", 10, true);
+                }
+                else {
+                    this.cop.animations.play("down", 10, true);
+                }
             }
         }
 

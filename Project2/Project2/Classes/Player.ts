@@ -28,6 +28,8 @@
 
         animationState1: number;
 
+        playingSpawnAnim: boolean;
+
         constructor(game: Phaser.Game, posX: number, posY: number, name: string) {
 
           //  this.state = <GamePlayState>this.game.state.getCurrentState();
@@ -56,7 +58,7 @@
                this.player = game.add.sprite(this.PosX, this.PosY, "spy1", 0);
             if (this.name == "Player2")
                this.player = game.add.sprite(this.PosX, this.PosY, "spy2", 0);
-            game.physics.p2.enable(this.player, true);
+            game.physics.p2.enable(this.player);
             //this.player.scale.setTo(0.4, 0.2);
 
             this.player.width = 70;// this.state.gridX;
@@ -86,6 +88,8 @@
             this.player.animations.add("downidle", [54, 55]);
 
             this.animationState1 = -1;
+
+            this.playingSpawnAnim = true;
           //  this.player.animations.add()
           //  jellyfish.animations.add('swim', Phaser.Animation.generateFrameNames('blueJellyfish', 0, 32, '', 4), 30, true);
          
@@ -108,20 +112,40 @@
         
             this.checkKeyDown();
 
-            if (!this.LeftKey.isDown && this.animationState1 == 0) {
-                this.player.animations.play("leftidle", 6, true);
+            if ("Player2" == this.name) {
+
+                if (this.LeftKey.isUp && this.animationState1 == 0) {
+                    this.player.animations.play("leftidle", 6, true);
+                }
+                if (this.RightKey.isUp && this.animationState1 == 1) {
+                    this.player.animations.play("rightidle", 6, true);
+                }
+                if (this.UpKey.isUp && this.animationState1 == 2) {
+                    this.player.animations.play("upidle", 6, true);
+                }
+                if (this.DownKey.isUp && this.animationState1 == 3) {
+                    this.player.animations.play("downidle", 6, true);
+                }
             }
-            if (!this.RightKey.isDown && this.animationState1 == 1) {
-                this.player.animations.play("rightidle", 6, true);
-            }
-            if (!this.UpKey.isDown && this.animationState1 == 2) {
-                this.player.animations.play("upidle", 6, true);
-            }
-            if (this.DownKey.isDown && this.animationState1 == 3  ) {
-                this.player.animations.play("downidle", 6, true);
+            else {
+
+                   if (this.cursors.left.isUp && this.animationState1 == 0) {
+                    this.player.animations.play("leftidle", 6, true);
+                }
+                        if (this.cursors.right.isUp && this.animationState1 == 1) {
+                    this.player.animations.play("rightidle", 6, true);
+                }
+                        if (this.cursors.up.isUp && this.animationState1 == 2) {
+                    this.player.animations.play("upidle", 6, true);
+                }
+                        if (this.cursors.down.isUp && this.animationState1 == 3) {
+                    this.player.animations.play("downidle", 6, true);
+                }
             }
             
         }
+
+
 
         checkKeyDown() {
             this.player.body.setZeroVelocity();
@@ -134,7 +158,7 @@
                     this.animationState1 = 0;
                 }
 
-                if (this.RightKey.isDown) {
+                else if (this.RightKey.isDown) {
                     this.player.animations.play("right", 6, true);
                     this.player.body.moveRight(200);
                     this.animationState1 = 1;
@@ -145,7 +169,7 @@
                     this.player.body.moveUp(200);
                     this.animationState1 = 2;
                 }
-                if (this.DownKey.isDown) {
+                else if (this.DownKey.isDown) {
                     this.player.animations.play("down", 6, true);
                     this.player.body.moveDown(200);
                     this.animationState1 = 3;
@@ -153,21 +177,31 @@
                
             }
 
-            if ("Player1" == this.name) {
+            if ( "Player1" == this.name) {
 
                 if (this.cursors.left.isDown)
+                {
+                    this.player.animations.play("left", 6, true);
                     this.player.body.moveLeft(200);
-                this.player.animations.play("walkleft", 6, true);
-                if (this.cursors.right.isDown)
-                    this.player.body.moveRight(200);
-                this.player.animations.play("walkright", 6, true);
-                if (this.cursors.up.isDown)
-                    this.player.body.moveUp(200);
-                this.player.animations.play("walkup", 6, true);
-                if (this.cursors.down.isDown)
-                    this.player.body.moveDown(200);
-                this.player.animations.play("walkdown", 6, true);
+                    this.animationState1 = 0;
+                }
 
+                if (this.cursors.right.isDown) {
+                    this.player.animations.play("right", 6, true);
+                    this.player.body.moveRight(200);
+                    this.animationState1 = 1;
+                }
+
+                if (this.cursors.up.isDown) {
+                    this.player.animations.play("up", 6, true);
+                    this.player.body.moveUp(200);
+                    this.animationState1 = 2;
+                }
+                if (this.cursors.down.isDown) {
+                    this.player.animations.play("down", 6, true);
+                    this.player.body.moveDown(200);
+                    this.animationState1 = 3;
+                }
             }
 
         }

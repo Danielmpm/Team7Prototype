@@ -45,12 +45,12 @@
 
         preload() {
           //  this.game.load.audio("backgroundMusic","Audios/test.mp3");
-            this.game.load.atlasXML("cop", "Graphics/cop.png", "Graphics/cop.xml");
+            this.game.load.atlasXML("cop", "Graphics/rp_pixel_cop_1.png", "Graphics/rp_pixel_cop_1.xml");
             this.game.load.atlasXML("spy1", "Graphics/spy1.png", "Graphics/spy1.xml");
             this.game.load.atlasXML("spy2", "Graphics/spy2.png", "Graphics/spy2.xml");
         
 
-            this.game.load.xml("levelSource", "Levels/Warehouse1.xml");
+            this.game.load.xml("levelSource", "Levels/Warehouse_2F.xml");
           //  this.game.load.image("crate", "Graphics/CrateTest.png");
         }
 
@@ -93,6 +93,7 @@
                 this.cops[i].update();
             }
 
+            if (this.briefcase != null)
             this.briefcase.update();
   
         }
@@ -178,7 +179,7 @@
                         body.setCollisionGroup(this.wallCollisionGroup);
                         body.collides([this.playerCollisionGroup, this.copsCollisionGroup]);
                         body.static = true;
-                        //body.debug = true;
+                      //  body.debug = true;
 
                         this.game.physics.p2.enableBody(body, true);
 

@@ -11,7 +11,7 @@ var Game;
             this.game.load.image("background", "Graphics/rp_005_background.png");
             this.game.load.image("backgroundBorder", "Graphics/rp_border.png");
             this.game.load.image("h1", "Graphics/h1.jpg");
-            this.game.load.image("cop", "Graphics/cop.jpg");
+            //this.game.load.image("cop", "Graphics/cop.jpg");
             this.game.load.image("briefcase", "Graphics/briefcase.png");
             this.game.load.image("flashlight", "Graphics/rp_005_flashlight2.png");
             this.game.load.image("titleImage", "Graphics/UI/TitleImage.png");

@@ -51,6 +51,7 @@
             this.currentOwner = this.player1;
             this.currentOwner.pickUpBriefcase(this);
             this.briefcase.body.motionState = Phaser.Physics.P2.Body.KINEMATIC;
+            this.game.state.start("StartMenu");
 
         }
         pickedUpByPlayer2() {
@@ -58,7 +59,7 @@
             this.currentOwner = this.player2;
             this.currentOwner.pickUpBriefcase(this);
             this.briefcase.body.motionState = Phaser.Physics.P2.Body.KINEMATIC;
-
+            this.game.state.start("StartMenu");
         }
 
         drop()

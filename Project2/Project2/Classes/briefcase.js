@@ -27,12 +27,14 @@ var GameFromScratch;
             this.currentOwner = this.player1;
             this.currentOwner.pickUpBriefcase(this);
             this.briefcase.body.motionState = Phaser.Physics.P2.Body.KINEMATIC;
+            this.game.state.start("StartMenu");
         };
         Briefcase.prototype.pickedUpByPlayer2 = function () {
             this.isPickup = true;
             this.currentOwner = this.player2;
             this.currentOwner.pickUpBriefcase(this);
             this.briefcase.body.motionState = Phaser.Physics.P2.Body.KINEMATIC;
+            this.game.state.start("StartMenu");
         };
         Briefcase.prototype.drop = function () {
             if (this.currentOwner != null) {

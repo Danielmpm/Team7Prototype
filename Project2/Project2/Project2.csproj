@@ -65,6 +65,10 @@
     <Content Include="Graphics\rp_005_border_2.png" />
     <Content Include="Graphics\rp_005_flashlight2.png" />
     <Content Include="Graphics\rp_border.png" />
+    <Content Include="Graphics\rp_pixel_cop_1.png" />
+    <Content Include="Graphics\rp_pixel_cop_1.xml" />
+    <Content Include="Graphics\rp_pixel_cop_2.png" />
+    <Content Include="Graphics\rp_pixel_cop_2.xml" />
     <Content Include="Graphics\spy1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -94,7 +98,11 @@
     <Content Include="Levels\levelTest2.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Levels\Warehouse1.xml" />
+    <Content Include="Levels\Warehouse1.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Levels\Warehouse_2E.xml" />
+    <Content Include="Levels\Warehouse_2F.xml" />
     <Content Include="phaser.js" />
     <Content Include="phaser.min.js" />
     <Content Include="web.config" />

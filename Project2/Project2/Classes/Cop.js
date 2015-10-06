@@ -16,10 +16,9 @@ var GameFromScratch;
             this.light = game.add.sprite(0, 0, "flashlight");
             this.light.width = this.state.gridX * 2;
             this.light.height = this.state.gridY;
-            this.light.pivot.x = this.state.gridX * -1.5;
+            this.light.pivot.x = this.state.gridX * -1.7;
             this.currentContacts = 0;
             this.cop.animations.add("walk");
-            this.cop.animations.play("walk", 3, true);
         }
         Cop.prototype.updatePlayerInfo = function (player1, player2) {
             this.player1 = player1;
@@ -40,32 +39,23 @@ var GameFromScratch;
             //  this.light.body.onBeginContact.add(this.onContactWallBegin, this);
             //  this.light.body.onEndContact.add(this.onContactWallEnd, this);
             this.light.body.fixedRotation = true;
-            this.copSensor = this.game.physics.p2.createBody(this.cop.x + this.lightX, this.cop.y + this.lightY, 1, true);
-            this.copSensor.addRectangle(this.state.gridX * 0.5, this.state.gridX * 0.5, 0, 0, 0);
-            this.copSensor.setCollisionGroup(this.state.wallCollisionGroup);
-            this.copSensor.collides([this.state.playerCollisionGroup]); //, this.state.copsCollisionGroup]);
-            this.copSensor.onBeginContact.add(this.onContactWallBegin, this);
-            this.copSensor.onEndContact.add(this.onContactWallEnd, this);
-            this.copSensor.debug = true;
-            this.copSensor.static = false;
-            this.game.physics.p2.enableBody(this.copSensor, true);
             this.updateAI();
         };
         Cop.prototype.onCollisionPlayer1 = function (body1, body2) {
             console.log("Hit Player 1");
-            this.player1.respawn();
+            this.player1.killPlayer();
         };
         Cop.prototype.onCollisionPlayer2 = function (body1, body2) {
             console.log("Hit Player 2");
-            this.player2.respawn();
+            this.player2.killPlayer();
         };
         Cop.prototype.spottedPlayer1 = function (body1, body2) {
             console.log("Spotted 1");
-            this.player1.respawn();
+            this.player1.killPlayer();
         };
         Cop.prototype.spottedPlayer2 = function (body1, body2) {
             console.log("Spotted 2");
-            this.player2.respawn();
+            this.player2.killPlayer();
         };
         Cop.prototype.onContactWallBegin = function (body1, body2) {
             this.currentContacts++;
@@ -76,6 +66,13 @@ var GameFromScratch;
         Cop.prototype.update = function () {
             this.light.body.x = this.cop.x + this.lightX;
             this.light.body.y = this.cop.y + this.lightY;
+            var delta = (this.game.time.elapsed / 500);
+            if (delta > 1)
+                delta = 1;
+            this.light.rotation += (this.lightRotation - this.light.rotation) * delta;
+            if (this.light.body != null) {
+                this.light.body.rotation = this.light.rotation; //Math.atan2(y, x);
+            }
             switch (this.currentState) {
                 case 0:
                     this.movingStateUpdate();
@@ -94,9 +91,11 @@ var GameFromScratch;
                     this.currentState = 1;
                     //this.updateLightRelativePosition();
                     this.pointLightToNextWaypoint();
+                    //this.cop.animations.play("walk", 3, true);
                     if (this.currentContacts != 0) {
                         this.pointLightToNextWaypoint();
                     }
+                    this.cop.animations.stop();
                     break;
                 case 1:
                     this.currentNode = (this.currentNode + 1) % this.navPoints.length;
@@ -104,6 +103,12 @@ var GameFromScratch;
                     this.targetY = this.navPoints[this.currentNode].y;
                     this.currentState = 0;
                     this.updateLightRelativePosition();
+                    if (this.targetX > this.cop.body.x)
+                        this.cop.scale.x = 1;
+                    else {
+                        this.cop.scale.x = -1;
+                    }
+                    this.cop.animations.play("walk", 10, true);
                     // this.pointLightToNextWaypoint();
                     break;
                 default:
@@ -114,10 +119,7 @@ var GameFromScratch;
             var x = (this.targetX - this.cop.x);
             var y = (this.targetY - this.cop.y);
             var sqrLength = Math.sqrt(x * x + y * y);
-            this.light.rotation = Math.atan2(y, x);
-            if (this.light.body != null) {
-                this.light.body.rotation = this.light.rotation; //Math.atan2(y, x);
-            }
+            this.lightRotation = Math.atan2(y, x);
             this.lightX = (x / sqrLength); // * this.state.gridX /2;
             this.lightY = (y / sqrLength); // * this.state.gridY /2;
         };
@@ -128,10 +130,7 @@ var GameFromScratch;
             var x = (targetX - this.cop.x);
             var y = (targetY - this.cop.y);
             var sqrLength = Math.sqrt(x * x + y * y);
-            this.light.rotation = Math.atan2(y, x);
-            if (this.light.body != null) {
-                this.light.body.rotation = this.light.rotation;
-            }
+            this.lightRotation = Math.atan2(y, x);
             this.lightX = (x / sqrLength);
             this.lightY = (y / sqrLength);
         };

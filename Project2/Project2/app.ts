@@ -14,16 +14,16 @@
         preload() {
             Project2.obstaclesIds = ["boxs_1", "boxs_2", "connex_blu1", "connex_blu2", "connex_red1", "connex_red2", "connex_yel1", "connex_yel2"];
 
-            this.game.load.image("background", "Graphics/background_temp.jpg");
+            this.game.load.image("background", "Graphics/rp_005_background.png");
+            this.game.load.image("backgroundBorder", "Graphics/rp_border.png");
             this.game.load.image("h1", "Graphics/h1.jpg");
             this.game.load.image("cop", "Graphics/cop.jpg");
             this.game.load.image("briefcase", "Graphics/briefcase.png");
-            this.game.load.image("flashlight", "Graphics/flashLight_test.png");
+            this.game.load.image("flashlight", "Graphics/rp_005_flashlight2.png");
             this.game.load.image("titleImage", "Graphics/UI/TitleImage.png");
          
             this.game.load.image("titleScreen", "Graphics/UI/TitleBG.png");
 
-            this.game.load.xml("levelSource", "Levels/Warehouse1.xml");
             this.game.load.image(Project2.obstaclesIds[0], "Graphics/Objects/rp_005_boxs_1.png");
             this.game.load.image(Project2.obstaclesIds[1], "Graphics/Objects/rp_005_boxs_2.png");
             this.game.load.image(Project2.obstaclesIds[2], "Graphics/Objects/rp_005_connex_blu1.png");

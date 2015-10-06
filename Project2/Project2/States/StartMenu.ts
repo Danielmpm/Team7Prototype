@@ -24,7 +24,6 @@
         {
             if (this.game.input.activePointer.isDown) {
                 this.startGame( );
-                  console.log("TEST");
             }
         }
         

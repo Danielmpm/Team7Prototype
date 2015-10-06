@@ -20,6 +20,8 @@
         StartPosX: number;
         StartPosY: number;
 
+        briefcase: Briefcase;
+
         state: GamePlayState;
 
         public static Max_speed: number = 20;
@@ -60,6 +62,11 @@
             this.player.body.fixedRotation = true;
 
           //  game.physics.p2.setPostBroadphaseCallback(this.CheckHitFlash, this);
+        }
+
+        killPlayer() {
+            this.dropBriefcase();
+            this.respawn();
         }
 
         respawn()
@@ -105,9 +112,18 @@
 
         }
 
-     
+        pickUpBriefcase(briefcase: Briefcase)
+        {
+            this.briefcase = briefcase;
+          
+        }
 
-
+        dropBriefcase() {
+            if (this.briefcase != null) {
+                this.briefcase.drop();
+                this.briefcase = null;
+            }
+        }
     }
 
 

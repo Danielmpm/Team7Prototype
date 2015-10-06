@@ -27,6 +27,10 @@ var GameFromScratch;
             this.player.body.fixedRotation = true;
             //  game.physics.p2.setPostBroadphaseCallback(this.CheckHitFlash, this);
         }
+        Player.prototype.killPlayer = function () {
+            this.dropBriefcase();
+            this.respawn();
+        };
         Player.prototype.respawn = function () {
             this.player.body.x = this.StartPosX;
             this.player.body.y = this.StartPosY;
@@ -55,6 +59,15 @@ var GameFromScratch;
                     this.player.body.moveUp(200);
                 if (this.cursors.down.isDown)
                     this.player.body.moveDown(200);
+            }
+        };
+        Player.prototype.pickUpBriefcase = function (briefcase) {
+            this.briefcase = briefcase;
+        };
+        Player.prototype.dropBriefcase = function () {
+            if (this.briefcase != null) {
+                this.briefcase.drop();
+                this.briefcase = null;
             }
         };
         Player.Max_speed = 20;

@@ -21,7 +21,6 @@ var GameFromScratch;
             //this.scale.pageAlignVertically = true;
             //this.game.stage.forcePortrait = true;
             //this.game.scale.setScreenSize(true);
-            console.log("Opened Boot");
             this.game.state.start("Preloader");
         };
         Boot.prototype.update = function () {

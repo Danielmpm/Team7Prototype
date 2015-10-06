@@ -24,8 +24,6 @@
             //this.game.stage.forcePortrait = true;
             //this.game.scale.setScreenSize(true);
 
-            console.log("Opened Boot");
-
             this.game.state.start("Preloader");
         }
 

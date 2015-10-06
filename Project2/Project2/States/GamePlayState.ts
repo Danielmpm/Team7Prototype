@@ -6,14 +6,14 @@
 
         Player1: GameFromScratch.Player;
         Player2: GameFromScratch.Player;
-        pozX1: number;
-        pozY1: number;
-        pozX2: number;
-        pozY2: number;
+        //pozX1: number;
+        //pozY1: number;
+        //pozX2: number;
+        //pozY2: number;
 
         briefcase: GameFromScratch.Briefcase;
-        briefcasePozX: number;
-        briefcasePozY: number;
+        //briefcasePozX: number;
+        //briefcasePozY: number;
 
         cops: GameFromScratch.Cop[];
 
@@ -27,14 +27,14 @@
         constructor() {
             super();
 
-            this.pozX1 = 1000;     // starting place.
-            this.pozY1 = 400;
+            //this.pozX1 = 1000;     // starting place.
+            //this.pozY1 = 400;
 
-            this.briefcasePozX = 1800;
-            this.briefcasePozY = 490;
+            //this.briefcasePozX = 1800;
+            //this.briefcasePozY = 490;
 
-            this.pozX2 = 1200;
-            this.pozY2 = 500;
+            //this.pozX2 = 1200;
+            //this.pozY2 = 500;
 
             this.gridX = 70;
             this.gridY = 70;
@@ -45,8 +45,10 @@
 
         preload() {
           //  this.game.load.audio("backgroundMusic","Audios/test.mp3");
-            this.game.load.atlasXML("cop", "Graphics/cop.png","Graphics/cop.xml");
-            this.game.load.image("crate", "Graphics/CrateTest.png");
+            this.game.load.atlasXML("cop", "Graphics/cop.png", "Graphics/cop.xml");
+
+            this.game.load.xml("levelSource", "Levels/Warehouse1.xml");
+          //  this.game.load.image("crate", "Graphics/CrateTest.png");
         }
 
         create()
@@ -62,14 +64,14 @@
           
             //  this.game.load.image("h1", "Graphics/h1.jpg");
                     
-            this.Player1 = new Player(this.game, this.pozX1, this.pozY1, "Player1");
-            this.Player2 = new Player(this.game, this.pozX2, this.pozY2, "Player2");
+            //this.Player1 = new Player(this.game, this.pozX1, this.pozY1, "Player1");
+            //this.Player2 = new Player(this.game, this.pozX2, this.pozY2, "Player2");
 
-            this.Player1.player.body.setCollisionGroup(this.playerCollisionGroup);
-            this.Player2.player.body.setCollisionGroup(this.playerCollisionGroup);
+            //this.Player1.player.body.setCollisionGroup(this.playerCollisionGroup);
+            //this.Player2.player.body.setCollisionGroup(this.playerCollisionGroup);
             
-            this.Player1.player.body.collides([this.wallCollisionGroup, this.copsCollisionGroup, this.playerCollisionGroup]);
-            this.Player2.player.body.collides([this.wallCollisionGroup, this.copsCollisionGroup, this.playerCollisionGroup]);
+            //this.Player1.player.body.collides([this.wallCollisionGroup, this.copsCollisionGroup, this.playerCollisionGroup]);
+            //this.Player2.player.body.collides([this.wallCollisionGroup, this.copsCollisionGroup, this.playerCollisionGroup]);
 
             for (var i = 0; i < this.cops.length; i++) {
                 this.cops[i].updatePlayerInfo(this.Player1,this.Player2);
@@ -87,12 +89,15 @@
             {
                 this.cops[i].update();
             }
+
+            this.briefcase.update();
   
         }
 
         loadLevel ()
         {
             this.backgroundImg = this.add.sprite(0, 0, "background");
+            this.backgroundImg = this.add.sprite(0, 0, "backgroundBorder");
             this.backgroundImg.scale.setTo(
                 this.game.width / this.backgroundImg.width,
                 this.game.height / this.backgroundImg.height);
@@ -108,7 +113,9 @@
 
             this.loadColliders(levelInfo, scaleX, scaleY);
 
-            this.loadPlayerSpawn(levelInfo, scaleX, scaleY);
+            this.loadPlayers(levelInfo, scaleX, scaleY);
+
+            this.loadBriefcase(levelInfo, scaleX, scaleY);
 
         }
 
@@ -122,13 +129,24 @@
                 if (obstacles[i].nodeName != "#text")
                 {
 
-                    var xValue = parseInt(obstacles[i].attributes.getNamedItem("x").nodeValue) * scaleX;
-                    var yValue = parseInt(obstacles[i].attributes.getNamedItem("y").nodeValue) * scaleY;
-                    var width = parseInt(obstacles[i].attributes.getNamedItem("width").nodeValue) * scaleX;
-                    var height = parseInt(obstacles[i].attributes.getNamedItem("height").nodeValue) * scaleY;
+                    var xValue = parseFloat(obstacles[i].attributes.getNamedItem("x").nodeValue) * scaleX;
+                    var yValue = parseFloat(obstacles[i].attributes.getNamedItem("y").nodeValue) * scaleY;
+                    var width = parseFloat(obstacles[i].attributes.getNamedItem("width").nodeValue) * scaleX;
+                    var height = parseFloat(obstacles[i].attributes.getNamedItem("height").nodeValue) * scaleY ;
+                   // var rotationNode = obstacles[i].attributes.getNamedItem("rotation").nodeValue;
+                    var rotation = 0;
+                    if (obstacles[i].attributes.getNamedItem("rotation"))
+                        rotation = parseFloat(obstacles[i].attributes.getNamedItem("rotation").nodeValue);
 
-                    var newSprite = this.game.add.sprite(xValue, yValue - height, Game.Project2.obstaclesIds[parseInt(obstacles[i].attributes.getNamedItem("gid").nodeValue) - 1]);
-                    newSprite.scale.setTo(scaleX, scaleY);
+
+                        var newSprite = this.game.add.sprite(xValue, yValue, Game.Project2.obstaclesIds[parseInt(obstacles[i].attributes.getNamedItem("gid").nodeValue) - 1]);
+                        // newSprite.scale.setTo(scaleX, scaleY);
+                        newSprite.width = width;
+                        newSprite.height = height;
+                        newSprite.pivot.x = 0;
+                        newSprite.pivot.y = height / scaleY;
+                        newSprite.rotation = Phaser.Math.degToRad(rotation);
+                    
                 }
             }
         }
@@ -142,17 +160,22 @@
                 for (var i = 0; i < cols.length; i++) {
 
                     if (cols[i].nodeName != "#text") {
-                        var xValue = parseInt(cols[i].attributes.getNamedItem("x").nodeValue) * scaleX;
-                        var yValue = parseInt(cols[i].attributes.getNamedItem("y").nodeValue) * scaleY;
-                        var width = parseInt(cols[i].attributes.getNamedItem("width").nodeValue) * scaleX;
-                        var height = parseInt(cols[i].attributes.getNamedItem("height").nodeValue) * scaleY;
-
-                        var body = this.game.physics.p2.createBody(xValue + width / 2, yValue + height / 2, 1, true);
-                        body.addRectangle(width, height, 0, 0, 0);
+                        var xValue = parseFloat(cols[i].attributes.getNamedItem("x").nodeValue) * scaleX;
+                        var yValue = parseFloat(cols[i].attributes.getNamedItem("y").nodeValue) * scaleY;
+                        var width = parseFloat(cols[i].attributes.getNamedItem("width").nodeValue) * scaleX;
+                        var height = parseFloat(cols[i].attributes.getNamedItem("height").nodeValue) * scaleY;
+                        var rotation = 0;
+                        if (cols[i].attributes.getNamedItem("rotation")) {
+                            rotation = parseFloat(cols[i].attributes.getNamedItem("rotation").nodeValue);
+                            //console.log("rotation: " + rotation);
+                        }
+                        var body = this.game.physics.p2.createBody(xValue, yValue , 1, true);
+                        body.addRectangle(width, height, width / 2, height / 2, 0);
+                        body.rotation = Phaser.Math.degToRad(rotation);
                         body.setCollisionGroup(this.wallCollisionGroup);
                         body.collides([this.playerCollisionGroup, this.copsCollisionGroup]);
                         body.static = true;
-                      //  body.debug = true;
+                        //body.debug = true;
 
                         this.game.physics.p2.enableBody(body, true);
 
@@ -168,7 +191,7 @@
                 var guardPaths = guardNodes[0].childNodes;
 
                 this.cops = [];
-                for (var i = 0; i < guardPaths.length; i++) {
+                for (var i = 0; i < guardPaths.length ; i++) {
 
                     if (guardPaths[i].nodeName != "#text") {
                         var xValue = parseInt(guardPaths[i].attributes.getNamedItem("x").nodeValue) * scaleX;
@@ -192,7 +215,7 @@
             }
         }
 
-        loadPlayerSpawn(levelInfo: XMLDocument, scaleX: number, scaleY: number)
+        loadPlayers(levelInfo: XMLDocument, scaleX: number, scaleY: number)
         {
 
             var spawnNodes = levelInfo.getElementsByName("PlayerSpawn");
@@ -208,14 +231,57 @@
 
                         if (currentPlayer == 0)
                         {
-                            this.pozX1 = xValue;
-                            this.pozY1 = yValue;
+
+                            this.Player1 = new Player(this.game, xValue, yValue, "Player1");
+                            this.Player1.player.body.setCollisionGroup(this.playerCollisionGroup);
+                            this.Player1.player.body.collides([this.wallCollisionGroup, this.copsCollisionGroup, this.playerCollisionGroup]);
+
                             currentPlayer++;
                         }
                         else {
-                            this.pozX2 = xValue;
-                            this.pozY2 = yValue;
+                            this.Player2 = new Player(this.game, xValue, yValue, "Player2");
+                            this.Player2.player.body.setCollisionGroup(this.playerCollisionGroup);
+                            this.Player2.player.body.collides([this.wallCollisionGroup, this.copsCollisionGroup, this.playerCollisionGroup]);
+                         
                         }
+                    }
+                }
+            }
+        }
+
+        loadBriefcase(levelInfo: XMLDocument, scaleX: number, scaleY: number) {
+            var spawnNodes = levelInfo.getElementsByName("Briefcase");
+            if (spawnNodes.length != 0) {
+
+                var nodes = spawnNodes[0].childNodes;
+
+                for (var i = 0; i < nodes.length; i++) {
+
+                    if (nodes[i].nodeName != "#text") {
+                        var xValue = parseInt(nodes[i].attributes.getNamedItem("x").nodeValue) * scaleX;
+                        var yValue = parseInt(nodes[i].attributes.getNamedItem("y").nodeValue) * scaleY;
+
+                        this.briefcase = new Briefcase(this.game, xValue, yValue, this.Player1, this.Player2);
+
+                    }
+                }
+            }
+        }
+
+        loadExit(levelInfo: XMLDocument, scaleX: number, scaleY: number) {
+            var spawnNodes = levelInfo.getElementsByName("Exit");
+            if (spawnNodes.length != 0) {
+
+                var nodes = spawnNodes[0].childNodes;
+
+                for (var i = 0; i < nodes.length; i++) {
+
+                    if (nodes[i].nodeName != "#text") {
+                        var xValue = parseInt(nodes[i].attributes.getNamedItem("x").nodeValue) * scaleX;
+                        var yValue = parseInt(nodes[i].attributes.getNamedItem("y").nodeValue) * scaleY;
+
+                        this.briefcase = new Briefcase(this.game, xValue, yValue, this.Player1, this.Player2);
+
                     }
                 }
             }

@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="26" height="14" tilewidth="96" tileheight="96" nextobjectid="427">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="26" height="14" tilewidth="96" tileheight="96" nextobjectid="419">
  <tileset firstgid="1" name="Crates" tilewidth="247" tileheight="248" tilecount="8">
   <tile id="0">
-   <image width="96" height="96" source="Images/rp_005_boxs_1.png"/>
+   <image width="96" height="96" source="../Downloads/Images/rp_005_boxs_1.png"/>
   </tile>
   <tile id="1">
-   <image width="96" height="96" source="Images/rp_005_boxs_2.png"/>
+   <image width="96" height="96" source="../Downloads/Images/rp_005_boxs_2.png"/>
   </tile>
   <tile id="2">
-   <image width="247" height="100" source="Images/rp_005_connex_blu1.png"/>
+   <image width="247" height="100" source="../Downloads/Images/rp_005_connex_blu1.png"/>
   </tile>
   <tile id="3">
-   <image width="101" height="248" source="Images/rp_005_connex_blu2.png"/>
+   <image width="101" height="248" source="../Downloads/Images/rp_005_connex_blu2.png"/>
   </tile>
   <tile id="4">
-   <image width="247" height="100" source="Images/rp_005_connex_red1.png"/>
+   <image width="247" height="100" source="../Downloads/Images/rp_005_connex_red1.png"/>
   </tile>
   <tile id="5">
-   <image width="101" height="248" source="Images/rp_005_connex_red2.png"/>
+   <image width="101" height="248" source="../Downloads/Images/rp_005_connex_red2.png"/>
   </tile>
   <tile id="6">
-   <image width="247" height="100" source="Images/rp_005_connex_yel1.png"/>
+   <image width="247" height="100" source="../Downloads/Images/rp_005_connex_yel1.png"/>
   </tile>
   <tile id="7">
-   <image width="101" height="248" source="Images/rp_005_connex_yel2.png"/>
+   <image width="101" height="248" source="../Downloads/Images/rp_005_connex_yel2.png"/>
   </tile>
  </tileset>
  <objectgroup name="Obstacles">
@@ -45,6 +45,7 @@
   <object id="205" gid="7" x="2304" y="0" width="247" height="100"/>
   <object id="206" gid="3" x="0" y="0" width="247" height="100"/>
   <object id="207" gid="7" x="576" y="0" width="247" height="100"/>
+  <object id="208" gid="5" x="1053" y="1440" width="247" height="100"/>
   <object id="240" gid="6" x="96" y="192" width="101" height="248"/>
   <object id="243" gid="6" x="96" y="1400.61" width="101" height="248"/>
   <object id="244" gid="2" x="96" y="960" width="96" height="96"/>
@@ -91,7 +92,7 @@
   <object id="289" gid="2" x="1440" y="576" width="96" height="96"/>
   <object id="290" gid="2" x="1536" y="576" width="96" height="96"/>
   <object id="291" gid="2" x="1536" y="672" width="96" height="96"/>
-  <object id="292" gid="2" x="1518.84" y="739.021" width="96" height="96" rotation="28.7279"/>
+  <object id="292" gid="2" x="1536" y="768" width="96" height="96"/>
   <object id="293" gid="4" x="1440" y="1152" width="101" height="248"/>
   <object id="294" gid="8" x="1536" y="1152" width="101" height="248"/>
   <object id="295" gid="1" x="1824" y="1344" width="96" height="96"/>
@@ -105,7 +106,9 @@
   <object id="303" gid="3" x="2208" y="96" width="247" height="100"/>
   <object id="304" gid="5" x="2247.39" y="192" width="247" height="100"/>
   <object id="305" gid="1" x="1728" y="192" width="96" height="96"/>
+  <object id="306" gid="1" x="1824" y="384" width="96" height="96"/>
   <object id="307" gid="1" x="1961.09" y="190.424" width="96" height="96"/>
+  <object id="308" gid="1" x="1728" y="480" width="96" height="96"/>
   <object id="311" gid="1" x="2097.45" y="366.182" width="96" height="96"/>
   <object id="312" gid="1" x="2304" y="384" width="96" height="96"/>
   <object id="313" gid="2" x="1920" y="960" width="96" height="96"/>
@@ -124,7 +127,6 @@
   <object id="395" gid="4" x="-96" y="192" width="101" height="248"/>
   <object id="394" gid="4" x="2496" y="528.485" width="101" height="248"/>
   <object id="397" gid="4" x="-96" y="768" width="101" height="248"/>
-  <object id="420" gid="6" x="1704.87" y="438.208" width="89.273" height="231.362" rotation="45"/>
  </objectgroup>
  <objectgroup name="Collisions">
   <object id="198" x="-104" y="1347" width="2844" height="82"/>
@@ -149,7 +151,7 @@
   <object id="358" x="1263.64" y="160.606" width="72.7318" height="212.121"/>
   <object id="359" x="1545.45" y="9.09091" width="81.8182" height="230.303"/>
   <object id="360" x="1448.48" y="490.909" width="166.667" height="166.667"/>
-  <object id="361" x="1573.93" y="666.458" width="75.7576" height="81.8182" rotation="31.5293"/>
+  <object id="361" x="1545.45" y="672.727" width="75.7576" height="81.8182"/>
   <object id="362" x="1069.7" y="584.848" width="218.182" height="75.7576"/>
   <object id="363" x="1060.61" y="769.697" width="230.303" height="90.9091"/>
   <object id="364" x="1063.64" y="963.636" width="230.303" height="84.8485"/>
@@ -160,6 +162,8 @@
   <object id="369" x="1448.48" y="912.121" width="172.727" height="230.303"/>
   <object id="370" x="1733.33" y="103.03" width="78.7879" height="75.7576"/>
   <object id="371" x="1966.67" y="103.03" width="81.8182" height="78.7879"/>
+  <object id="372" x="1833.33" y="296.97" width="72.7273" height="72.7273"/>
+  <object id="373" x="1739.39" y="387.879" width="72.7273" height="81.8182"/>
   <object id="374" x="2106.06" y="275.758" width="75.7576" height="81.8182"/>
   <object id="375" x="2309.09" y="293.939" width="75.7576" height="75.7576"/>
   <object id="376" x="2033.33" y="448.485" width="75.7576" height="75.7576"/>
@@ -178,7 +182,6 @@
   <object id="389" x="2263.64" y="93.9394" width="224.242" height="90.9091"/>
   <object id="402" x="115.152" y="403.03" width="148.485" height="151.515"/>
   <object id="403" x="121.212" y="796.97" width="136.364" height="133.333"/>
-  <object id="421" x="1717.81" y="437.806" width="213.075" height="70.9844" rotation="-45"/>
  </objectgroup>
  <objectgroup name="GuardPaths">
   <object id="322" x="518.182" y="1000">
@@ -223,19 +226,9 @@
   <object id="416" x="284.848" y="1242.42">
    <polyline points="0,0 3.0303,-145.455 -227.273,-236.364 -236.364,-524.242 45.4545,-518.182 51.5152,-87.8788"/>
   </object>
-  <object id="422" x="806" y="808">
-   <polyline points="0,0 -276,-2 -284,-282 8,-284"/>
-  </object>
-  <object id="423" x="524" y="526">
-   <polyline points="0,0 292,0 284,286 2,284"/>
-  </object>
  </objectgroup>
  <objectgroup name="PlayerSpawn">
   <object id="333" x="36.3636" y="42.4242" width="12.1212" height="9.09091"/>
   <object id="334" x="36.3636" y="1281.82" width="12.1212" height="18.1818"/>
  </objectgroup>
- <objectgroup name="Briefcase">
-  <object id="419" x="2363.64" y="666.667"/>
- </objectgroup>
- <objectgroup name="Exit"/>
 </map>

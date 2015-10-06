@@ -21,7 +21,6 @@ var GameFromScratch;
         StartMenu.prototype.update = function () {
             if (this.game.input.activePointer.isDown) {
                 this.startGame();
-                console.log("TEST");
             }
         };
         StartMenu.prototype.startGame = function () {

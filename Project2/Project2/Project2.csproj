@@ -45,6 +45,7 @@
     <Content Include="Graphics\CrateTest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Graphics\exclamation.png" />
     <Content Include="Graphics\flashLight_Test.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -64,6 +65,7 @@
     <Content Include="Graphics\Objects\rp_005_connex_yel2.png" />
     <Content Include="Graphics\rp_005_background.png" />
     <Content Include="Graphics\rp_005_border_2.png" />
+    <Content Include="Graphics\rp_005_briefcase_glow.png" />
     <Content Include="Graphics\rp_005_flashlight2.png" />
     <Content Include="Graphics\rp_border.png" />
     <Content Include="Graphics\rp_pixel_cop_1.png" />

@@ -35,7 +35,7 @@
 
         currentContacts: number;
 
-        constructor(game: Phaser.Game, nPoints: Phaser.Point[])
+        constructor(game: Phaser.Game, nPoints: Phaser.Point[], dark: boolean)
         {
             this.game = game;
             this.state = <GamePlayState> this.game.state.getCurrentState();
@@ -48,8 +48,10 @@
             this.currentState = 0;
 
             this.timeLeft = (Cop.MaxWaitTime - Cop.MinWaitTime) * Math.random() + Cop.MinWaitTime;
-
-            this.cop = game.add.sprite(this.navPoints[0].x, this.navPoints[0].y, "cop");
+            if (dark)
+                this.cop = game.add.sprite(this.navPoints[0].x, this.navPoints[0].y, "cop");
+            else
+                this.cop = game.add.sprite(this.navPoints[0].x, this.navPoints[0].y, "cop2");
             this.cop.width = this.state.gridX;
             this.cop.height = this.state.gridY;
 
@@ -77,7 +79,7 @@
 
             this.game.physics.p2.enable(this.cop);
 
-            this.cop.body.setCircle(this.state.gridX / 2);
+            this.cop.body.setCircle(this.state.gridX *0.45);
             this.cop.body.setCollisionGroup(this.state.copsCollisionGroup);
             this.cop.body.collides([this.state.wallCollisionGroup, this.state.playerCollisionGroup ]);
             this.cop.body.createBodyCallback(player1.player, this.onCollisionPlayer1, this);

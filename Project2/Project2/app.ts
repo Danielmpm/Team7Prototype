@@ -12,13 +12,14 @@
         }
 
         preload() {
-            Project2.obstaclesIds = ["boxs_1", "boxs_2", "connex_blu1", "connex_blu2", "connex_red1", "connex_red2", "connex_yel1", "connex_yel2"];
+            Project2.obstaclesIds = ["boxs_1", "boxs_2", "connex_blu1", "connex_blu2", "connex_red1", "connex_red2", "connex_yel1", "connex_yel2", "exit_1", "exit_2", "p1_start", "p2_start", "rp_guard_house"];
 
             this.game.load.image("background", "Graphics/rp_005_background.png");
             this.game.load.image("backgroundBorder", "Graphics/rp_border.png");
             this.game.load.image("h1", "Graphics/h1.jpg");
             //this.game.load.image("cop", "Graphics/cop.jpg");
             this.game.load.image("briefcase", "Graphics/briefcase.png");
+            this.game.load.image("briefcaseGlow", "Graphics/rp_005_briefcase_glow.png");
             this.game.load.image("flashlight", "Graphics/rp_005_flashlight2.png");
             this.game.load.image("titleImage", "Graphics/UI/TitleImage.png");
          
@@ -32,6 +33,11 @@
             this.game.load.image(Project2.obstaclesIds[5], "Graphics/Objects/rp_005_connex_red2.png");
             this.game.load.image(Project2.obstaclesIds[6], "Graphics/Objects/rp_005_connex_yel1.png");
             this.game.load.image(Project2.obstaclesIds[7], "Graphics/Objects/rp_005_connex_yel2.png");
+            this.game.load.image(Project2.obstaclesIds[8], "Graphics/Objects/exit_1.png");
+            this.game.load.image(Project2.obstaclesIds[9], "Graphics/Objects/exit_2.png");
+            this.game.load.image(Project2.obstaclesIds[10], "Graphics/Objects/p1_start.png");
+            this.game.load.image(Project2.obstaclesIds[11], "Graphics/Objects/p2_start.png");
+            this.game.load.image(Project2.obstaclesIds[12], "Graphics/Objects/rp_guard_house.png");
         }
         
 

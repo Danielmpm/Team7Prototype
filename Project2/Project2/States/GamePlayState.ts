@@ -17,6 +17,7 @@
 
         cops: GameFromScratch.Cop[];
         exits: Phaser.Physics.P2.Body[];
+        walls: Phaser.Physics.P2.Body[];
 
         wallCollisionGroup: Phaser.Physics.P2.CollisionGroup;
         copsCollisionGroup: Phaser.Physics.P2.CollisionGroup;
@@ -46,18 +47,19 @@
 
             this.cops = [];
             this.exits = [];
+            this.walls = [];
 
         }
 
         preload() {
             this.game.load.audio("backgroundMusic","Audios/Spy_Glass.mp3");
             this.game.load.atlasXML("cop", "Graphics/rp_pixel_cop_1.png", "Graphics/rp_pixel_cop_1.xml");
+            this.game.load.atlasXML("cop2", "Graphics/rp_pixel_cop_2.png", "Graphics/rp_pixel_cop_2.xml");
             this.game.load.atlasXML("spy1", "Graphics/spy1.png", "Graphics/spy1.xml");
             this.game.load.atlasXML("spy2", "Graphics/spy2.png", "Graphics/spy2.xml");
         
 
-            this.game.load.xml("levelSource", "Levels/Warehouse_2F.xml");
-          //  this.game.load.image("crate", "Graphics/CrateTest.png");
+            this.game.load.xml("levelSource", "Levels/jeff_lv_22.xml");
         }
 
         create()
@@ -73,6 +75,8 @@
            this.music = this.game.add.audio("backgroundMusic");
 
            this.music.play();
+           this.music.loop = true;
+
             
            this.loadLevel();
 
@@ -98,6 +102,32 @@
   
         }
 
+
+        raycastWall(startX: number, startY: number, endX: number, endY: number): boolean {
+            var ray = new Phaser.Line(startX, startY, endX, endY);
+
+            //// Test if any walls intersect the ray
+   
+
+            //var distanceToWall = Number.POSITIVE_INFINITY;
+            //var closestIntersection = null;
+            //Phaser.Rectangle.intersects
+            //for (var i = 0; i < this.walls.length; i++) {
+            //    var wall = this.walls[i];
+            //    console.log("Wall: " + wall);
+            //    var lines = [
+            //        new Phaser.Line(wall.x, wall.y, wall.x + wall.width, wall.y),
+            //        new Phaser.Line(wall.x, wall.y, wall.x, wall.y + wall.height),
+            //        new Phaser.Line(wall.x + wall.width, wall.y,
+            //            wall.x + wall.width, wall.y + wall.height),
+            //        new Phaser.Line(wall.x, wall.y + wall.height,
+            //            wall.x + wall.width, wall.y + wall.height)
+            //    ];
+            //}
+        
+           return false;
+        }
+
         loadLevel ()
         {
             this.backgroundImg = this.add.sprite(0, 0, "background");
@@ -113,15 +143,17 @@
 
             this.loadGuards(levelInfo, scaleX, scaleY);
 
+            this.loadPlayers(levelInfo, scaleX, scaleY);
+
             this.loadLevelObjects(levelInfo, scaleX, scaleY);
 
             this.loadColliders(levelInfo, scaleX, scaleY);
 
-            this.loadPlayers(levelInfo, scaleX, scaleY);
-
             this.loadExit(levelInfo, scaleX, scaleY);
 
             this.loadBriefcase(levelInfo, scaleX, scaleY);
+
+         //   this.raycastWall(0, 0, 100, 100);
 
         }
 
@@ -181,10 +213,10 @@
                         body.setCollisionGroup(this.wallCollisionGroup);
                         body.collides([this.playerCollisionGroup, this.copsCollisionGroup]);
                         body.static = true;
-                      //  body.debug = true;
+                    //    body.debug = true;
 
                         this.game.physics.p2.enableBody(body, true);
-
+                        this.walls.push(body);
                     }
                 }
             }
@@ -213,8 +245,7 @@
 
                         }
 
-
-                        this.cops.push(new Cop(this.game, path));
+                        this.cops.push(new Cop(this.game, path, (i%4 == 1)));
 
                     }
                 }
@@ -293,13 +324,13 @@
                             rotation = parseFloat(nodes[i].attributes.getNamedItem("rotation").nodeValue);
                             //console.log("rotation: " + rotation);
                         }
-                        var body = this.game.physics.p2.createBody(xValue, yValue, 1, true);
+                        var body = this.game.physics.p2.createBody(xValue, yValue , 1, true);
                         body.addRectangle(width, height, width / 2, height / 2, 0);
                         body.rotation = Phaser.Math.degToRad(rotation);
                         body.setCollisionGroup(this.playerCollisionGroup);
                         body.collides([this.copsCollisionGroup]);
                         body.static = true;
-                    //    body.debug = true;
+                        //body.debug = true;
                         this.exits.push(body);
 
                         this.game.physics.p2.enableBody(body, true);

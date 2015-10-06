@@ -21,9 +21,6 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="Audios\Spy_Glass.mp3" />
-    <Content Include="Audios\test.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Graphics\background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -95,12 +92,6 @@
     </Content>
     <Content Include="index.html" />
     <Content Include="Levels\Gym0.xml" />
-    <Content Include="Levels\levelTest.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Levels\levelTest2.xml">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Levels\Warehouse1.xml">
       <SubType>Designer</SubType>
     </Content>

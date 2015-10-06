@@ -53,6 +53,11 @@
 
         preload() {
             this.game.load.audio("backgroundMusic","Audios/Spy_Glass.mp3");
+
+            this.game.load.audio("success", "Audios/success.mp3");
+            this.game.load.audio("fail", "Audios/fail.mp3");
+            this.game.load.audio("sneak", "Audios/sneak.mp3");
+
             this.game.load.atlasXML("cop", "Graphics/rp_pixel_cop_1.png", "Graphics/rp_pixel_cop_1.xml");
             this.game.load.atlasXML("cop2", "Graphics/rp_pixel_cop_2.png", "Graphics/rp_pixel_cop_2.xml");
             this.game.load.atlasXML("spy1", "Graphics/spy1.png", "Graphics/spy1.xml");
@@ -79,6 +84,20 @@
 
             
            this.loadLevel();
+          
+           
+            // add sound
+           this.backgroundMusic = this.game.add.audio("backgroundMusic");
+           this.backgroundMusic.allowMultiple = true;
+           this.backgroundMusic.loop = true;
+
+           // play music
+           this.backgroundMusic.fadeIn(2500);
+         //  this.backgroundMusic.play();
+
+                    
+            //this.Player1 = new Player(this.game, this.pozX1, this.pozY1, "Player1");
+            //this.Player2 = new Player(this.game, this.pozX2, this.pozY2, "Player2");
 
             for (var i = 0; i < this.cops.length; i++) {
                 this.cops[i].updatePlayerInfo(this.Player1,this.Player2);
@@ -89,6 +108,8 @@
 
         update()
         {
+            
+
             this.Player1.update();
             this.Player2.update();
 
@@ -102,31 +123,6 @@
   
         }
 
-
-        raycastWall(startX: number, startY: number, endX: number, endY: number): boolean {
-            var ray = new Phaser.Line(startX, startY, endX, endY);
-
-            //// Test if any walls intersect the ray
-   
-
-            //var distanceToWall = Number.POSITIVE_INFINITY;
-            //var closestIntersection = null;
-            //Phaser.Rectangle.intersects
-            //for (var i = 0; i < this.walls.length; i++) {
-            //    var wall = this.walls[i];
-            //    console.log("Wall: " + wall);
-            //    var lines = [
-            //        new Phaser.Line(wall.x, wall.y, wall.x + wall.width, wall.y),
-            //        new Phaser.Line(wall.x, wall.y, wall.x, wall.y + wall.height),
-            //        new Phaser.Line(wall.x + wall.width, wall.y,
-            //            wall.x + wall.width, wall.y + wall.height),
-            //        new Phaser.Line(wall.x, wall.y + wall.height,
-            //            wall.x + wall.width, wall.y + wall.height)
-            //    ];
-            //}
-        
-           return false;
-        }
 
         loadLevel ()
         {

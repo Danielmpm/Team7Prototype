@@ -10,6 +10,8 @@
         UpKey: Phaser.Key;
         DownKey: Phaser.Key;
 
+        sneakAudio: Phaser.Sound;
+
         PosX: number;
         PosY: number;
 
@@ -90,10 +92,10 @@
             this.animationState1 = 0;
 
             this.playingSpawnAnim = true;
-          //  this.player.animations.add()
-          //  jellyfish.animations.add('swim', Phaser.Animation.generateFrameNames('blueJellyfish', 0, 32, '', 4), 30, true);
-         
-          //  game.physics.p2.setPostBroadphaseCallback(this.CheckHitFlash, this);
+          
+            this.sneakAudio = this.game.add.audio("sneak");
+            this.sneakAudio.allowMultiple = true;
+            this.sneakAudio.loop = false;
         }
 
         killPlayer() {
@@ -109,8 +111,19 @@
 
         update() {
 
-        
+            
             this.checkKeyDown();
+
+            if (("Player2" == this.name && this.LeftKey.isUp && this.RightKey.isUp && this.UpKey.isUp && this.DownKey.isUp) ||
+                ("Player1" == this.name && this.cursors.left.isUp && this.cursors.right.isUp && this.cursors.up.isUp && this.cursors.down.isUp)) {
+                this.sneakAudio.stop();
+            }
+            else if (!this.sneakAudio.isPlaying)
+             {
+                this.sneakAudio.play();
+                console.log("Playing");
+            }
+            
 
             if (this.briefcase == null) {
                 if ("Player2" == this.name) {
@@ -127,6 +140,7 @@
                     if (this.DownKey.isUp && this.animationState1 == 3) {
                         this.player.animations.play("downidle", 3, true);
                     }
+
                 }
                 else {
 
@@ -142,6 +156,7 @@
                     if (this.cursors.down.isUp && this.animationState1 == 3) {
                         this.player.animations.play("downidle", 3, true);
                     }
+
                 }
             }
             else {
@@ -181,11 +196,15 @@
 
 
 
-        checkKeyDown() {
+        checkKeyDown()
+        {
             this.player.body.setZeroVelocity();
-            if (this.briefcase == null) {
-                if ("Player2" == this.name) {
+            if (this.briefcase == null)
+            {
 
+                if ("Player2" == this.name)
+                {
+               
                     if (this.LeftKey.isDown) {
                         this.player.animations.play("left", 6, true);
                         this.player.body.moveLeft(200);
@@ -235,6 +254,7 @@
                         this.player.body.moveDown(200);
                         this.animationState1 = 3;
                     }
+
                 }
             }
             else {
@@ -262,7 +282,7 @@
                         this.player.body.moveDown(200);
                         this.animationState1 = 3;
                     }
-
+        
                 }
 
                 if ("Player1" == this.name) {
@@ -290,6 +310,7 @@
                         this.animationState1 = 3;
                     }
                 }
+                          
             }
 
         }

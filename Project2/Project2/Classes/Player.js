@@ -47,9 +47,9 @@ var GameFromScratch;
             this.player.animations.add("downidle", [54, 55]);
             this.animationState1 = 0;
             this.playingSpawnAnim = true;
-            //  this.player.animations.add()
-            //  jellyfish.animations.add('swim', Phaser.Animation.generateFrameNames('blueJellyfish', 0, 32, '', 4), 30, true);
-            //  game.physics.p2.setPostBroadphaseCallback(this.CheckHitFlash, this);
+            this.sneakAudio = this.game.add.audio("sneak");
+            this.sneakAudio.allowMultiple = true;
+            this.sneakAudio.loop = false;
         }
         Player.prototype.killPlayer = function () {
             this.dropBriefcase();
@@ -61,6 +61,14 @@ var GameFromScratch;
         };
         Player.prototype.update = function () {
             this.checkKeyDown();
+            if (("Player2" == this.name && this.LeftKey.isUp && this.RightKey.isUp && this.UpKey.isUp && this.DownKey.isUp) ||
+                ("Player1" == this.name && this.cursors.left.isUp && this.cursors.right.isUp && this.cursors.up.isUp && this.cursors.down.isUp)) {
+                this.sneakAudio.stop();
+            }
+            else if (!this.sneakAudio.isPlaying) {
+                this.sneakAudio.play();
+                console.log("Playing");
+            }
             if (this.briefcase == null) {
                 if ("Player2" == this.name) {
                     if (this.LeftKey.isUp && this.animationState1 == 0) {

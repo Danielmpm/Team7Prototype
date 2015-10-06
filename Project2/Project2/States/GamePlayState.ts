@@ -46,6 +46,9 @@
         preload() {
           //  this.game.load.audio("backgroundMusic","Audios/test.mp3");
             this.game.load.atlasXML("cop", "Graphics/cop.png", "Graphics/cop.xml");
+            this.game.load.atlasXML("spy1", "Graphics/spy1.png", "Graphics/spy1.xml");
+            this.game.load.atlasXML("spy2", "Graphics/spy2.png", "Graphics/spy2.xml");
+        
 
             this.game.load.xml("levelSource", "Levels/Warehouse1.xml");
           //  this.game.load.image("crate", "Graphics/CrateTest.png");
@@ -77,7 +80,7 @@
                 this.cops[i].updatePlayerInfo(this.Player1,this.Player2);
             }
 
-           
+            
         }
 
         update()

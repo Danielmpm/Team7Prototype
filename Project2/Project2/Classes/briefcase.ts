@@ -6,7 +6,7 @@
         briefcase: Phaser.Sprite;
         state: GamePlayState;
 
-        isActive: boolean;
+        isPickup: boolean;
 
         PosX: number;
         PosY: number;
@@ -16,12 +16,14 @@
 
         currentOwner: Player;
 
-        constructor(game: Phaser.Game, posX: number, posY: number, player1: Player, player2: Player) {
+
+ 
+       constructor(game: Phaser.Game, posX: number, posY: number, player1: Player, player2: Player) {
             this.game = game;
             this.state = <GamePlayState> this.game.state.getCurrentState();
             this.PosX = posX;
             this.PosY = posY;
-            this.isActive = false;
+            this.isPickup = false;
 
             this.player1 = player1;
             this.player2 = player2;
@@ -45,12 +47,14 @@
 
         pickedUpByPlayer1()
         {
+            this.isPickup = true;
             this.currentOwner = this.player1;
             this.currentOwner.pickUpBriefcase(this);
             this.briefcase.body.motionState = Phaser.Physics.P2.Body.KINEMATIC;
 
         }
         pickedUpByPlayer2() {
+            this.isPickup = true;
             this.currentOwner = this.player2;
             this.currentOwner.pickUpBriefcase(this);
             this.briefcase.body.motionState = Phaser.Physics.P2.Body.KINEMATIC;
@@ -64,6 +68,8 @@
                 this.briefcase.body.y = this.currentOwner.player.y;
             }
             this.currentOwner = null;
+            this.isPickup = false;
+
             this.briefcase.body.motionState = Phaser.Physics.P2.Body.DYNAMIC;
             this.briefcase.body.setZeroVelocity();
         }

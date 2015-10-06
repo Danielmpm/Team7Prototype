@@ -6,7 +6,7 @@ var GameFromScratch;
             this.state = this.game.state.getCurrentState();
             this.PosX = posX;
             this.PosY = posY;
-            this.isActive = false;
+            this.isPickup = false;
             this.player1 = player1;
             this.player2 = player2;
             this.briefcase = game.add.sprite(this.PosX, this.PosY, "briefcase");
@@ -23,11 +23,13 @@ var GameFromScratch;
             this.briefcase.body.motionState = Phaser.Physics.P2.Body.DYNAMIC;
         }
         Briefcase.prototype.pickedUpByPlayer1 = function () {
+            this.isPickup = true;
             this.currentOwner = this.player1;
             this.currentOwner.pickUpBriefcase(this);
             this.briefcase.body.motionState = Phaser.Physics.P2.Body.KINEMATIC;
         };
         Briefcase.prototype.pickedUpByPlayer2 = function () {
+            this.isPickup = true;
             this.currentOwner = this.player2;
             this.currentOwner.pickUpBriefcase(this);
             this.briefcase.body.motionState = Phaser.Physics.P2.Body.KINEMATIC;
@@ -38,6 +40,7 @@ var GameFromScratch;
                 this.briefcase.body.y = this.currentOwner.player.y;
             }
             this.currentOwner = null;
+            this.isPickup = false;
             this.briefcase.body.motionState = Phaser.Physics.P2.Body.DYNAMIC;
             this.briefcase.body.setZeroVelocity();
         };

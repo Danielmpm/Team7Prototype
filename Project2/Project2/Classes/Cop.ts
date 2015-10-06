@@ -7,6 +7,8 @@
         light: Phaser.Sprite;
         state: GamePlayState;
 
+        failAudio: Phaser.Sound;
+
         name: string;
 
         public static Max_speed: number = 150;
@@ -69,7 +71,9 @@
             this.cop.animations.add("up", [8,9,10,11]);
 
 
-
+            this.failAudio = this.game.add.audio("fail");
+            this.failAudio.loop = false;
+            this.failAudio.allowMultiple = true;
         }
 
         updatePlayerInfo(player1: Player, player2: Player)
@@ -104,21 +108,33 @@
         onCollisionPlayer1(body1: Phaser.Physics.P2.Body, body2: Phaser.Physics.P2.Body)
         {
             console.log("Hit Player 1");
+            if (!this.failAudio.isPlaying)
+                this.failAudio.play();
+
             this.player1.killPlayer();
         }
 
         onCollisionPlayer2(body1: Phaser.Physics.P2.Body, body2: Phaser.Physics.P2.Body) {
             console.log("Hit Player 2");
+            if (!this.failAudio.isPlaying)
+                this.failAudio.play();
+
             this.player2.killPlayer();
         }
 
         spottedPlayer1(body1: Phaser.Physics.P2.Body, body2: Phaser.Physics.P2.Body) {
             console.log("Spotted 1");
+
+            if (!this.failAudio.isPlaying)
+                this.failAudio.play();
             this.player1.killPlayer();
         }
 
         spottedPlayer2(body1: Phaser.Physics.P2.Body, body2: Phaser.Physics.P2.Body) {
             console.log("Spotted 2");
+
+            if (!this.failAudio.isPlaying)
+                this.failAudio.play();
             this.player2.killPlayer();
         }
 

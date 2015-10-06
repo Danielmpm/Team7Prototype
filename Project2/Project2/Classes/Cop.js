@@ -26,6 +26,9 @@ var GameFromScratch;
             this.cop.animations.add("down", [2, 3, 4, 5]);
             this.cop.animations.add("right", [6, 7]);
             this.cop.animations.add("up", [8, 9, 10, 11]);
+            this.failAudio = this.game.add.audio("fail");
+            this.failAudio.loop = false;
+            this.failAudio.allowMultiple = true;
         }
         Cop.prototype.updatePlayerInfo = function (player1, player2) {
             this.player1 = player1;
@@ -50,18 +53,26 @@ var GameFromScratch;
         };
         Cop.prototype.onCollisionPlayer1 = function (body1, body2) {
             console.log("Hit Player 1");
+            if (!this.failAudio.isPlaying)
+                this.failAudio.play();
             this.player1.killPlayer();
         };
         Cop.prototype.onCollisionPlayer2 = function (body1, body2) {
             console.log("Hit Player 2");
+            if (!this.failAudio.isPlaying)
+                this.failAudio.play();
             this.player2.killPlayer();
         };
         Cop.prototype.spottedPlayer1 = function (body1, body2) {
             console.log("Spotted 1");
+            if (!this.failAudio.isPlaying)
+                this.failAudio.play();
             this.player1.killPlayer();
         };
         Cop.prototype.spottedPlayer2 = function (body1, body2) {
             console.log("Spotted 2");
+            if (!this.failAudio.isPlaying)
+                this.failAudio.play();
             this.player2.killPlayer();
         };
         Cop.prototype.onContactWallBegin = function (body1, body2) {

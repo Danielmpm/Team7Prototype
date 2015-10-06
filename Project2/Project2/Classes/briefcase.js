@@ -27,6 +27,9 @@ var GameFromScratch;
             for (var i = 0; i < this.state.exits.length; i++) {
                 this.briefcase.body.createBodyCallback(this.state.exits[i], this.reachedExit, this);
             }
+            this.successAudio = this.game.add.audio("success");
+            this.successAudio.loop = false;
+            this.successAudio.allowMultiple = true;
         }
         Briefcase.prototype.pickedUpByPlayer1 = function () {
             this.briefcase.visible = false;
@@ -46,6 +49,8 @@ var GameFromScratch;
         };
         Briefcase.prototype.reachedExit = function () {
             //  this.currentOwner = this.player2;
+            if (!this.successAudio.isPlaying)
+                this.successAudio.play();
             this.game.state.start("StartMenu");
         };
         Briefcase.prototype.drop = function () {

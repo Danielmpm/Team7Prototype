@@ -20,7 +20,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="Audios\fail.mp3" />
+    <Content Include="Audios\sneak.mp3" />
     <Content Include="Audios\Spy_Glass.mp3" />
+    <Content Include="Audios\success.mp3" />
     <Content Include="Graphics\background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

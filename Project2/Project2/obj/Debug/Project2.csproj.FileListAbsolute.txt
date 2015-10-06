@@ -123,7 +123,3 @@ C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\spy1.png
 C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\spy1.xml
 C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\spy2.png
 C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\spy2.xml
-C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Audios\bgmusic.mp3
-C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Audios\fail.mp3
-C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Audios\sneak.mp3
-C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Audios\success.mp3

@@ -15,7 +15,8 @@
 
         currentOwner: Player;
 
-
+        successAudio: Phaser.Sound;
+        
  
        constructor(game: Phaser.Game, posX: number, posY: number, player1: Player, player2: Player) {
             this.game = game;
@@ -48,6 +49,12 @@
             for (var i = 0; i < this.state.exits.length; i++) {
                 this.briefcase.body.createBodyCallback(this.state.exits[i], this.reachedExit, this);
             }
+
+            this.successAudio = this.game.add.audio("success");
+            this.successAudio.loop = false;
+            this.successAudio.allowMultiple = true;
+
+           
         }
 
         pickedUpByPlayer1()
@@ -72,6 +79,8 @@
 
         reachedExit() {
             //  this.currentOwner = this.player2;
+            if(!this.successAudio.isPlaying)
+            this.successAudio.play();
 
             this.game.state.start("StartMenu");
         }
@@ -83,6 +92,8 @@
             if (this.currentOwner != null) {
                 this.briefcase.body.x = this.currentOwner.player.x;
                 this.briefcase.body.y = this.currentOwner.player.y;
+
+              
             }
             this.currentOwner = null;
 

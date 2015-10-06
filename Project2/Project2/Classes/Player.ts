@@ -32,6 +32,8 @@
 
         playingSpawnAnim: boolean;
 
+       
+
         constructor(game: Phaser.Game, posX: number, posY: number, name: string) {
 
           //  this.state = <GamePlayState>this.game.state.getCurrentState();

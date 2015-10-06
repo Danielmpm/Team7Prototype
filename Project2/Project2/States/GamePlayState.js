@@ -18,9 +18,10 @@ var GameFromScratch;
             this.gridX = 70;
             this.gridY = 70;
             this.cops = [];
+            this.exits = [];
         }
         GamePlayState.prototype.preload = function () {
-            //  this.game.load.audio("backgroundMusic","Audios/test.mp3");
+            this.game.load.audio("backgroundMusic", "Audios/Spy_Glass.mp3");
             this.game.load.atlasXML("cop", "Graphics/rp_pixel_cop_1.png", "Graphics/rp_pixel_cop_1.xml");
             this.game.load.atlasXML("spy1", "Graphics/spy1.png", "Graphics/spy1.xml");
             this.game.load.atlasXML("spy2", "Graphics/spy2.png", "Graphics/spy2.xml");
@@ -33,15 +34,11 @@ var GameFromScratch;
             this.wallCollisionGroup = this.game.physics.p2.createCollisionGroup();
             this.copsCollisionGroup = this.game.physics.p2.createCollisionGroup();
             this.playerCollisionGroup = this.game.physics.p2.createCollisionGroup();
+            this.exitsCollisionGroup = this.game.physics.p2.createCollisionGroup();
             this.game.physics.p2.updateBoundsCollisionGroup();
+            this.music = this.game.add.audio("backgroundMusic");
+            this.music.play();
             this.loadLevel();
-            //  this.game.load.image("h1", "Graphics/h1.jpg");
-            //this.Player1 = new Player(this.game, this.pozX1, this.pozY1, "Player1");
-            //this.Player2 = new Player(this.game, this.pozX2, this.pozY2, "Player2");
-            //this.Player1.player.body.setCollisionGroup(this.playerCollisionGroup);
-            //this.Player2.player.body.setCollisionGroup(this.playerCollisionGroup);
-            //this.Player1.player.body.collides([this.wallCollisionGroup, this.copsCollisionGroup, this.playerCollisionGroup]);
-            //this.Player2.player.body.collides([this.wallCollisionGroup, this.copsCollisionGroup, this.playerCollisionGroup]);
             for (var i = 0; i < this.cops.length; i++) {
                 this.cops[i].updatePlayerInfo(this.Player1, this.Player2);
             }
@@ -66,6 +63,7 @@ var GameFromScratch;
             this.loadLevelObjects(levelInfo, scaleX, scaleY);
             this.loadColliders(levelInfo, scaleX, scaleY);
             this.loadPlayers(levelInfo, scaleX, scaleY);
+            this.loadExit(levelInfo, scaleX, scaleY);
             this.loadBriefcase(levelInfo, scaleX, scaleY);
         };
         GamePlayState.prototype.loadLevelObjects = function (levelInfo, scaleX, scaleY) {
@@ -180,9 +178,23 @@ var GameFromScratch;
                 var nodes = spawnNodes[0].childNodes;
                 for (var i = 0; i < nodes.length; i++) {
                     if (nodes[i].nodeName != "#text") {
-                        var xValue = parseInt(nodes[i].attributes.getNamedItem("x").nodeValue) * scaleX;
-                        var yValue = parseInt(nodes[i].attributes.getNamedItem("y").nodeValue) * scaleY;
-                        this.briefcase = new GameFromScratch.Briefcase(this.game, xValue, yValue, this.Player1, this.Player2);
+                        var xValue = parseFloat(nodes[i].attributes.getNamedItem("x").nodeValue) * scaleX;
+                        var yValue = parseFloat(nodes[i].attributes.getNamedItem("y").nodeValue) * scaleY;
+                        var width = parseFloat(nodes[i].attributes.getNamedItem("width").nodeValue) * scaleX;
+                        var height = parseFloat(nodes[i].attributes.getNamedItem("height").nodeValue) * scaleY;
+                        var rotation = 0;
+                        if (nodes[i].attributes.getNamedItem("rotation")) {
+                            rotation = parseFloat(nodes[i].attributes.getNamedItem("rotation").nodeValue);
+                        }
+                        var body = this.game.physics.p2.createBody(xValue, yValue, 1, true);
+                        body.addRectangle(width, height, width / 2, height / 2, 0);
+                        body.rotation = Phaser.Math.degToRad(rotation);
+                        body.setCollisionGroup(this.playerCollisionGroup);
+                        body.collides([this.copsCollisionGroup]);
+                        body.static = true;
+                        //    body.debug = true;
+                        this.exits.push(body);
+                        this.game.physics.p2.enableBody(body, true);
                     }
                 }
             }

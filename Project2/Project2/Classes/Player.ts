@@ -82,12 +82,12 @@
             this.player.animations.add("right", [36, 37, 38, 39]);
             this.player.animations.add("down", [40, 41, 42, 43]);
 
-            this.player.animations.add("leftidle", [44, 45, 46, 47]);
+            this.player.animations.add("leftidle", [44, 45, 44, 45, 44, 45, 44, 45, 44, 46, 47, 46,47]);
             this.player.animations.add("upidle", [48, 49]);
-            this.player.animations.add("rightidle", [50, 51, 52, 53]);
+            this.player.animations.add("rightidle", [50, 51, 50, 51, 50, 51, 50, 51, 52, 53, 52,53]);
             this.player.animations.add("downidle", [54, 55]);
 
-            this.animationState1 = -1;
+            this.animationState1 = 0;
 
             this.playingSpawnAnim = true;
           //  this.player.animations.add()
@@ -115,31 +115,31 @@
             if ("Player2" == this.name) {
 
                 if (this.LeftKey.isUp && this.animationState1 == 0) {
-                    this.player.animations.play("leftidle", 6, true);
+                    this.player.animations.play("leftidle", 3, true);
                 }
                 if (this.RightKey.isUp && this.animationState1 == 1) {
-                    this.player.animations.play("rightidle", 6, true);
+                    this.player.animations.play("rightidle", 3, true);
                 }
                 if (this.UpKey.isUp && this.animationState1 == 2) {
-                    this.player.animations.play("upidle", 6, true);
+                    this.player.animations.play("upidle", 3, true);
                 }
                 if (this.DownKey.isUp && this.animationState1 == 3) {
-                    this.player.animations.play("downidle", 6, true);
+                    this.player.animations.play("downidle", 3, true);
                 }
             }
             else {
 
                    if (this.cursors.left.isUp && this.animationState1 == 0) {
-                    this.player.animations.play("leftidle", 6, true);
+                    this.player.animations.play("leftidle", 3, true);
                 }
                         if (this.cursors.right.isUp && this.animationState1 == 1) {
-                    this.player.animations.play("rightidle", 6, true);
+                    this.player.animations.play("rightidle", 3, true);
                 }
                         if (this.cursors.up.isUp && this.animationState1 == 2) {
-                    this.player.animations.play("upidle", 6, true);
+                    this.player.animations.play("upidle", 3, true);
                 }
                         if (this.cursors.down.isUp && this.animationState1 == 3) {
-                    this.player.animations.play("downidle", 6, true);
+                    this.player.animations.play("downidle", 3, true);
                 }
             }
             

@@ -16,8 +16,7 @@
         create() {
             this.startBG = this.add.sprite(0, 0, "titleScreen");
             this.startBG.width = 1920;
-            this.startBG.height = 1080;//this.game.world.height;
-         //   this.titleImg.scale.setTo(10, 10);
+            this.startBG.height = 1080;
         }
 
         update()

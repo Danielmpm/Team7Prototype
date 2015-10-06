@@ -20,6 +20,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="Audios\Spy_Glass.mp3" />
     <Content Include="Audios\test.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

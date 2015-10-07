@@ -50,7 +50,6 @@ var GameFromScratch;
             this.backgroundMusic.loop = true;
             // play music
             this.backgroundMusic.fadeIn(2500);
-            //  this.backgroundMusic.play();
             //this.Player1 = new Player(this.game, this.pozX1, this.pozY1, "Player1");
             //this.Player2 = new Player(this.game, this.pozX2, this.pozY2, "Player2");
             for (var i = 0; i < this.cops.length; i++) {

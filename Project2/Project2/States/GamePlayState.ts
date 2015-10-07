@@ -93,7 +93,7 @@
 
            // play music
            this.backgroundMusic.fadeIn(2500);
-         //  this.backgroundMusic.play();
+         
 
                     
             //this.Player1 = new Player(this.game, this.pozX1, this.pozY1, "Player1");

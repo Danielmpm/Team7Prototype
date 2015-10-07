@@ -4,8 +4,7 @@ var GameFromScratch;
         function Player(game, posX, posY, name) {
             //  this.state = <GamePlayState>this.game.state.getCurrentState();
             this.game = game;
-            this.speedX = 5;
-            this.speedY = 4;
+            this.speed = 150;
             this.name = name;
             this.PosX = posX;
             this.PosY = posY;
@@ -22,8 +21,11 @@ var GameFromScratch;
                 this.player = game.add.sprite(this.PosX, this.PosY, "spy1", 0);
             if (this.name == "Player2")
                 this.player = game.add.sprite(this.PosX, this.PosY, "spy2", 0);
+            //if (this.name == "Player3")
+            //    this.player = game.add.sprite(this.PosX, this.PosY, "spy1", 0);
+            //if (this.name == "Player4")
+            //    this.player = game.add.sprite(this.PosX, this.PosY, "spy2", 0);
             game.physics.p2.enable(this.player);
-            //this.player.scale.setTo(0.4, 0.2);
             this.player.width = this.state.gridX;
             this.player.height = this.state.gridY;
             this.player.body.setCircle(this.state.gridX * 0.4);
@@ -136,44 +138,44 @@ var GameFromScratch;
                 if ("Player2" == this.name) {
                     if (this.LeftKey.isDown) {
                         this.player.animations.play("left", 6, true);
-                        this.player.body.moveLeft(200);
+                        this.player.body.moveLeft(this.speed);
                         this.animationState1 = 0;
                     }
                     else if (this.RightKey.isDown) {
                         this.player.animations.play("right", 6, true);
-                        this.player.body.moveRight(200);
+                        this.player.body.moveRight(this.speed);
                         this.animationState1 = 1;
                     }
                     if (this.UpKey.isDown) {
                         this.player.animations.play("up", 6, true);
-                        this.player.body.moveUp(200);
+                        this.player.body.moveUp(this.speed);
                         this.animationState1 = 2;
                     }
                     else if (this.DownKey.isDown) {
                         this.player.animations.play("down", 6, true);
-                        this.player.body.moveDown(200);
+                        this.player.body.moveDown(this.speed);
                         this.animationState1 = 3;
                     }
                 }
                 if ("Player1" == this.name) {
                     if (this.cursors.left.isDown) {
                         this.player.animations.play("left", 6, true);
-                        this.player.body.moveLeft(200);
+                        this.player.body.moveLeft(this.speed);
                         this.animationState1 = 0;
                     }
                     if (this.cursors.right.isDown) {
                         this.player.animations.play("right", 6, true);
-                        this.player.body.moveRight(200);
+                        this.player.body.moveRight(this.speed);
                         this.animationState1 = 1;
                     }
                     if (this.cursors.up.isDown) {
                         this.player.animations.play("up", 6, true);
-                        this.player.body.moveUp(200);
+                        this.player.body.moveUp(this.speed);
                         this.animationState1 = 2;
                     }
                     if (this.cursors.down.isDown) {
                         this.player.animations.play("down", 6, true);
-                        this.player.body.moveDown(200);
+                        this.player.body.moveDown(this.speed);
                         this.animationState1 = 3;
                     }
                 }
@@ -182,44 +184,44 @@ var GameFromScratch;
                 if ("Player2" == this.name) {
                     if (this.LeftKey.isDown) {
                         this.player.animations.play("leftwithcase", 6, true);
-                        this.player.body.moveLeft(200);
+                        this.player.body.moveLeft(this.speed);
                         this.animationState1 = 0;
                     }
                     else if (this.RightKey.isDown) {
                         this.player.animations.play("rightwithcase", 6, true);
-                        this.player.body.moveRight(200);
+                        this.player.body.moveRight(this.speed);
                         this.animationState1 = 1;
                     }
                     if (this.UpKey.isDown) {
                         this.player.animations.play("upwithcase", 6, true);
-                        this.player.body.moveUp(200);
+                        this.player.body.moveUp(this.speed);
                         this.animationState1 = 2;
                     }
                     else if (this.DownKey.isDown) {
                         this.player.animations.play("downwithcase", 6, true);
-                        this.player.body.moveDown(200);
+                        this.player.body.moveDown(this.speed);
                         this.animationState1 = 3;
                     }
                 }
                 if ("Player1" == this.name) {
                     if (this.cursors.left.isDown) {
                         this.player.animations.play("leftwithcase", 6, true);
-                        this.player.body.moveLeft(200);
+                        this.player.body.moveLeft(this.speed);
                         this.animationState1 = 0;
                     }
                     if (this.cursors.right.isDown) {
                         this.player.animations.play("rightwithcase", 6, true);
-                        this.player.body.moveRight(200);
+                        this.player.body.moveRight(this.speed);
                         this.animationState1 = 1;
                     }
                     if (this.cursors.up.isDown) {
                         this.player.animations.play("upwithcase", 6, true);
-                        this.player.body.moveUp(200);
+                        this.player.body.moveUp(this.speed);
                         this.animationState1 = 2;
                     }
                     if (this.cursors.down.isDown) {
                         this.player.animations.play("downwithcase", 6, true);
-                        this.player.body.moveDown(200);
+                        this.player.body.moveDown(this.speed);
                         this.animationState1 = 3;
                     }
                 }
@@ -234,7 +236,6 @@ var GameFromScratch;
                 this.briefcase = null;
             }
         };
-        Player.Max_speed = 20;
         return Player;
     })();
     GameFromScratch.Player = Player;

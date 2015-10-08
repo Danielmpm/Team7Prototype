@@ -32,8 +32,8 @@
             this.briefcase.height = this.state.gridX * 0.5;
 
             this.glow = game.add.sprite(this.PosX, this.PosX, "briefcaseGlow");
-            this.glow.pivot.x = this.state.gridX * 0.15 * 0.6;
-           this.glow.pivot.y = this.state.gridY * 0.2 * 0.6;
+            this.glow.pivot.x = this.state.gridX * 0.3 * 0.5;
+           this.glow.pivot.y = this.state.gridY * 0.33 * 0.5;
             this.glow.width = this.state.gridX *0.6;
             this.glow.height = this.state.gridX *0.6;
 

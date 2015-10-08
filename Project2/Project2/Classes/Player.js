@@ -8,6 +8,7 @@ var GameFromScratch;
             this.name = name;
             this.PosX = posX;
             this.PosY = posY;
+            this.wasSpotted = false;
             this.state = this.game.state.getCurrentState();
             this.StartPosX = posX;
             this.StartPosY = posY;
@@ -52,17 +53,31 @@ var GameFromScratch;
             this.sneakAudio = this.game.add.audio("sneak");
             this.sneakAudio.allowMultiple = true;
             this.sneakAudio.loop = false;
+            this.sneakAudio.volume = 0.5;
         }
         Player.prototype.killPlayer = function () {
-            this.dropBriefcase();
-            this.respawn();
+            this.wasSpotted = true;
+            this.spottedTime = 700;
         };
         Player.prototype.respawn = function () {
+            this.dropBriefcase();
+            this.wasSpotted = false;
+            this.player.tint = 0xffffff;
             this.player.body.x = this.StartPosX;
             this.player.body.y = this.StartPosY;
         };
         Player.prototype.update = function () {
-            this.checkKeyDown();
+            if (this.wasSpotted) {
+                this.spottedTime -= this.game.time.elapsed;
+                this.player.body.setZeroForce();
+                this.player.body.setZeroVelocity();
+                this.player.tint = 0xff0000;
+                if (this.spottedTime <= 0)
+                    this.respawn();
+                return;
+            }
+            else
+                this.checkKeyDown();
             if (("Player2" == this.name && this.LeftKey.isUp && this.RightKey.isUp && this.UpKey.isUp && this.DownKey.isUp) ||
                 ("Player1" == this.name && this.cursors.left.isUp && this.cursors.right.isUp && this.cursors.up.isUp && this.cursors.down.isUp)) {
                 this.sneakAudio.stop();
@@ -137,12 +152,14 @@ var GameFromScratch;
             if (this.briefcase == null) {
                 if ("Player2" == this.name) {
                     if (this.LeftKey.isDown) {
-                        this.player.animations.play("left", 6, true);
+                        if (this.UpKey.isUp && this.DownKey.isUp)
+                            this.player.animations.play("left", 6, true);
                         this.player.body.moveLeft(this.speed);
                         this.animationState1 = 0;
                     }
                     else if (this.RightKey.isDown) {
-                        this.player.animations.play("right", 6, true);
+                        if (this.UpKey.isUp && this.DownKey.isUp)
+                            this.player.animations.play("right", 6, true);
                         this.player.body.moveRight(this.speed);
                         this.animationState1 = 1;
                     }
@@ -159,12 +176,14 @@ var GameFromScratch;
                 }
                 if ("Player1" == this.name) {
                     if (this.cursors.left.isDown) {
-                        this.player.animations.play("left", 6, true);
+                        if (this.cursors.up.isUp && this.cursors.down.isUp)
+                            this.player.animations.play("left", 6, true);
                         this.player.body.moveLeft(this.speed);
                         this.animationState1 = 0;
                     }
                     if (this.cursors.right.isDown) {
-                        this.player.animations.play("right", 6, true);
+                        if (this.cursors.up.isUp && this.cursors.down.isUp)
+                            this.player.animations.play("right", 6, true);
                         this.player.body.moveRight(this.speed);
                         this.animationState1 = 1;
                     }
@@ -183,12 +202,14 @@ var GameFromScratch;
             else {
                 if ("Player2" == this.name) {
                     if (this.LeftKey.isDown) {
-                        this.player.animations.play("leftwithcase", 6, true);
+                        if (this.UpKey.isUp && this.DownKey.isUp)
+                            this.player.animations.play("leftwithcase", 6, true);
                         this.player.body.moveLeft(this.speed);
                         this.animationState1 = 0;
                     }
                     else if (this.RightKey.isDown) {
-                        this.player.animations.play("rightwithcase", 6, true);
+                        if (this.UpKey.isUp && this.DownKey.isUp)
+                            this.player.animations.play("rightwithcase", 6, true);
                         this.player.body.moveRight(this.speed);
                         this.animationState1 = 1;
                     }
@@ -205,12 +226,14 @@ var GameFromScratch;
                 }
                 if ("Player1" == this.name) {
                     if (this.cursors.left.isDown) {
-                        this.player.animations.play("leftwithcase", 6, true);
+                        if (this.cursors.up.isUp && this.cursors.down.isUp)
+                            this.player.animations.play("leftwithcase", 6, true);
                         this.player.body.moveLeft(this.speed);
                         this.animationState1 = 0;
                     }
                     if (this.cursors.right.isDown) {
-                        this.player.animations.play("rightwithcase", 6, true);
+                        if (this.cursors.up.isUp && this.cursors.down.isUp)
+                            this.player.animations.play("rightwithcase", 6, true);
                         this.player.body.moveRight(this.speed);
                         this.animationState1 = 1;
                     }

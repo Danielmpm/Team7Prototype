@@ -58,12 +58,6 @@
             this.game.load.audio("fail", "Audios/fail.mp3");
             this.game.load.audio("sneak", "Audios/sneak.mp3");
 
-            this.game.load.atlasXML("cop", "Graphics/rp_pixel_cop_1.png", "Graphics/rp_pixel_cop_1.xml");
-            this.game.load.atlasXML("cop2", "Graphics/rp_pixel_cop_2.png", "Graphics/rp_pixel_cop_2.xml");
-            this.game.load.atlasXML("spy1", "Graphics/spy1.png", "Graphics/spy1.xml");
-            this.game.load.atlasXML("spy2", "Graphics/spy2.png", "Graphics/spy2.xml");
-        
-
             this.game.load.xml("levelSource", "Levels/jeff_lv_22.xml");
         }
 
@@ -139,9 +133,9 @@
 
             this.loadGuards(levelInfo, scaleX, scaleY);
 
-            this.loadPlayers(levelInfo, scaleX, scaleY);
-
             this.loadLevelObjects(levelInfo, scaleX, scaleY);
+
+            this.loadPlayers(levelInfo, scaleX, scaleY);
 
             this.loadColliders(levelInfo, scaleX, scaleY);
 

@@ -101,12 +101,9 @@ E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\cop.pn
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\cop.xml
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\CrateTest.png
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\flashLight_Test.png
-E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\h1.jpg
-E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\H2.png
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\UI\GameBackground.jpg
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\UI\TitleBG.png
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\UI\TitleImage.png
-E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Audios\test.mp3
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Project2.dll.config
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Project2.dll
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Project2.pdb
@@ -147,3 +144,10 @@ C:\Users\u0996865\New folder (4)\Project2\Project2\obj\Debug\Project2.pdb
 C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\UI\home_screen.png
 C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\UI\home_screen_1.png
 C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\UI\home_screen_2.png
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\spy1.png
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\spy1.xml
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\spy2.png
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\spy2.xml
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\UI\home_screen.png
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\UI\home_screen_1.png
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\UI\home_screen_2.png

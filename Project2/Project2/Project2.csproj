@@ -109,7 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
-    <TypeScriptCompile Include="Classes\Exit.ts" />
     <TypeScriptCompile Include="Classes\Briefcase.ts" />
     <TypeScriptCompile Include="Classes\Cop.ts" />
     <TypeScriptCompile Include="Classes\Player.ts" />

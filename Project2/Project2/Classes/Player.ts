@@ -32,6 +32,8 @@
 
         playingSpawnAnim: boolean;
 
+        spottedTime: number;
+        wasSpotted: boolean;
        
 
         constructor(game: Phaser.Game, posX: number, posY: number, name: string) {
@@ -46,6 +48,7 @@
             this.PosX = posX;
             this.PosY = posY;
 
+            this.wasSpotted = false;
 
             this.state = <GamePlayState>this.game.state.getCurrentState();
             this.StartPosX = posX;
@@ -109,25 +112,38 @@
             this.sneakAudio = this.game.add.audio("sneak");
             this.sneakAudio.allowMultiple = true;
             this.sneakAudio.loop = false;
-
+            this.sneakAudio.volume = 0.5;
            
         }
 
         killPlayer() {
-            this.dropBriefcase();
-            this.respawn();
+            this.wasSpotted = true;
+            this.spottedTime = 700;
         }
 
         respawn()
         {
+            this.dropBriefcase();
+            this.wasSpotted = false;
+            this.player.tint = 0xffffff;
             this.player.body.x = this.StartPosX;
             this.player.body.y = this.StartPosY;
+
         }
 
         update() {
 
-            
-            this.checkKeyDown();
+            if (this.wasSpotted) {
+                this.spottedTime -= this.game.time.elapsed;
+                this.player.body.setZeroForce();
+                this.player.body.setZeroVelocity();
+                this.player.tint = 0xff0000;
+                if (this.spottedTime <= 0)
+                    this.respawn();
+                return;
+            }
+            else 
+                this.checkKeyDown();
 
             if (("Player2" == this.name && this.LeftKey.isUp && this.RightKey.isUp && this.UpKey.isUp && this.DownKey.isUp) ||
                 ("Player1" == this.name && this.cursors.left.isUp && this.cursors.right.isUp && this.cursors.up.isUp && this.cursors.down.isUp)) {
@@ -221,12 +237,14 @@
                 {
                
                     if (this.LeftKey.isDown) {
+                        if(this.UpKey.isUp && this.DownKey.isUp)
                         this.player.animations.play("left", 6, true);
                         this.player.body.moveLeft(this.speed);
                         this.animationState1 = 0;
                     }
 
                     else if (this.RightKey.isDown) {
+                        if (this.UpKey.isUp && this.DownKey.isUp)
                         this.player.animations.play("right", 6, true);
                         this.player.body.moveRight(this.speed);
                         this.animationState1 = 1;
@@ -248,12 +266,14 @@
                 if ("Player1" == this.name) {
 
                     if (this.cursors.left.isDown) {
+                        if (this.cursors.up.isUp && this.cursors.down.isUp)
                         this.player.animations.play("left", 6, true);
                         this.player.body.moveLeft(this.speed);
                         this.animationState1 = 0;
                     }
 
                     if (this.cursors.right.isDown) {
+                        if (this.cursors.up.isUp && this.cursors.down.isUp)
                         this.player.animations.play("right", 6, true);
                         this.player.body.moveRight(this.speed);
                         this.animationState1 = 1;
@@ -276,12 +296,14 @@
                 if ("Player2" == this.name) {
 
                     if (this.LeftKey.isDown) {
+                        if (this.UpKey.isUp && this.DownKey.isUp)
                         this.player.animations.play("leftwithcase", 6, true);
                         this.player.body.moveLeft(this.speed);
                         this.animationState1 = 0;
                     }
 
                     else if (this.RightKey.isDown) {
+                        if (this.UpKey.isUp && this.DownKey.isUp)
                         this.player.animations.play("rightwithcase", 6, true);
                         this.player.body.moveRight(this.speed);
                         this.animationState1 = 1;
@@ -303,12 +325,14 @@
                 if ("Player1" == this.name) {
 
                     if (this.cursors.left.isDown) {
+                        if (this.cursors.up.isUp && this.cursors.down.isUp)
                         this.player.animations.play("leftwithcase", 6, true);
                         this.player.body.moveLeft(this.speed);
                         this.animationState1 = 0;
                     }
 
                     if (this.cursors.right.isDown) {
+                        if (this.cursors.up.isUp && this.cursors.down.isUp)
                         this.player.animations.play("rightwithcase", 6, true);
                         this.player.body.moveRight(this.speed);
                         this.animationState1 = 1;

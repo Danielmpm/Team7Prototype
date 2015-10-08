@@ -20,6 +20,7 @@ var GameFromScratch;
             this.light.width = this.state.gridX * 2;
             this.light.height = this.state.gridY;
             this.light.pivot.x = this.state.gridX * -1.7;
+            this.exclamation = null;
             this.currentContacts = 0;
             //this.cop.animations.add("walk");
             this.cop.animations.add("left", [0, 1]);
@@ -46,34 +47,33 @@ var GameFromScratch;
             this.light.body.collides([this.state.playerCollisionGroup]);
             this.light.body.createBodyCallback(player1.player, this.spottedPlayer1, this);
             this.light.body.createBodyCallback(player2.player, this.spottedPlayer2, this);
+            this.light.body.mass = 100;
             //  this.light.body.onBeginContact.add(this.onContactWallBegin, this);
             //  this.light.body.onEndContact.add(this.onContactWallEnd, this);
             this.light.body.fixedRotation = true;
             this.updateAI();
         };
-        Cop.prototype.onCollisionPlayer1 = function (body1, body2) {
-            console.log("Hit Player 1");
+        Cop.prototype.spotPlayer = function (player) {
             if (!this.failAudio.isPlaying)
                 this.failAudio.play();
-            this.player1.killPlayer();
+            if (this.exclamation == null)
+                this.exclamation = this.game.add.sprite(0, 0, "exclamation");
+            this.exclamationTime = 1000;
+            this.exclamation.visible = true;
+            player.killPlayer();
+        };
+        Cop.prototype.onCollisionPlayer1 = function (body1, body2) {
+            //console.log("Hit Player 1");
+            this.spotPlayer(this.player1);
         };
         Cop.prototype.onCollisionPlayer2 = function (body1, body2) {
-            console.log("Hit Player 2");
-            if (!this.failAudio.isPlaying)
-                this.failAudio.play();
-            this.player2.killPlayer();
+            this.spotPlayer(this.player2);
         };
         Cop.prototype.spottedPlayer1 = function (body1, body2) {
-            console.log("Spotted 1");
-            if (!this.failAudio.isPlaying)
-                this.failAudio.play();
-            this.player1.killPlayer();
+            this.spotPlayer(this.player1);
         };
         Cop.prototype.spottedPlayer2 = function (body1, body2) {
-            console.log("Spotted 2");
-            if (!this.failAudio.isPlaying)
-                this.failAudio.play();
-            this.player2.killPlayer();
+            this.spotPlayer(this.player2);
         };
         Cop.prototype.onContactWallBegin = function (body1, body2) {
             this.currentContacts++;
@@ -82,25 +82,42 @@ var GameFromScratch;
             this.currentContacts--;
         };
         Cop.prototype.update = function () {
+            if (this.exclamation != null) {
+                this.exclamation.x = this.cop.x;
+                this.exclamation.y = this.cop.y - this.state.gridY * 2;
+            }
+            if (this.exclamation != null && this.exclamation.visible) {
+                this.exclamationTime -= this.game.time.elapsed;
+                this.light.tint = 0xff0000;
+                this.cop.body.setZeroForce();
+                this.cop.body.setZeroVelocity();
+                if (this.exclamationTime <= 0) {
+                    this.exclamation.visible = false;
+                    this.light.tint = 0xffffff;
+                }
+                return;
+            }
+            else {
+                var delta = (this.game.time.elapsed / 500);
+                if (delta > 1)
+                    delta = 1;
+                this.light.rotation += (this.lightRotation - this.light.rotation) * delta;
+                if (this.light.body != null) {
+                    this.light.body.rotation = this.light.rotation; //Math.atan2(y, x);
+                }
+                switch (this.currentState) {
+                    case 0:
+                        this.movingStateUpdate();
+                        break;
+                    case 1:
+                        this.waitStateUpdate();
+                        break;
+                    default:
+                        break;
+                }
+            }
             this.light.body.x = this.cop.x + this.lightX;
             this.light.body.y = this.cop.y + this.lightY;
-            var delta = (this.game.time.elapsed / 500);
-            if (delta > 1)
-                delta = 1;
-            this.light.rotation += (this.lightRotation - this.light.rotation) * delta;
-            if (this.light.body != null) {
-                this.light.body.rotation = this.light.rotation; //Math.atan2(y, x);
-            }
-            switch (this.currentState) {
-                case 0:
-                    this.movingStateUpdate();
-                    break;
-                case 1:
-                    this.waitStateUpdate();
-                    break;
-                default:
-                    break;
-            }
         };
         Cop.prototype.updateAI = function () {
             switch (this.currentState) {

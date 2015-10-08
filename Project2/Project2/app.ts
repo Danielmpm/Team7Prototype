@@ -16,16 +16,20 @@
 
             this.game.load.image("background", "Graphics/rp_005_background.png");
             this.game.load.image("backgroundBorder", "Graphics/rp_border.png");
-            this.game.load.image("h1", "Graphics/h1.jpg");
-            //this.game.load.image("cop", "Graphics/cop.jpg");
             this.game.load.image("briefcase", "Graphics/briefcase.png");
             this.game.load.image("briefcaseGlow", "Graphics/rp_005_briefcase_glow.png");
             this.game.load.image("flashlight", "Graphics/rp_005_flashlight2.png");
             this.game.load.image("titleImage", "Graphics/UI/TitleImage.png");
-         
-            this.game.load.image("titleScreen", "Graphics/UI/home_screen.png");
-            this.game.load.image("frontSprite", "Graphics/UI/home_screen_1.png");
-            this.game.load.image("doors", "Graphics/UI/home_screen_2.png");
+            this.game.load.image("exclamation", "Graphics/exclamation.png");
+            this.game.load.image("p1Win", "Graphics/UI/p1_win.png");
+            this.game.load.image("p2Win", "Graphics/UI/p2_win.png");
+
+            this.game.load.atlasXML("cop", "Graphics/rp_pixel_cop_1.png", "Graphics/rp_pixel_cop_1.xml");
+            this.game.load.atlasXML("cop2", "Graphics/rp_pixel_cop_2.png", "Graphics/rp_pixel_cop_2.xml");
+            this.game.load.atlasXML("spy1", "Graphics/spy1.png", "Graphics/spy1.xml");
+            this.game.load.atlasXML("spy2", "Graphics/spy2.png", "Graphics/spy2.xml");
+        
+         //   
 
             this.game.load.image(Project2.obstaclesIds[0], "Graphics/Objects/rp_005_boxs_1.png");
             this.game.load.image(Project2.obstaclesIds[1], "Graphics/Objects/rp_005_boxs_2.png");

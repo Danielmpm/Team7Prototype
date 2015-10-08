@@ -3,9 +3,13 @@
 
 
         game: Phaser.Game;
+        state: GamePlayState;
+
         cop: Phaser.Sprite;
         light: Phaser.Sprite;
-        state: GamePlayState;
+        exclamation: Phaser.Sprite;
+
+        exclamationTime: number;
 
         failAudio: Phaser.Sound;
 
@@ -25,7 +29,6 @@
 
         targetX: number;
         targetY: number;
-
 
         static MaxWaitTime: number = 2500;
         static MinWaitTime: number = 1000;
@@ -62,6 +65,8 @@
             this.light.height = this.state.gridY;
             this.light.pivot.x = this.state.gridX * -1.7;
 
+            this.exclamation = null;
+
             this.currentContacts = 0;
 
             //this.cop.animations.add("walk");
@@ -96,6 +101,7 @@
             this.light.body.collides([this.state.playerCollisionGroup]);
             this.light.body.createBodyCallback(player1.player, this.spottedPlayer1, this);
             this.light.body.createBodyCallback(player2.player, this.spottedPlayer2, this);
+            this.light.body.mass = 100;
           //  this.light.body.onBeginContact.add(this.onContactWallBegin, this);
           //  this.light.body.onEndContact.add(this.onContactWallEnd, this);
             this.light.body.fixedRotation = true;
@@ -104,38 +110,35 @@
         }
 
 
+        spotPlayer(player: Player)
+        {
+            if (!this.failAudio.isPlaying)
+                this.failAudio.play();
+
+            if (this.exclamation == null)
+                this.exclamation = this.game.add.sprite(0, 0, "exclamation");
+
+            this.exclamationTime = 1000;
+            this.exclamation.visible = true;
+            player.killPlayer();
+        }
 
         onCollisionPlayer1(body1: Phaser.Physics.P2.Body, body2: Phaser.Physics.P2.Body)
         {
-            console.log("Hit Player 1");
-            if (!this.failAudio.isPlaying)
-                this.failAudio.play();
-
-            this.player1.killPlayer();
+            //console.log("Hit Player 1");
+            this.spotPlayer(this.player1);
         }
 
         onCollisionPlayer2(body1: Phaser.Physics.P2.Body, body2: Phaser.Physics.P2.Body) {
-            console.log("Hit Player 2");
-            if (!this.failAudio.isPlaying)
-                this.failAudio.play();
-
-            this.player2.killPlayer();
+            this.spotPlayer(this.player2);
         }
 
         spottedPlayer1(body1: Phaser.Physics.P2.Body, body2: Phaser.Physics.P2.Body) {
-            console.log("Spotted 1");
-
-            if (!this.failAudio.isPlaying)
-                this.failAudio.play();
-            this.player1.killPlayer();
+            this.spotPlayer(this.player1);
         }
 
         spottedPlayer2(body1: Phaser.Physics.P2.Body, body2: Phaser.Physics.P2.Body) {
-            console.log("Spotted 2");
-
-            if (!this.failAudio.isPlaying)
-                this.failAudio.play();
-            this.player2.killPlayer();
+            this.spotPlayer(this.player2);
         }
 
         onContactWallBegin(body1: Phaser.Physics.P2.Body, body2: Phaser.Physics.P2.Body)
@@ -151,30 +154,46 @@
 
         update()
         {
+            if (this.exclamation != null) {
+                this.exclamation.x = this.cop.x;
+                this.exclamation.y = this.cop.y - this.state.gridY * 2;
+            }
+            if (this.exclamation != null && this.exclamation.visible) {
+                this.exclamationTime -= this.game.time.elapsed;
+                this.light.tint = 0xff0000;
+                this.cop.body.setZeroForce();
+                this.cop.body.setZeroVelocity();
+                if (this.exclamationTime <= 0) {
+                    this.exclamation.visible = false;
+                    this.light.tint = 0xffffff;
+                }
+                return;
+            } else {
 
+               var delta = (this.game.time.elapsed / 500);
+               if (delta > 1)
+                    delta = 1;
+                this.light.rotation += (this.lightRotation - this.light.rotation) * delta;
+                if (this.light.body != null) {
+                    this.light.body.rotation = this.light.rotation;//Math.atan2(y, x);
+                }
+
+                switch (this.currentState) {
+                    case 0:
+                        this.movingStateUpdate();
+                        break;
+                    case 1:
+                        this.waitStateUpdate();
+                        break;
+                    default:
+                        break;
+                }
+            }
             this.light.body.x = this.cop.x + this.lightX;
             this.light.body.y = this.cop.y + this.lightY;
-            var delta = (this.game.time.elapsed / 500);
-            if (delta > 1)
-                delta = 1;
-
-            this.light.rotation += (this.lightRotation - this.light.rotation) * delta;
 
 
-            if (this.light.body != null) {
-                this.light.body.rotation = this.light.rotation;//Math.atan2(y, x);
-            }
 
-            switch (this.currentState) {
-                case 0:
-                    this.movingStateUpdate();
-                    break;
-                case 1:
-                    this.waitStateUpdate();
-                    break;
-                default:
-                    break;
-            }
 
 
         }

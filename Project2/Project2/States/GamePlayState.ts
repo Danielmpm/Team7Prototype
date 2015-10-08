@@ -1,5 +1,8 @@
 ﻿module GameFromScratch {
-    export class GamePlayState extends Phaser.State {
+    export class GamePlayState extends Phaser.State
+    {
+        public static levelFile: string = "Levels/Lobby_A2.xml";
+
         game: Phaser.Game;
         backgroundImg: Phaser.Sprite;
         backgroundMusic: Phaser.Sound;
@@ -46,7 +49,7 @@
             this.game.load.audio("fail", "Audios/fail.mp3");
             this.game.load.audio("sneak", "Audios/sneak.mp3");
 
-            this.game.load.xml("levelSource", "Levels/jeff_lv_22.xml");
+            this.game.load.xml("levelSource", GamePlayState.levelFile );
         }
 
         create()

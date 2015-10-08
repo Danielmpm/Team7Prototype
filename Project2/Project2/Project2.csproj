@@ -119,6 +119,7 @@
     <TypeScriptCompile Include="States\GameManager.ts" />
     <TypeScriptCompile Include="States\GamePlayState.ts" />
     <TypeScriptCompile Include="States\Boot.ts" />
+    <TypeScriptCompile Include="States\LevelSelectMenu.ts" />
     <TypeScriptCompile Include="States\StartMenu.ts" />
     <TypeScriptCompile Include="States\Preloader.ts" />
   </ItemGroup>

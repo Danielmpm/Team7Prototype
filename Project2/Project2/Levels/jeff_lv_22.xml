@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="26" height="14" tilewidth="96" tileheight="96" nextobjectid="1164">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="26" height="14" tilewidth="96" tileheight="96" nextobjectid="1168">
  <tileset firstgid="1" name="Crates" tilewidth="247" tileheight="248" tilecount="13">
   <tile id="0">
    <image width="96" height="96" source="../Downloads/Images/rp_005_boxs_1.png"/>
@@ -69,8 +69,8 @@
   <object id="985" gid="6" x="1343.94" y="345.212" width="101" height="248"/>
   <object id="986" gid="8" x="2408.55" y="245.212" width="101" height="248"/>
   <object id="987" gid="9" x="2318.61" y="82.5758" width="84" height="51"/>
-  <object id="989" gid="11" x="1072.12" y="84.7273" width="69" height="58"/>
-  <object id="990" gid="12" x="1260.91" y="84.6667" width="69" height="58"/>
+  <object id="989" gid="11" x="1072.12" y="111.727" width="69" height="58"/>
+  <object id="990" gid="12" x="1260.91" y="115.667" width="69" height="58"/>
   <object id="994" gid="8" x="286.364" y="728.061" width="101" height="248"/>
   <object id="995" gid="8" x="1540.91" y="452.212" width="101" height="248"/>
   <object id="996" gid="8" x="2022.73" y="430.061" width="101" height="248"/>
@@ -152,7 +152,7 @@
   <object id="1084" gid="2" x="676.242" y="1244.97" width="96" height="96"/>
   <object id="1161" gid="3" x="1970.44" y="1343.94" width="247" height="100"/>
  </objectgroup>
- <objectgroup name="Collisions" visible="0">
+ <objectgroup name="Collisions">
   <object id="1101" x="0" y="0" width="1051.52" height="96.9697"/>
   <object id="1102" x="1151.52" y="0" width="93.9394" height="378.788"/>
   <object id="1103" x="1342.42" y="-3.0303" width="100" height="342.424"/>
@@ -174,12 +174,12 @@
   <object id="1120" x="1542.42" y="206.061" width="290.909" height="245.455"/>
   <object id="1121" x="1833.33" y="215.152" width="78.7879" height="181.818"/>
   <object id="1122" x="1748.48" y="415.152" width="81.8182" height="72.7273"/>
-  <object id="1123" x="2021.21" y="75.7576" width="184.848" height="536.364"/>
+  <object id="1123" x="2021.21" y="75.7576" width="184.848" height="348.242"/>
   <object id="1124" x="2206.06" y="78.7879" width="100" height="160.606"/>
   <object id="1125" x="2206.06" y="327.273" width="100" height="96.9697"/>
   <object id="1126" x="2203.03" y="509.091" width="96.9697" height="100"/>
   <object id="1127" x="1918.18" y="515.152" width="100" height="100"/>
-  <object id="1128" x="2115.15" y="596.97" width="87.8788" height="103.03"/>
+  <object id="1128" x="2115.15" y="591.97" width="87.8788" height="103.03"/>
   <object id="1129" x="1821.21" y="709.091" width="93.9394" height="93.9394"/>
   <object id="1130" x="1351.52" y="487.879" width="90.9091" height="178.788"/>
   <object id="1131" x="1445.45" y="578.788" width="87.8788" height="278.788"/>
@@ -197,8 +197,8 @@
   <object id="1143" x="1596.97" y="957.576" width="27.2727" height="96.9697"/>
   <object id="1144" x="1736.36" y="960.606" width="248.485" height="193.939"/>
   <object id="1145" x="2115.15" y="809.091" width="96.9697" height="248.485"/>
-  <object id="1146" x="2209.09" y="763.636" width="96.9697" height="251.515"/>
-  <object id="1147" x="2209.09" y="1145.45" width="196.97" height="193.939"/>
+  <object id="1146" x="2211.09" y="773" width="96.9697" height="247.151"/>
+  <object id="1147" x="2209.09" y="1149.45" width="196.97" height="193.939"/>
   <object id="1149" x="1054.55" y="584.848" width="193.939" height="375.758"/>
   <object id="1150" x="1245.45" y="772.727" width="90.9091" height="100"/>
   <object id="1151" x="1151.52" y="481.818" width="84.8485" height="109.091"/>
@@ -207,6 +207,7 @@
   <object id="1155" x="287.879" y="551.515" width="90.9091" height="166.667"/>
   <object id="1162" x="815.152" y="-54.5455" width="912.121" height="66.6667"/>
   <object id="1163" x="2148.48" y="-84.8485" width="342.424" height="87.8788"/>
+  <object id="1166" x="2016" y="526" width="184" height="84"/>
  </objectgroup>
  <objectgroup name="GuardPaths">
   <object id="1089" x="139.394" y="148.485">

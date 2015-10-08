@@ -16,7 +16,8 @@
         currentOwner: Player;
 
         successAudio: Phaser.Sound;
-        
+
+        gameEnded: boolean;
  
        constructor(game: Phaser.Game, posX: number, posY: number, player1: Player, player2: Player) {
             this.game = game;
@@ -53,7 +54,7 @@
             this.successAudio = this.game.add.audio("success");
             this.successAudio.loop = false;
             this.successAudio.allowMultiple = true;
-
+           this.gameEnded = false;
            
         }
 
@@ -81,8 +82,22 @@
             //  this.currentOwner = this.player2;
             if(!this.successAudio.isPlaying)
             this.successAudio.play();
+            this.currentOwner.player.body.x = - 1000;
+            this.currentOwner.player.body.y = - 1000;
+            this.gameEnded = true;
 
-            this.game.state.start("StartMenu");
+            if (this.currentOwner.name == "Player1") {
+                var spr = this.game.add.sprite(960, 540, "p1Win");
+                spr.x -= spr.width*0.5;
+                spr.y -= spr.height * 0.5;
+                this.game.add.sprite(spr.x + spr.width + 20, spr.y + 20, "spy1");
+            }
+            else {
+                var spr = this.game.add.sprite(960, 540, "p2Win");
+                spr.x -= spr.width * 0.5;
+                spr.y -= spr.height * 0.5;
+                this.game.add.sprite(spr.x + spr.width, spr.y , "spy2");
+            }
         }
 
         drop()
@@ -102,6 +117,11 @@
 
         update()
         {
+            if (this.gameEnded && this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
+            {
+                this.game.state.start("StartMenu");
+            }
+
             this.glow.x = this.briefcase.body.x;
             this.glow.y = this.briefcase.body.y;
 

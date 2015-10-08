@@ -93,8 +93,6 @@ C:\Users\Hang\新建文件夹 (2)\Project2\Project2\obj\Debug\Project2.dll
 C:\Users\Hang\新建文件夹 (2)\Project2\Project2\obj\Debug\Project2.pdb
 C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Graphics\cop.png
 C:\Users\Hang\新建文件夹 (2)\Project2\Project2\bin\Graphics\cop.xml
-E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\background.png
-E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\background_temp.jpg
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\briefcase.png
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\cop.jpg
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\cop.png
@@ -102,7 +100,6 @@ E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\cop.xm
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\CrateTest.png
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\flashLight_Test.png
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\UI\GameBackground.jpg
-E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\UI\TitleBG.png
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\UI\TitleImage.png
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Project2.dll.config
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Project2.dll
@@ -151,3 +148,8 @@ E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\spy2.x
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\UI\home_screen.png
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\UI\home_screen_1.png
 E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\Graphics\UI\home_screen_2.png
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\p2.d.ts
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\pixi.d.ts
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\phaser.js
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\phaser.min.js
+E:\Proyectos\UofU\Rapid Proto\Cycle 2\Repo\Project2\Project2\bin\index.html

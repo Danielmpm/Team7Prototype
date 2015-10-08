@@ -20,7 +20,7 @@ var GameFromScratch;
             this.game.load.audio("success", "Audios/success.mp3");
             this.game.load.audio("fail", "Audios/fail.mp3");
             this.game.load.audio("sneak", "Audios/sneak.mp3");
-            this.game.load.xml("levelSource", "Levels/jeff_lv_22.xml");
+            this.game.load.xml("levelSource", GamePlayState.levelFile);
         };
         GamePlayState.prototype.create = function () {
             this.game.physics.startSystem(Phaser.Physics.P2JS);
@@ -202,6 +202,7 @@ var GameFromScratch;
                 }
             }
         };
+        GamePlayState.levelFile = "Levels/Lobby_A2.xml";
         return GamePlayState;
     })(Phaser.State);
     GameFromScratch.GamePlayState = GamePlayState;

@@ -12,18 +12,30 @@
         }
 
         preload() {
-            Project2.obstaclesIds = ["boxs_1", "boxs_2", "connex_blu1", "connex_blu2", "connex_red1", "connex_red2", "connex_yel1", "connex_yel2"];
+            Project2.obstaclesIds = ["boxs_1", "boxs_2", "connex_blu1", "connex_blu2", "connex_red1", "connex_red2", "connex_yel1", "connex_yel2", "exit_1", "exit_2", "p1_start", "p2_start", "rp_guard_house"];
 
-            this.game.load.image("background", "Graphics/background_temp.jpg");
-            this.game.load.image("h1", "Graphics/h1.jpg");
-            this.game.load.image("cop", "Graphics/cop.jpg");
+            this.game.load.image("background", "Graphics/rp_005_background.png");
+            this.game.load.image("backgroundBorder", "Graphics/rp_border.png");
+<<<<<<< HEAD
+=======
+        
+            //this.game.load.image("cop", "Graphics/cop.jpg");
+>>>>>>> a19297e4bfc6d389acc235f771f97766caf05512
             this.game.load.image("briefcase", "Graphics/briefcase.png");
-            this.game.load.image("flashlight", "Graphics/flashLight_test.png");
+            this.game.load.image("briefcaseGlow", "Graphics/rp_005_briefcase_glow.png");
+            this.game.load.image("flashlight", "Graphics/rp_005_flashlight2.png");
             this.game.load.image("titleImage", "Graphics/UI/TitleImage.png");
-         
-            this.game.load.image("titleScreen", "Graphics/UI/TitleBG.png");
+            this.game.load.image("exclamation", "Graphics/exclamation.png");
+            this.game.load.image("p1Win", "Graphics/UI/p1_win.png");
+            this.game.load.image("p2Win", "Graphics/UI/p2_win.png");
 
-            this.game.load.xml("levelSource", "Levels/Warehouse1.xml");
+            this.game.load.atlasXML("cop", "Graphics/rp_pixel_cop_1.png", "Graphics/rp_pixel_cop_1.xml");
+            this.game.load.atlasXML("cop2", "Graphics/rp_pixel_cop_2.png", "Graphics/rp_pixel_cop_2.xml");
+            this.game.load.atlasXML("spy1", "Graphics/spy1.png", "Graphics/spy1.xml");
+            this.game.load.atlasXML("spy2", "Graphics/spy2.png", "Graphics/spy2.xml");
+        
+         //   
+
             this.game.load.image(Project2.obstaclesIds[0], "Graphics/Objects/rp_005_boxs_1.png");
             this.game.load.image(Project2.obstaclesIds[1], "Graphics/Objects/rp_005_boxs_2.png");
             this.game.load.image(Project2.obstaclesIds[2], "Graphics/Objects/rp_005_connex_blu1.png");
@@ -32,31 +44,26 @@
             this.game.load.image(Project2.obstaclesIds[5], "Graphics/Objects/rp_005_connex_red2.png");
             this.game.load.image(Project2.obstaclesIds[6], "Graphics/Objects/rp_005_connex_yel1.png");
             this.game.load.image(Project2.obstaclesIds[7], "Graphics/Objects/rp_005_connex_yel2.png");
+            this.game.load.image(Project2.obstaclesIds[8], "Graphics/Objects/exit_1.png");
+            this.game.load.image(Project2.obstaclesIds[9], "Graphics/Objects/exit_2.png");
+            this.game.load.image(Project2.obstaclesIds[10], "Graphics/Objects/p1_start.png");
+            this.game.load.image(Project2.obstaclesIds[11], "Graphics/Objects/p2_start.png");
+            this.game.load.image(Project2.obstaclesIds[12], "Graphics/Objects/rp_guard_house.png");
         }
         
 
         create() {
 
-            console.log(this.game.state);
-            console.log("Normal: " + GameFromScratch.GamePlayState);
-<<<<<<< HEAD
-            this.game.state.add("Boot",  GameFromScratch.Boot, true);
-            //  this.game.state.add("StartMenu",  GameFromScratch.StartMenu, true);
-            this.game.state.add("Preloader", GameFromScratch.Preloader, false);
-=======
-          //  this.game.state.add("Boot",  GameFromScratch.Boot, true);
-          //  this.game.state.add("StartMenu",  GameFromScratch.StartMenu, true);
-           // this.game.state.add("Preloader", GameFromScratch.Preloader, true);
->>>>>>> 68b7f07192d3251fc2023e766fa4d9a568a66054
-         //   this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, true);
-           // this.game.state.add("Boot",  GameFromScratch.Boot, false);
-           this.game.state.add("StartMenu",  GameFromScratch.StartMenu, false);
-            //  this.game.state.add("Preloader", GameFromScratch.Preloader, false);
-            this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, false);
-            console.log("Boot: " + GameFromScratch.Boot);
-          //  this.game.state.start("Boot");
-            this.game.state.add("H2", GameFromScratch.GamePlayState, true);
 
+            this.game.state.add("Boot",  GameFromScratch.Boot, true);
+           
+            this.game.state.add("Preloader", GameFromScratch.Preloader, false);
+       
+           this.game.state.add("StartMenu",  GameFromScratch.StartMenu, false);
+         
+            this.game.state.add("BackgroundState", GameFromScratch.GamePlayState, false);
+
+        
 
           //  this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
             

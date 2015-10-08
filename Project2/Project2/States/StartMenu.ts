@@ -147,7 +147,6 @@
                     }
                     this.light.visible = false;
                     this.spy.animations.play("leftidle", 3, true);
-                    console.log(this.cops);
                     this.briefcase.visible = true;
                     break;
                 case 1:
@@ -339,7 +338,7 @@
         
         startGame( )
         {
-            this.game.state.start("BackgroundState");
+            this.game.state.start("LevelSelect");
         }
     }
 }

@@ -14,10 +14,6 @@ var GameFromScratch;
         Preloader.prototype.preload = function () {
         };
         Preloader.prototype.create = function () {
-            //  this.titleImg = this.game.add.sprite(0, 0, "titleImage");
-            //    this.titleImg.width = 1920;
-            //    this.titleImg.height = 1080;//this.game.world.height;
-            //   this.titleImg.scale.setTo(10, 10);
         };
         Preloader.prototype.update = function () {
             this.ready = true;

@@ -6,14 +6,10 @@
 
         Player1: GameFromScratch.Player;
         Player2: GameFromScratch.Player;
-        //pozX1: number;
-        //pozY1: number;
-        //pozX2: number;
-        //pozY2: number;
+   
 
         briefcase: GameFromScratch.Briefcase;
-        //briefcasePozX: number;
-        //briefcasePozY: number;
+
 
         cops: GameFromScratch.Cop[];
         exits: Phaser.Physics.P2.Body[];
@@ -33,14 +29,6 @@
         constructor() {
             super();
 
-            //this.pozX1 = 1000;     // starting place.
-            //this.pozY1 = 400;
-
-            //this.briefcasePozX = 1800;
-            //this.briefcasePozY = 490;
-
-            //this.pozX2 = 1200;
-            //this.pozY2 = 500;
 
             this.gridX = 70;
             this.gridY = 70;
@@ -88,10 +76,6 @@
            // play music
            this.backgroundMusic.fadeIn(2500);
          
-
-                    
-            //this.Player1 = new Player(this.game, this.pozX1, this.pozY1, "Player1");
-            //this.Player2 = new Player(this.game, this.pozX2, this.pozY2, "Player2");
 
             for (var i = 0; i < this.cops.length; i++) {
                 this.cops[i].updatePlayerInfo(this.Player1,this.Player2);
@@ -195,7 +179,7 @@
                         var rotation = 0;
                         if (cols[i].attributes.getNamedItem("rotation")) {
                             rotation = parseFloat(cols[i].attributes.getNamedItem("rotation").nodeValue);
-                            //console.log("rotation: " + rotation);
+                         
                         }
                         var body = this.game.physics.p2.createBody(xValue, yValue , 1, true);
                         body.addRectangle(width, height, width / 2, height / 2, 0);

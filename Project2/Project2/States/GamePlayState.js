@@ -9,12 +9,6 @@ var GameFromScratch;
         __extends(GamePlayState, _super);
         function GamePlayState() {
             _super.call(this);
-            //this.pozX1 = 1000;     // starting place.
-            //this.pozY1 = 400;
-            //this.briefcasePozX = 1800;
-            //this.briefcasePozY = 490;
-            //this.pozX2 = 1200;
-            //this.pozY2 = 500;
             this.gridX = 70;
             this.gridY = 70;
             this.cops = [];
@@ -46,8 +40,6 @@ var GameFromScratch;
             this.backgroundMusic.loop = true;
             // play music
             this.backgroundMusic.fadeIn(2500);
-            //this.Player1 = new Player(this.game, this.pozX1, this.pozY1, "Player1");
-            //this.Player2 = new Player(this.game, this.pozX2, this.pozY2, "Player2");
             for (var i = 0; i < this.cops.length; i++) {
                 this.cops[i].updatePlayerInfo(this.Player1, this.Player2);
             }

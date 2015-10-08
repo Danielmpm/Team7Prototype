@@ -87,6 +87,10 @@
             
         }
 
+        stopMusic() {
+            this.backgroundMusic.stop();
+        }
+
         update()
         {
             

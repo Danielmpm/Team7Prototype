@@ -98,6 +98,8 @@
                 spr.y -= spr.height * 0.5;
                 this.game.add.sprite(spr.x + spr.width, spr.y , "spy2");
             }
+
+            this.state.stopMusic();
         }
 
         drop()

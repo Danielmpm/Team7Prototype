@@ -67,6 +67,7 @@ var GameFromScratch;
                 spr.y -= spr.height * 0.5;
                 this.game.add.sprite(spr.x + spr.width, spr.y, "spy2");
             }
+            this.state.stopMusic();
         };
         Briefcase.prototype.drop = function () {
             this.briefcase.visible = true;

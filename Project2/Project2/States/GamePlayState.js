@@ -44,6 +44,9 @@ var GameFromScratch;
                 this.cops[i].updatePlayerInfo(this.Player1, this.Player2);
             }
         };
+        GamePlayState.prototype.stopMusic = function () {
+            this.backgroundMusic.stop();
+        };
         GamePlayState.prototype.update = function () {
             this.Player1.update();
             this.Player2.update();

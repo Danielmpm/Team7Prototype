@@ -26,7 +26,6 @@
 
         state: GamePlayState;
 
-      //  public static Max_speed: number = 20;
 
         animationState1: number;
 
@@ -67,10 +66,7 @@
             if (this.name == "Player2")
                 this.player = game.add.sprite(this.PosX, this.PosY, "spy2", 0);
 
-            //if (this.name == "Player3")
-            //    this.player = game.add.sprite(this.PosX, this.PosY, "spy1", 0);
-            //if (this.name == "Player4")
-            //    this.player = game.add.sprite(this.PosX, this.PosY, "spy2", 0);
+        
                 
             game.physics.p2.enable(this.player);
     

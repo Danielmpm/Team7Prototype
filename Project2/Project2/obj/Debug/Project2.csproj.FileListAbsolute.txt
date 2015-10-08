@@ -123,8 +123,6 @@ C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\spy1.png
 C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\spy1.xml
 C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\spy2.png
 C:\Users\u1013042\Documents\Repo 2\Project2\Project2\bin\Graphics\spy2.xml
-C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\background.png
-C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\background_temp.jpg
 C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\briefcase.png
 C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\cop.jpg
 C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\cop.png
@@ -136,7 +134,6 @@ C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\spy1.xml
 C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\spy2.png
 C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\spy2.xml
 C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\UI\GameBackground.jpg
-C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\UI\TitleBG.png
 C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\UI\TitleImage.png
 C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Project2.dll.config
 C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Project2.dll
@@ -147,3 +144,8 @@ C:\Users\u0996865\New folder (4)\Project2\Project2\obj\Debug\Project2.pdb
 C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\UI\home_screen.png
 C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\UI\home_screen_1.png
 C:\Users\u0996865\New folder (4)\Project2\Project2\bin\Graphics\UI\home_screen_2.png
+C:\Users\u0996865\New folder (4)\Project2\Project2\bin\pixi.d.ts
+C:\Users\u0996865\New folder (4)\Project2\Project2\bin\p2.d.ts
+C:\Users\u0996865\New folder (4)\Project2\Project2\bin\index.html
+C:\Users\u0996865\New folder (4)\Project2\Project2\bin\phaser.js
+C:\Users\u0996865\New folder (4)\Project2\Project2\bin\phaser.min.js

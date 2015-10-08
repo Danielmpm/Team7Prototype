@@ -21,7 +21,6 @@ var GameFromScratch;
             this.light.height = this.state.gridY;
             this.light.pivot.x = this.state.gridX * -1.7;
             this.currentContacts = 0;
-            //this.cop.animations.add("walk");
             this.cop.animations.add("left", [0, 1]);
             this.cop.animations.add("down", [2, 3, 4, 5]);
             this.cop.animations.add("right", [6, 7]);
@@ -109,7 +108,6 @@ var GameFromScratch;
                     this.currentState = 1;
                     //this.updateLightRelativePosition();
                     this.pointLightToNextWaypoint();
-                    //this.cop.animations.play("walk", 3, true);
                     if (this.currentContacts != 0) {
                         this.pointLightToNextWaypoint();
                     }

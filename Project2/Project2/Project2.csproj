@@ -24,12 +24,6 @@
     <Content Include="Audios\sneak.mp3" />
     <Content Include="Audios\Spy_Glass.mp3" />
     <Content Include="Audios\success.mp3" />
-    <Content Include="Graphics\background.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Graphics\background_temp.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Graphics\briefcase.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -90,21 +84,24 @@
     <Content Include="Graphics\UI\home_screen_2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Graphics\UI\TitleBG.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Graphics\UI\TitleImage.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="index.html" />
+    <Content Include="index.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Levels\Gym0.xml" />
     <Content Include="Levels\Warehouse1.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Levels\Warehouse_2E.xml" />
     <Content Include="Levels\Warehouse_2F.xml" />
-    <Content Include="phaser.js" />
-    <Content Include="phaser.min.js" />
+    <Content Include="phaser.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="phaser.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -113,9 +110,13 @@
     <TypeScriptCompile Include="Classes\Briefcase.ts" />
     <TypeScriptCompile Include="Classes\Cop.ts" />
     <TypeScriptCompile Include="Classes\Player.ts" />
-    <TypeScriptCompile Include="p2.d.ts" />
+    <TypeScriptCompile Include="p2.d.ts">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="phaser.d.ts" />
-    <TypeScriptCompile Include="pixi.d.ts" />
+    <TypeScriptCompile Include="pixi.d.ts">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="States\GameManager.ts" />
     <TypeScriptCompile Include="States\GamePlayState.ts" />
     <TypeScriptCompile Include="States\Boot.ts" />
